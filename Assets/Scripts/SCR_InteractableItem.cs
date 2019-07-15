@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SCR_Interactable : MonoBehaviour
+public class SCR_InteractableItem : SCR_Interactable
 {
+    public string Name;
 }
