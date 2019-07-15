@@ -5,24 +5,16 @@ using UnityEngine;
 
 public class SCR_TestPlayer : MonoBehaviour
 {
+    // Setting up...
     public Collider other;
     public float ForceFactor;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update() // HACKY CODE ALERT. IT'S JUST A BUNCH OF MOVEMENT HACK
     {
+        #region HackyMovementCode
         if (Input.GetKey(KeyCode.A))
         {
-            //Debug.Log("A pressed");
-
-            //(This makes the movement look choppy)
-            //transform.Translate(Vector3.left);
-
             GetComponent<Rigidbody>().AddForce(Vector3.left * ForceFactor);
         }
 
@@ -39,10 +31,20 @@ public class SCR_TestPlayer : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) ||
             Input.GetKeyUp(KeyCode.D))
             GetComponent<Rigidbody>().velocity = Vector3.zero;
+        #endregion
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerStay(Collider other)
     {
-        Debug.Log("Something hit");
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            if(other.GetComponent<SCR_Interactable>())
+                Debug.Log("In Range");
+        }
     }
 }
+
+/* NOTE: THIS IS STUFF TO BE LEARNED FROM SCRIPT
+ 
+ //(This makes the movement look choppy)
+            //transform.Translate(Vector3.left);*/
