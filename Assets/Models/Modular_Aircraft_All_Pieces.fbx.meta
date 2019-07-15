@@ -1,8 +1,192 @@
 fileFormatVersion: 2
 guid: edf2505c86f77f646a9a0fb9c22f6a4d
 ModelImporter:
-  serializedVersion: 25
-  internalIDToNameTable: []
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: aircraft_overhead_closed
+    100002: aircraft_overhead_closed1
+    100004: aircraft_overhead_closed2
+    100006: aircraft_overhead_open
+    100008: aircraft_overhead_open1
+    100010: floor_1
+    100012: floor_2_pieces
+    100014: floor_2_pieces1
+    100016: floor_2_pieces2
+    100018: //RootNode
+    100020: pPlane1seat5
+    100022: roof_1_spaces1
+    100024: roof_2_spaces
+    100026: roof_2_spaces1
+    100028: Roof_whole_2_spaces
+    100030: seat
+    100032: seat10
+    100034: seat11
+    100036: seat12
+    100038: seat13
+    100040: seat14
+    100042: seat15
+    100044: seat2
+    100046: seat3
+    100048: seat4
+    100050: seat5
+    100052: seat6
+    100054: seat7
+    100056: seat8
+    100058: seat9
+    100060: seat_OG
+    100062: wall_blank_1_space
+    100064: wall_blank_2_spaces
+    100066: wall_blank_2_spaces1
+    100068: wall_window_1_space
+    100070: wall_window_2_spaces
+    100072: wall_window_2_spaces1
+    400000: aircraft_overhead_closed
+    400002: aircraft_overhead_closed1
+    400004: aircraft_overhead_closed2
+    400006: aircraft_overhead_open
+    400008: aircraft_overhead_open1
+    400010: floor_1
+    400012: floor_2_pieces
+    400014: floor_2_pieces1
+    400016: floor_2_pieces2
+    400018: //RootNode
+    400020: pPlane1seat5
+    400022: roof_1_spaces1
+    400024: roof_2_spaces
+    400026: roof_2_spaces1
+    400028: Roof_whole_2_spaces
+    400030: seat
+    400032: seat10
+    400034: seat11
+    400036: seat12
+    400038: seat13
+    400040: seat14
+    400042: seat15
+    400044: seat2
+    400046: seat3
+    400048: seat4
+    400050: seat5
+    400052: seat6
+    400054: seat7
+    400056: seat8
+    400058: seat9
+    400060: seat_OG
+    400062: wall_blank_1_space
+    400064: wall_blank_2_spaces
+    400066: wall_blank_2_spaces1
+    400068: wall_window_1_space
+    400070: wall_window_2_spaces
+    400072: wall_window_2_spaces1
+    2100000: lambert1
+    2100002: aiAmbientOcclusion1
+    2300000: aircraft_overhead_closed
+    2300002: aircraft_overhead_closed1
+    2300004: aircraft_overhead_closed2
+    2300006: aircraft_overhead_open
+    2300008: aircraft_overhead_open1
+    2300010: floor_1
+    2300012: floor_2_pieces
+    2300014: floor_2_pieces1
+    2300016: floor_2_pieces2
+    2300018: pPlane1seat5
+    2300020: roof_1_spaces1
+    2300022: roof_2_spaces
+    2300024: roof_2_spaces1
+    2300026: Roof_whole_2_spaces
+    2300028: seat
+    2300030: seat10
+    2300032: seat11
+    2300034: seat12
+    2300036: seat13
+    2300038: seat14
+    2300040: seat15
+    2300042: seat2
+    2300044: seat3
+    2300046: seat4
+    2300048: seat5
+    2300050: seat6
+    2300052: seat7
+    2300054: seat8
+    2300056: seat9
+    2300058: seat_OG
+    2300060: wall_blank_1_space
+    2300062: wall_blank_2_spaces
+    2300064: wall_blank_2_spaces1
+    2300066: wall_window_1_space
+    2300068: wall_window_2_spaces
+    2300070: wall_window_2_spaces1
+    3300000: aircraft_overhead_closed
+    3300002: aircraft_overhead_closed1
+    3300004: aircraft_overhead_closed2
+    3300006: aircraft_overhead_open
+    3300008: aircraft_overhead_open1
+    3300010: floor_1
+    3300012: floor_2_pieces
+    3300014: floor_2_pieces1
+    3300016: floor_2_pieces2
+    3300018: pPlane1seat5
+    3300020: roof_1_spaces1
+    3300022: roof_2_spaces
+    3300024: roof_2_spaces1
+    3300026: Roof_whole_2_spaces
+    3300028: seat
+    3300030: seat10
+    3300032: seat11
+    3300034: seat12
+    3300036: seat13
+    3300038: seat14
+    3300040: seat15
+    3300042: seat2
+    3300044: seat3
+    3300046: seat4
+    3300048: seat5
+    3300050: seat6
+    3300052: seat7
+    3300054: seat8
+    3300056: seat9
+    3300058: seat_OG
+    3300060: wall_blank_1_space
+    3300062: wall_blank_2_spaces
+    3300064: wall_blank_2_spaces1
+    3300066: wall_window_1_space
+    3300068: wall_window_2_spaces
+    3300070: wall_window_2_spaces1
+    4300000: wall_blank_2_spaces
+    4300002: seat15
+    4300004: seat14
+    4300006: seat13
+    4300008: wall_blank_2_spaces1
+    4300010: wall_window_2_spaces
+    4300012: floor_2_pieces2
+    4300014: roof_2_spaces1
+    4300016: aircraft_overhead_open1
+    4300018: floor_2_pieces
+    4300020: Roof_whole_2_spaces
+    4300022: seat_OG
+    4300024: floor_2_pieces1
+    4300026: pPlane1seat5
+    4300028: seat12
+    4300030: wall_window_2_spaces1
+    4300032: roof_2_spaces
+    4300034: floor_1
+    4300036: wall_blank_1_space
+    4300038: seat8
+    4300040: aircraft_overhead_closed2
+    4300042: aircraft_overhead_closed
+    4300044: wall_window_1_space
+    4300046: seat
+    4300048: seat2
+    4300050: seat9
+    4300052: seat10
+    4300054: seat7
+    4300056: seat6
+    4300058: seat5
+    4300060: seat11
+    4300062: aircraft_overhead_open
+    4300064: seat3
+    4300066: seat4
+    4300068: aircraft_overhead_closed1
+    4300070: roof_1_spaces1
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -45,19 +229,18 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -66,11 +249,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -80,7 +262,6 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.29999998
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

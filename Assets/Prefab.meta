@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Assets/Plugins.meta
 guid: f8c9e887882f0c841b270cd6d695ff05
+=======
+guid: d7616bc278da7714188d2dc4844720d7
+>>>>>>> Stashed changes:Assets/Prefab.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
