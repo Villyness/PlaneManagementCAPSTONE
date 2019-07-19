@@ -9,6 +9,7 @@ public class SCR_TestPlayer : MonoBehaviour
     public Collider other;
     public float ForceFactor;
     public Transform HoldPos;
+    public bool ItemHeld;
 
     // Update is called once per frame
     void Update() // HACKY CODE ALERT. IT'S JUST A BUNCH OF MOVEMENT HACK
@@ -39,8 +40,11 @@ public class SCR_TestPlayer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (other.GetComponent<SCR_Interactable>())
+            if (other.GetComponent<SCR_Interactable>() && ItemHeld == false)
+            {
                 other.gameObject.transform.parent = HoldPos;
+                ItemHeld = true;
+            }
         }
     }
 }
