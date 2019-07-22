@@ -8,8 +8,8 @@ public class PlayerMovement : MonoBehaviour
 
     /// <summary>
     /// NEEDS TO
-    /// - register mouse click and locate mouse click
-    /// - move to where the mouse was clicked
+    /// - register mouse click and locate mouse click -tick-
+    /// - move to where the mouse was clicked -tick-
     /// - do whatever the interaction is
     /// - stop if hits obsetcale
     /// </summary>
