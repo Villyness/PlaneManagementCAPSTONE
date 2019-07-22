@@ -316,7 +316,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad93f2d6630c6e149b510dcd12a74280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentNeed: {fileID: 0}
+  CurrentNeed: 
+  ListOfNeeds:
+  - Apple
+  - Banana
+  - Orange
 --- !u!1 &869408154
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,11 @@ public class SCR_TestPlayer : MonoBehaviour
     public Transform HoldPos;
     public bool ItemHeld;
 
+    void Start()    // HACKY CODE ALERT
+    {
+        FindObjectOfType<SCR_TestPassenger>().Interacted += GiveItem;
+    }
+    
     // Update is called once per frame
     void Update() // HACKY CODE ALERT. IT'S JUST A BUNCH OF MOVEMENT HACK
     {
@@ -46,6 +51,12 @@ public class SCR_TestPlayer : MonoBehaviour
                 ItemHeld = true;
             }
         }
+    }
+
+    public void GiveItem()
+    {
+        ItemHeld = false;
+        
     }
 }
 
