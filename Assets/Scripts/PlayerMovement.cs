@@ -17,16 +17,16 @@ public class PlayerMovement : MonoBehaviour
     public NavMeshAgent agent;
 
     public Camera cam;
-    public Vector3 target;
+    public Vector3 targetPos;
+
+    public bool moving = false;
+    public GameObject target;
     
-    
-    // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         /*if ((Input.GetKeyDown(KeyCode.Mouse0)) && (Input.GetTouch(0)))
@@ -41,16 +41,38 @@ public class PlayerMovement : MonoBehaviour
                 //move
                 break;
             }*/
+
+        if (moving == true)
+        {
+            if (this.transform.position == agent.destination)
+            {
+                moving = false;
+                //check tag
+                if (target != null)
+                {
+                    //run interactive/customer script
+                    target = null;
+                }
+            }
+        }
         
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if ((Input.GetKeyDown(KeyCode.Mouse0)) && (moving == false))
         {
             RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit))
             {
-                target = hit.point;
-                agent.destination = target;
+                targetPos = hit.point;
+                agent.destination = targetPos;
+                moving = true;
+
+                if ((hit.GameObject.tag == "interactive") || (hit.GameObject.tag == "customer"))
+                    target = hit.GameObject;
+                else target = null;
+
+                Debug.Log(hit.GameObject.tag);
+
             }
 
         }
