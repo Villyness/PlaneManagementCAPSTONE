@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.UNetWeaver;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,41 +19,56 @@ public class PlayerMovement : MonoBehaviour
 
     public Camera cam;
     public Vector3 targetPos;
+    public GameObject target;
 
     public bool moving = false;
-    public GameObject target;
+    public Vector3 currentPos;
+    public Vector3 oldPos;
     
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        
+        currentPos = new Vector3(0,0,0);
+        oldPos = new Vector3(0,0,0);
     }
     
     void Update()
     {
-        /*if ((Input.GetKeyDown(KeyCode.Mouse0)) && (Input.GetTouch(0)))
-        {
-            Touch touch = Input.GetTouch(0);
-            
-            case (touch.phrase)
-            {
-                case TouchPhase.Began:
-                
-                    
-                //move
-                break;
-            }*/
 
         if (moving == true)
         {
-            if (this.transform.position == agent.destination)
+            oldPos = currentPos;
+            currentPos = this.transform.position;
+            
+            if (currentPos == oldPos)
             {
                 moving = false;
-                //check tag
+                //agent.isStopped = true;
+                
+                //else, check tag
                 if (target != null)
                 {
-                    //run interactive/customer script
+                    //check distance from target
+                    float dist = Vector3.Distance(this.transform.position, targetPos);
+                    Debug.Log(dist);
+                    
+                    //if distance is too far, you've hit a roadblock
+                    if (dist > target.GetComponent<InteractManger>().distReq)
+                    {
+                        Debug.Log("Too far, action cancelled");
+                    }
+                    else
+                    {
+                        Debug.Log("Close enough, run script");
+                        //run interact script - which will be a reference to the InteractManager which then sends it to the objects actually interact script by finding component
+                    }
+
                     target = null;
                 }
+
+                oldPos = new Vector3(0,0,0);
+                currentPos = new Vector3(0,0,0);
             }
         }
         
@@ -63,15 +79,16 @@ public class PlayerMovement : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
+                //agent.isStopped = false;
                 targetPos = hit.point;
                 agent.destination = targetPos;
                 moving = true;
 
-                if ((hit.GameObject.tag == "interactive") || (hit.GameObject.tag == "customer"))
-                    target = hit.GameObject;
+                if ((hit.collider.gameObject.tag == "interactive") || (hit.collider.gameObject.tag == "customer"))
+                    target = hit.collider.gameObject;
                 else target = null;
 
-                Debug.Log(hit.GameObject.tag);
+                //Debug.Log(hit.collider.gameObject.tag);
 
             }
 
