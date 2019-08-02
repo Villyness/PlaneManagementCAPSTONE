@@ -10,6 +10,7 @@ public class SCR_TestPlayer : MonoBehaviour
     public float ForceFactor;
     public Transform HoldPos;
     public bool ItemHeld;
+    public GameObject EquippedItem;
 
     void Start()    // HACKY CODE ALERT
     {
@@ -47,6 +48,7 @@ public class SCR_TestPlayer : MonoBehaviour
         {
             if (other.GetComponent<SCR_Interactable>() && ItemHeld == false)
             {
+                EquippedItem = other.gameObject;
                 other.gameObject.transform.parent = HoldPos;
                 ItemHeld = true;
             }
@@ -56,7 +58,7 @@ public class SCR_TestPlayer : MonoBehaviour
     public void GiveItem()
     {
         ItemHeld = false;
-        
+        Destroy(EquippedItem);
     }
 }
 
