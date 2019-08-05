@@ -11,8 +11,8 @@ public class PlayerMovement : MonoBehaviour
     /// NEEDS TO
     /// - register mouse click and locate mouse click -tick-
     /// - move to where the mouse was clicked -tick-
-    /// - do whatever the interaction is
-    /// - stop if hits obsetcale
+    /// - do whatever the interaction is -tick-
+    /// - stop if hits obsetcale -tick, altho could be more polished-
     /// </summary>
 
     public NavMeshAgent agent;
@@ -54,11 +54,7 @@ public class PlayerMovement : MonoBehaviour
                     Debug.Log(dist);
                     
                     //if distance is too far, you've hit a roadblock
-                    if (dist > target.GetComponent<InteractManger>().distReq)
-                    {
-                        Debug.Log("Too far, action cancelled");
-                    }
-                    else
+                    if (dist < target.GetComponent<InteractManger>().distReq)
                     {
                         Debug.Log("Close enough, run script");
                         //run interact script - which will be a reference to the InteractManager which then sends it to the objects actually interact script by finding component

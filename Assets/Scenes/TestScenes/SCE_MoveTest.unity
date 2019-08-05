@@ -1331,6 +1331,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distReq: 3
+  interClass: 0
+  interType: 
 --- !u!1001 &470954108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2711,6 +2713,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distReq: 5
+  interClass: 0
+  interType: 
 --- !u!1001 &1180754989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3542,7 +3546,7 @@ NavMeshAgent:
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 0
+  m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 1
@@ -3902,6 +3906,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distReq: 5
+  interClass: 0
+  interType: 
 --- !u!1001 &1517373563
 PrefabInstance:
   m_ObjectHideFlags: 0
