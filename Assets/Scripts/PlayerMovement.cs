@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         
-        if ((Input.GetKeyDown(KeyCode.Mouse0)) && (moving == false))
+        if ((Input.GetKeyDown(KeyCode.Mouse0)) /*&& (moving == false)*/)
         {
             RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
