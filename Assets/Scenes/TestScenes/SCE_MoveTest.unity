@@ -1224,11 +1224,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distReq: 3
   interClass: 0
-  interType: 
+  interType: cat
   hasNeed: 0
   need: 
   timer: 0
   full: 0
+  waitFull: 0
+  waitTime: 0
 --- !u!1001 &470954108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2615,6 +2617,8 @@ MonoBehaviour:
   need: 
   timer: 0
   full: 0
+  waitFull: 0
+  waitTime: 0
 --- !u!1001 &1180754989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3815,6 +3819,8 @@ MonoBehaviour:
   need: drink
   timer: 0
   full: 0
+  waitFull: 0
+  waitTime: 0
 --- !u!1001 &1517373563
 PrefabInstance:
   m_ObjectHideFlags: 0
