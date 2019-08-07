@@ -4,7 +4,7 @@ using Unity.UNetWeaver;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : PlayerManager
 {
 
     /// <summary>
@@ -51,13 +51,12 @@ public class PlayerMovement : MonoBehaviour
                 {
                     //check distance from target
                     float dist = Vector3.Distance(this.transform.position, targetPos);
-                    Debug.Log(dist);
+                    
                     
                     //if distance is too far, you've hit a roadblock
                     if (dist < target.GetComponent<InteractManger>().distReq)
                     {
-                        Debug.Log("Close enough, run script");
-                        //run interact script - which will be a reference to the InteractManager which then sends it to the objects actually interact script by finding component
+                        target.GetComponent<InteractManger>().Interact(this.gameObject);
                     }
 
                     target = null;
