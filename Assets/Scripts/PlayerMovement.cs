@@ -59,6 +59,11 @@ public class PlayerMovement : PlayerManager
                         target.GetComponent<InteractManger>().Interact(this.gameObject);
                     }
 
+                    if (target.GetComponent<InteractItems>())
+                    {
+                        target.GetComponent<InteractItems>().Interact(gameObject);
+                        //Debug.Log("link");
+                    }
                     target = null;
                 }
 
@@ -80,13 +85,16 @@ public class PlayerMovement : PlayerManager
                 moving = true;
 
                 if ((hit.collider.gameObject.tag == "interactive") || (hit.collider.gameObject.tag == "customer"))
+                {
                     target = hit.collider.gameObject;
+                    //Debug.Log(target);
+                }
                 else target = null;
+            }
 
-                //Debug.Log(hit.collider.gameObject.tag);
+            //Debug.Log(hit.collider.gameObject.tag);
 
             }
 
         }
     }
-}
