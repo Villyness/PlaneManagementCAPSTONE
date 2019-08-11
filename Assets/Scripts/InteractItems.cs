@@ -5,6 +5,7 @@ using System;
 
 public class InteractItems : InteractManger
 {
+    //public void 
     void Start()
     {
         interClass = 0;
@@ -18,6 +19,9 @@ public class InteractItems : InteractManger
 
     public override void Interact(GameObject player)
     {
-        Debug.Log("Hello!");
+        //Debug.Log("Hello!");
+        player.GetComponent<PlayerMovement>().handsFull = true;
+        player.GetComponent<PlayerMovement>().holding = "apple";
+        //Instantiate()
     }
 }
