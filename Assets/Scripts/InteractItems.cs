@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Vuforia;
 
 public class InteractItems : InteractManger
 {
-    //public void 
+    public GameObject ObjectToSpawn;
+    
     void Start()
     {
         interClass = 0;
@@ -22,6 +24,10 @@ public class InteractItems : InteractManger
         //Debug.Log("Hello!");
         player.GetComponent<PlayerMovement>().handsFull = true;
         player.GetComponent<PlayerMovement>().holding = "apple";
-        //Instantiate()
+        
+        //shout to Harrison for his help 
+        Vector3 spawnPos = player.transform.position + player.GetComponent<PlayerMovement>().HoldPos.localPosition;
+        
+        Instantiate(ObjectToSpawn, spawnPos, Quaternion.identity, player.GetComponent<PlayerMovement>().HoldPos);
     }
 }

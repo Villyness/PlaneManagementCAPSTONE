@@ -4140,6 +4140,8 @@ MonoBehaviour:
   distReq: 0
   interClass: 0
   interType: 
+  ObjectToSpawn: {fileID: 1232407061643786449, guid: 4ba06bf232ba8004d8d4bd66860c0d32,
+    type: 3}
 --- !u!1001 &1614427701
 PrefabInstance:
   m_ObjectHideFlags: 0

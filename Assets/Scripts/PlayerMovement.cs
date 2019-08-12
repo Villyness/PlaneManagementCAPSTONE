@@ -24,7 +24,8 @@ public class PlayerMovement : PlayerManager
     public bool moving = false;
     public Vector3 currentPos;
     public Vector3 oldPos;
-    
+
+    public Transform HoldPos;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -35,7 +36,6 @@ public class PlayerMovement : PlayerManager
     
     void Update()
     {
-
         if (moving == true)
         {
             oldPos = currentPos;
