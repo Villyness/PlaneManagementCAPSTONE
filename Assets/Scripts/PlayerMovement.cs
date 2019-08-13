@@ -26,6 +26,8 @@ public class PlayerMovement : PlayerManager
     public Vector3 oldPos;
 
     public Transform HoldPos;
+    public GameObject HoldFrame;
+    
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -57,6 +59,11 @@ public class PlayerMovement : PlayerManager
                     if (dist < target.GetComponent<InteractManger>().distReq)
                     {
                         target.GetComponent<InteractManger>().Interact(this.gameObject);
+                        
+                        //Code for removing the object in the player's hands
+                        handsFull = false;
+                        holding = null;
+                        Destroy(HoldFrame.transform.GetChild(0).gameObject);
                     }
 
                     if (target.GetComponent<InteractItems>())

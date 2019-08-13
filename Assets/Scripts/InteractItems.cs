@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using Vuforia;
+//using Vuforia;
 
 public class InteractItems : InteractManger
 {

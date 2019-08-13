@@ -3526,6 +3526,7 @@ MonoBehaviour:
   currentPos: {x: 0, y: 0, z: 0}
   oldPos: {x: 0, y: 0, z: 0}
   HoldPos: {fileID: 409406586}
+  HoldFrame: {fileID: 409406585}
 --- !u!195 &1420595559
 NavMeshAgent:
   m_ObjectHideFlags: 0
