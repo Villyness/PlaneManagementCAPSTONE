@@ -14,6 +14,9 @@ public class InteractCustomer : InteractManger
 
     public int waitFull;
     public int waitTime;
+
+    public Material success;
+    public Material fail;
     
     void Start()
     {
@@ -92,6 +95,15 @@ public class InteractCustomer : InteractManger
                 hasNeed = false;
                 waitTime = waitFull;
                 player.GetComponent<PlayerManager>().ScoreIncrease();
+                this.GetComponent<Renderer>().material = success;
+            }
+
+            else
+            {   //failed
+                hasNeed = false;
+                waitTime = waitFull;
+                FindObjectOfType<PlayerManager>().score -= 1;
+                this.GetComponent<Renderer>().material = fail;
             }
         }
     }

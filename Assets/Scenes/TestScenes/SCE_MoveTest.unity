@@ -1276,6 +1276,8 @@ MonoBehaviour:
   full: 0
   waitFull: 0
   waitTime: 0
+  success: {fileID: 2100000, guid: 4f79ccc6f80802e42980874c47f99390, type: 2}
+  fail: {fileID: 2100000, guid: 344199b7b24ddcb42b8b3f06aedb46db, type: 2}
 --- !u!1001 &470954108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2664,6 +2666,8 @@ MonoBehaviour:
   full: 0
   waitFull: 0
   waitTime: 0
+  success: {fileID: 2100000, guid: 4f79ccc6f80802e42980874c47f99390, type: 2}
+  fail: {fileID: 2100000, guid: 344199b7b24ddcb42b8b3f06aedb46db, type: 2}
 --- !u!1001 &1180754989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3912,6 +3916,8 @@ MonoBehaviour:
   full: 0
   waitFull: 0
   waitTime: 0
+  success: {fileID: 2100000, guid: 4f79ccc6f80802e42980874c47f99390, type: 2}
+  fail: {fileID: 2100000, guid: 344199b7b24ddcb42b8b3f06aedb46db, type: 2}
 --- !u!1001 &1517373563
 PrefabInstance:
   m_ObjectHideFlags: 0
