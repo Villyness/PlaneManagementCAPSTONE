@@ -27,39 +27,41 @@ public class PlayerMovement : PlayerManager
 
     public Transform HoldPos;
     public GameObject HoldFrame;
-    
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        
-        currentPos = new Vector3(0,0,0);
-        oldPos = new Vector3(0,0,0);
+
+        currentPos = new Vector3(0, 0, 0);
+        oldPos = new Vector3(0, 0, 0);
     }
-    
+
     void Update()
     {
+        
+
         if (moving == true)
         {
             oldPos = currentPos;
             currentPos = this.transform.position;
-            
+
             if (currentPos == oldPos)
             {
                 moving = false;
                 //agent.isStopped = true;
-                
+
                 //else, check tag
                 if (target != null)
                 {
                     //check distance from target
                     float dist = Vector3.Distance(this.transform.position, targetPos);
-                    
-                    
+
+
                     //if distance is too far, you've hit a roadblock
                     if (dist < target.GetComponent<InteractManger>().distReq)
                     {
                         target.GetComponent<InteractManger>().Interact(this.gameObject);
-                        
+
                         //Code for removing the object in the player's hands
                         handsFull = false;
                         holding = null;
@@ -74,11 +76,13 @@ public class PlayerMovement : PlayerManager
                     target = null;
                 }
 
-                oldPos = new Vector3(0,0,0);
-                currentPos = new Vector3(0,0,0);
+                oldPos = new Vector3(0, 0, 0);
+                currentPos = new Vector3(0, 0, 0);
             }
+            PlayAnimation();
         }
-        
+
+
         if ((Input.GetKeyDown(KeyCode.Mouse0)) /*&& (moving == false)*/)
         {
             RaycastHit hit;
@@ -101,7 +105,25 @@ public class PlayerMovement : PlayerManager
 
             //Debug.Log(hit.collider.gameObject.tag);
 
-            }
-
         }
+
     }
+
+    public void PlayAnimation()
+    {
+        StartCoroutine(OnPlay());
+    }
+
+    public IEnumerator OnPlay()
+    {
+        if(currentPos!= oldPos)
+        {
+            GetComponentInChildren<Animator>().SetBool("isWalking", true);
+        }
+        else if(currentPos == oldPos)
+        {
+            GetComponentInChildren<Animator>().SetBool("isWalking", false);
+        }
+        yield return null;
+    }
+}

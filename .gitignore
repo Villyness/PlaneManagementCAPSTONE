@@ -1,8 +1,7 @@
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
-[Bb]uild/
-[Bb]uilds/
+
 Assets/AssetStoreTools*
 
 # Visual Studio cache directory
@@ -43,4 +42,4 @@ Assets/Plugins/Editor/JetBrains.meta
 
 # Misc - Maybe still be needed at some stage!
 Assets/Plugins/Editor.meta
-Assets/Plugins.meta
+*.log
