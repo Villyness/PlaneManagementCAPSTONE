@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(sceneName:"SCE_MoveTest"); // For now. Need to change it later to detect which level player chose.
+        SceneManager.LoadScene(sceneBuildIndex:1); // For now. Need to change it later to detect which level player chose.
         AudioManager.GameplayStart();
     }
 
