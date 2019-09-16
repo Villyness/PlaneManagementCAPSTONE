@@ -7,6 +7,7 @@ using System;
 public class InteractItems : InteractManger
 {
     public GameObject ObjectToSpawn;
+    public string ObjectName;
     
     void Start()
     {
@@ -23,7 +24,7 @@ public class InteractItems : InteractManger
     {
         //Debug.Log("Hello!");
         player.GetComponent<PlayerMovement>().handsFull = true;
-        player.GetComponent<PlayerMovement>().holding = "apple";
+        player.GetComponent<PlayerMovement>().holding = ObjectName;
         
         //shout to Harrison for his help 
         Vector3 spawnPos = player.transform.position + player.GetComponent<PlayerMovement>().HoldPos.localPosition;

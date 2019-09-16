@@ -6,17 +6,26 @@ using Random = UnityEngine.Random;
 
 public class InteractCustomer : InteractManger
 {
-    public bool hasNeed;
+    // This is the script for customers
+    // It inherits from the script 'InteractManger' (yes we know it's spelt wrong)
+    // Setting up...
+    // TODO: Set this various to private [pr]
+    public bool hasNeed;    //[pr]
     public string need;
 
-    public int timer;
-    public int full;
+    public int timer;    //[pr]
+    public int full;    //[pr]
 
     public int waitFull;
     public int waitTime;
 
     public Material success;
     public Material fail;
+    
+    // V's stuff
+    public GameObject spawnPos;
+    public GameObject drinkObj;
+    public GameObject foodObj;
     
     void Start()
     {
@@ -118,20 +127,24 @@ public class InteractCustomer : InteractManger
                 if (x > 5)
                 {
                     need = "drink";
+                    Instantiate(drinkObj, spawnPos.GetComponent<Transform>().position, Quaternion.identity);
                 }
                 else
                 {
-                    need = "eat";
+                    need = "food";
+                    Instantiate(foodObj, spawnPos.GetComponent<Transform>().position, Quaternion.identity);
                 }
                 break;
             case "dog":
                 if (x > 5)
                 {
                     need = "drink";
+                    Instantiate(drinkObj, spawnPos.GetComponent<Transform>().position, Quaternion.identity);
                 }
                 else
                 {
-                    need = "eat";
+                    need = "food";
+                    Instantiate(foodObj, spawnPos.GetComponent<Transform>().position, Quaternion.identity);
                 }
                 break;
         }
