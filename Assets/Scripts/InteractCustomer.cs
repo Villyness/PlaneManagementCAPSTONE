@@ -21,6 +21,9 @@ public class InteractCustomer : InteractManger
 
     public Material success;
     public Material fail;
+
+    public Material catMat;
+    public Material dogMat;
     
     // V's stuff
     public GameObject spawnPos;
@@ -33,10 +36,12 @@ public class InteractCustomer : InteractManger
         switch (interType)
         {
             case "cat":
+                this.GetComponent<Renderer>().material = catMat;
                 full = 90;
                 waitFull = 2;
                 break;
             case "dog":
+                this.GetComponent<Renderer>().material = dogMat;
                 full = 120;
                 waitFull = 4;
                 break;

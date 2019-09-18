@@ -1501,6 +1501,8 @@ MonoBehaviour:
   waitTime: 0
   success: {fileID: 2100000, guid: 4f79ccc6f80802e42980874c47f99390, type: 2}
   fail: {fileID: 2100000, guid: 344199b7b24ddcb42b8b3f06aedb46db, type: 2}
+  catMat: {fileID: 2100000, guid: 8f371ee01af78414ca1407665fcf43ed, type: 2}
+  dogMat: {fileID: 2100000, guid: 3f0610afc058fcf4fa3b0f548260a988, type: 2}
   spawnPos: {fileID: 928665789}
   drinkObj: {fileID: 1232407061643786449, guid: 4ba06bf232ba8004d8d4bd66860c0d32,
     type: 3}
@@ -3022,6 +3024,8 @@ MonoBehaviour:
   waitTime: 0
   success: {fileID: 2100000, guid: 4f79ccc6f80802e42980874c47f99390, type: 2}
   fail: {fileID: 2100000, guid: 344199b7b24ddcb42b8b3f06aedb46db, type: 2}
+  catMat: {fileID: 2100000, guid: 8f371ee01af78414ca1407665fcf43ed, type: 2}
+  dogMat: {fileID: 2100000, guid: 3f0610afc058fcf4fa3b0f548260a988, type: 2}
   spawnPos: {fileID: 2118328051}
   drinkObj: {fileID: 1232407061643786449, guid: 4ba06bf232ba8004d8d4bd66860c0d32,
     type: 3}
@@ -4278,6 +4282,8 @@ MonoBehaviour:
   waitTime: 0
   success: {fileID: 2100000, guid: 4f79ccc6f80802e42980874c47f99390, type: 2}
   fail: {fileID: 2100000, guid: 344199b7b24ddcb42b8b3f06aedb46db, type: 2}
+  catMat: {fileID: 2100000, guid: 8f371ee01af78414ca1407665fcf43ed, type: 2}
+  dogMat: {fileID: 2100000, guid: 3f0610afc058fcf4fa3b0f548260a988, type: 2}
   spawnPos: {fileID: 1599011456}
   drinkObj: {fileID: 1232407061643786449, guid: 4ba06bf232ba8004d8d4bd66860c0d32,
     type: 3}
