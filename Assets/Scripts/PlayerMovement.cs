@@ -7,13 +7,6 @@ using UnityEngine.AI;
 public class PlayerMovement : PlayerManager
 {
 
-    /// <summary>
-    /// NEEDS TO
-    /// - register mouse click and locate mouse click -tick-
-    /// - move to where the mouse was clicked -tick-
-    /// - do whatever the interaction is -tick-
-    /// - stop if hits obsetcale -tick, altho could be more polished-
-    /// </summary>
 
     public NavMeshAgent agent;
 

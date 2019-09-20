@@ -91,7 +91,7 @@ public class InteractCustomer : InteractManger
                 {
                     //failed
                     hasNeed = false;
-                    FindObjectOfType<PlayerManager>().score -= 1;
+                    FindObjectOfType<ScoreManager>().score -= 1;
                 }
             }
             
@@ -108,7 +108,7 @@ public class InteractCustomer : InteractManger
             {
                 hasNeed = false;
                 waitTime = waitFull;
-                player.GetComponent<PlayerManager>().ScoreIncrease();
+                FindObjectOfType<ScoreManager>().score += 1;
                 this.GetComponent<Renderer>().material = success;
             }
 
@@ -116,7 +116,7 @@ public class InteractCustomer : InteractManger
             {   //failed
                 hasNeed = false;
                 waitTime = waitFull;
-                FindObjectOfType<PlayerManager>().score -= 1;
+                FindObjectOfType<ScoreManager>().score -= 1;
                 this.GetComponent<Renderer>().material = fail;
             }
         }
