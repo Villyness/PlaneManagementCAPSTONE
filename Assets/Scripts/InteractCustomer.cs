@@ -22,26 +22,22 @@ public class InteractCustomer : InteractManger
     public Material success;
     public Material fail;
 
-    public Material catMat;
-    public Material dogMat;
+    public Material ownMat;
     
     // V's stuff
     public GameObject spawnPos;
     public GameObject drinkObj;
     public GameObject foodObj;
-    
-    void Start()
+
+    public int needRate;
+    public int needRatio;
+    public virtual void Start()
     {
         interClass = 1;
         switch (interType)
         {
-            case "cat":
-                this.GetComponent<Renderer>().material = catMat;
-                full = 90;
-                waitFull = 2;
-                break;
             case "dog":
-                this.GetComponent<Renderer>().material = dogMat;
+                this.GetComponent<Renderer>().material = ownMat;
                 full = 120;
                 waitFull = 4;
                 break;
@@ -51,7 +47,7 @@ public class InteractCustomer : InteractManger
         timer = full;
     }
 
-    private void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         if (timer == full)
         {
@@ -60,14 +56,6 @@ public class InteractCustomer : InteractManger
                 int temp = Random.Range(0, 10);
                 switch (interType)
                 {
-                    case "cat":
-                        if (temp >= 7)
-                        {
-                            //Debug.Log("has need");
-                            hasNeed = true;
-                            PickNeed();
-                        }
-                        break;
                     case "dog":
                         if (temp >= 5)
                         {
@@ -122,14 +110,14 @@ public class InteractCustomer : InteractManger
         }
     }
     
-    void PickNeed()
+    public void PickNeed()
     {
         int x = Random.Range(0, 10);
         
         switch (interType)
         {
             case "cat":
-                if (x > 5)
+                if (x > needRatio)
                 {
                     need = "drink";
                     Instantiate(drinkObj, spawnPos.GetComponent<Transform>().position, Quaternion.identity);
@@ -141,7 +129,7 @@ public class InteractCustomer : InteractManger
                 }
                 break;
             case "dog":
-                if (x > 5)
+                if (x > needRatio)
                 {
                     need = "drink";
                     Instantiate(drinkObj, spawnPos.GetComponent<Transform>().position, Quaternion.identity);
