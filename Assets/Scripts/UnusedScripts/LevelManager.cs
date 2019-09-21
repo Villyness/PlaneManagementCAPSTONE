@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    //public event Action<GameObject> Interacted; 
+    public event Action<GameObject> Interacted; 
     
     // Start is called before the first frame update
     void Start()
