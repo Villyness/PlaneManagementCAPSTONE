@@ -66,6 +66,10 @@ public class PlayerMovement : PlayerManager
                         target.GetComponent<InteractItems>().Interact(gameObject);
                         //Debug.Log("link");
                     }
+                    else
+                    {
+                        target.GetComponent<InteractCustomer>().Interact(gameObject);
+                    }
                     target = null;
                 }
 

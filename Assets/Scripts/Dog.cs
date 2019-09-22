@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cat : InteractCustomer
+public class Dog : InteractCustomer
 {
-    // Could probably put some literals here for the designers
-    
     public override void Start()
     {
-        full = 90;
-        waitFull = 2;
+        full = 120;
+        waitFull = 5;
         needRate = 5;
         base.Start();
     }

@@ -31,18 +31,15 @@ public class InteractCustomer : InteractManger
 
     public int needRate;
     public int needRatio;
+
+    public int nextNeedDelay;
+    public int patienceTimer;
+
     public virtual void Start()
     {
         interClass = 1;
-        switch (interType)
-        {
-            case "dog":
-                this.GetComponent<Renderer>().material = ownMat;
-                full = 120;
-                waitFull = 4;
-                break;
-        }
-
+        this.GetComponent<Renderer>().material = ownMat;
+        
         waitTime = waitFull;
         timer = full;
     }
@@ -54,16 +51,14 @@ public class InteractCustomer : InteractManger
             if (hasNeed == false)
             {
                 int temp = Random.Range(0, 10);
-                switch (interType)
+
+                // revamp this so that it manages its own
+                
+                if (temp >= needRate)
                 {
-                    case "dog":
-                        if (temp >= 5)
-                        {
-                            //Debug.Log("has need");
-                            hasNeed = true;
-                            PickNeed();
-                        }
-                        break;
+                    //Debug.Log("has need");
+                    hasNeed = true;
+                    PickNeed();
                 }
             }
         }
@@ -79,10 +74,9 @@ public class InteractCustomer : InteractManger
                 {
                     //failed
                     hasNeed = false;
-                    FindObjectOfType<ScoreManager>().score -= 1;
+                    //FindObjectOfType<ScoreManager>().score -= 1;    // Could probably fire events
                 }
             }
-            
             timer = full;
         }
     }
@@ -90,13 +84,14 @@ public class InteractCustomer : InteractManger
 
     public override void Interact(GameObject player)
     {
+        Debug.Log("Hello");
         if (player.GetComponent<PlayerManager>().handsFull == true)
         {
             if (player.GetComponent<PlayerManager>().holding == need)
             {
                 hasNeed = false;
                 waitTime = waitFull;
-                FindObjectOfType<ScoreManager>().score += 1;
+                //FindObjectOfType<ScoreManager>().score += 1;
                 this.GetComponent<Renderer>().material = success;
             }
 
@@ -104,7 +99,7 @@ public class InteractCustomer : InteractManger
             {   //failed
                 hasNeed = false;
                 waitTime = waitFull;
-                FindObjectOfType<ScoreManager>().score -= 1;
+                //FindObjectOfType<ScoreManager>().score -= 1;
                 this.GetComponent<Renderer>().material = fail;
             }
         }
@@ -113,35 +108,17 @@ public class InteractCustomer : InteractManger
     public void PickNeed()
     {
         int x = Random.Range(0, 10);
-        
-        switch (interType)
+
+        if (x > needRatio)
         {
-            case "cat":
-                if (x > needRatio)
-                {
-                    need = "drink";
-                    Instantiate(drinkObj, spawnPos.GetComponent<Transform>().position, Quaternion.identity);
-                }
-                else
-                {
-                    need = "food";
-                    Instantiate(foodObj, spawnPos.GetComponent<Transform>().position, Quaternion.identity);
-                }
-                break;
-            case "dog":
-                if (x > needRatio)
-                {
-                    need = "drink";
-                    Instantiate(drinkObj, spawnPos.GetComponent<Transform>().position, Quaternion.identity);
-                }
-                else
-                {
-                    need = "food";
-                    Instantiate(foodObj, spawnPos.GetComponent<Transform>().position, Quaternion.identity);
-                }
-                break;
+            need = "drink";
+            Instantiate(drinkObj, spawnPos.GetComponent<Transform>().position, Quaternion.identity);
         }
-    }
-    
-    
+        else
+        {
+            need = "food";
+            Instantiate(foodObj, spawnPos.GetComponent<Transform>().position, Quaternion.identity);
+        }
+                
+    }   
 }
