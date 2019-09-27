@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class InteractCustomer : InteractManger
+public class InteractCustomer : MonoBehaviour
 {
     // This is the script for customers
     // It inherits from the script 'InteractManger' (yes we know it's spelt wrong)
     // Setting up...
     // TODO: Set this various to private [pr]
+    public int distReq;
     public bool hasNeed;    //[pr]
     public string need;
 
@@ -37,7 +38,7 @@ public class InteractCustomer : InteractManger
 
     public virtual void Start()
     {
-        interClass = 1;
+        //interClass = 1;
         this.GetComponent<Renderer>().material = ownMat;
         
         waitTime = waitFull;
@@ -82,7 +83,7 @@ public class InteractCustomer : InteractManger
     }
 
 
-    public override void Interact(GameObject player)
+    public void Interact(GameObject player)
     {
         Debug.Log("Hello");
         if (player.GetComponent<PlayerManager>().handsFull == true)

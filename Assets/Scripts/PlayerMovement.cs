@@ -51,14 +51,18 @@ public class PlayerMovement : PlayerManager
 
 
                     //if distance is too far, you've hit a roadblock
-                    if (dist < target.GetComponent<InteractManger>().distReq)
+                    if (target.GetComponent<InteractCustomer>())
                     {
-                        target.GetComponent<InteractManger>().Interact(this.gameObject);
+                        if (dist < target.GetComponent<InteractCustomer>().distReq
+                        ) //This needs tweaking after removing InteractManger
+                        {
+                            target.GetComponent<InteractCustomer>().Interact(this.gameObject);
 
-                        //Code for removing the object in the player's hands
-                        handsFull = false;
-                        holding = null;
-                        Destroy(HoldFrame.transform.GetChild(0).gameObject);
+                            //Code for removing the object in the player's hands
+                            handsFull = false;
+                            holding = null;
+                            Destroy(HoldFrame.transform.GetChild(0).gameObject);
+                        }
                     }
 
                     if (target.GetComponent<InteractItems>())
@@ -66,11 +70,6 @@ public class PlayerMovement : PlayerManager
                         target.GetComponent<InteractItems>().Interact(gameObject);
                         //Debug.Log("link");
                     }
-                    else
-                    {
-                        target.GetComponent<InteractCustomer>().Interact(gameObject);
-                    }
-                    target = null;
                 }
 
                 oldPos = new Vector3(0, 0, 0);

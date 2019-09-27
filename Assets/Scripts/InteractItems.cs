@@ -4,23 +4,23 @@ using UnityEngine;
 using System;
 //using Vuforia;
 
-public class InteractItems : InteractManger
+public class InteractItems : MonoBehaviour
 {
     public GameObject ObjectToSpawn;
     public string ObjectName;
     
     void Start()
     {
-        interClass = 0;
-        FindObjectOfType<LevelManager>().Interacted += CallFunction;
+        //interClass = 0;
+        //FindObjectOfType<LevelManager>().Interacted += CallFunction;
     }
 
-    public void CallFunction(GameObject something)
+    /*public void CallFunction(GameObject something)
     {
         Interact(something);
-    }
+    }*/
 
-    public override void Interact(GameObject player)
+    public void Interact(GameObject player)
     {
         //Debug.Log("Hello!");
         player.GetComponent<PlayerMovement>().handsFull = true;
