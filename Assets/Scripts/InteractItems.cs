@@ -20,7 +20,7 @@ public class InteractItems : MonoBehaviour
         Interact(something);
     }*/
 
-    public void Interact(GameObject player)
+    public virtual void Interact(GameObject player)
     {
         //Debug.Log("Hello!");
         player.GetComponent<PlayerMovement>().handsFull = true;

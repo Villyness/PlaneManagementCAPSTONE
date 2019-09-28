@@ -48,7 +48,7 @@ public class PlayerMovement : PlayerManager
                 {
                     //check distance from target
                     float dist = Vector3.Distance(this.transform.position, targetPos);
-
+                    Debug.Log("Hello");
 
                     //if distance is too far, you've hit a roadblock
                     if (target.GetComponent<InteractCustomer>())
@@ -91,7 +91,7 @@ public class PlayerMovement : PlayerManager
                 agent.destination = targetPos;
                 moving = true;
 
-                if ((hit.collider.gameObject.tag == "interactive") || (hit.collider.gameObject.tag == "customer"))
+                if (hit.collider.GetComponent<InteractItems>() || hit.collider.GetComponent<InteractCustomer>())
                 {
                     target = hit.collider.gameObject;
                     //Debug.Log(target);
