@@ -7,7 +7,7 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class ScoreManager : MonoBehaviour
 {
-    public int level;
+    public int level = 1;    // Setting it to 1 so that it won't get any out of range errors
     public int score;
 
     //for each level go through and set individually
