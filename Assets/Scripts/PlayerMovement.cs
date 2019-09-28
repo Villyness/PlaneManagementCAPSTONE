@@ -6,8 +6,6 @@ using UnityEngine.AI;
 
 public class PlayerMovement : PlayerManager
 {
-
-
     public NavMeshAgent agent;
 
     public Camera cam;
@@ -48,13 +46,12 @@ public class PlayerMovement : PlayerManager
                 {
                     //check distance from target
                     float dist = Vector3.Distance(this.transform.position, targetPos);
-                    Debug.Log("Hello");
+                    //Debug.Log("Hello");
 
                     //if distance is too far, you've hit a roadblock
                     if (target.GetComponent<InteractCustomer>())
                     {
-                        if (dist < target.GetComponent<InteractCustomer>().distReq
-                        ) //This needs tweaking after removing InteractManger
+                        if (dist < target.GetComponent<InteractCustomer>().distReq)
                         {
                             target.GetComponent<InteractCustomer>().Interact(this.gameObject);
 
