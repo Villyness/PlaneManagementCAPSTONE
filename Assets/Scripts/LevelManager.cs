@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public event Action<GameObject> Interacted; 
-    
+    //public event Action<GameObject> Interacted; 
+    public float timer;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +25,6 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
     }
 }

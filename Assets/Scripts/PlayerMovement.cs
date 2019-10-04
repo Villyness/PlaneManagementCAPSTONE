@@ -96,6 +96,8 @@ public class PlayerMovement : PlayerManager
                 else target = null;
             }
 
+            LookAtPoint(hit.point);
+            
             //Debug.Log(hit.collider.gameObject.tag);
 
         }
@@ -111,12 +113,18 @@ public class PlayerMovement : PlayerManager
     {
         if(currentPos!= oldPos)
         {
-            GetComponentInChildren<Animator>().SetBool("isWalking", true);
+            //GetComponentInChildren<Animator>().SetBool("isWalking", true);
         }
         else if(currentPos == oldPos)
         {
-            GetComponentInChildren<Animator>().SetBool("isWalking", false);
+            //GetComponentInChildren<Animator>().SetBool("isWalking", false);
         }
         yield return null;
+    }
+
+    public void LookAtPoint(Vector3 point)
+    {
+        Vector3 pointClicked = new Vector3(point.x, GetComponent<Transform>().position.y, point.z);
+        GetComponent<Transform>().LookAt(pointClicked);
     }
 }
