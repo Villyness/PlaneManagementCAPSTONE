@@ -13,4 +13,5 @@ public class Cat : InteractCustomer
         needRate = 5;
         base.Start();
     }
+    
 }

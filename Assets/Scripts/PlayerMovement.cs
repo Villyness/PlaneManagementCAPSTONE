@@ -23,8 +23,9 @@ public class PlayerMovement : PlayerManager
     {
         agent = GetComponent<NavMeshAgent>();
 
-        currentPos = new Vector3(0, 0, 0);
-        oldPos = new Vector3(0, 0, 0);
+        NeutralState();
+        if (FindObjectOfType<LevelManager>())
+            FindObjectOfType<LevelManager>().LevelEnded += NeutralState;
     }
 
     void Update()
@@ -69,8 +70,7 @@ public class PlayerMovement : PlayerManager
                     }
                 }
 
-                oldPos = new Vector3(0, 0, 0);
-                currentPos = new Vector3(0, 0, 0);
+                NeutralState();
             }
             PlayAnimation();
         }
@@ -126,5 +126,13 @@ public class PlayerMovement : PlayerManager
     {
         Vector3 pointClicked = new Vector3(point.x, GetComponent<Transform>().position.y, point.z);
         GetComponent<Transform>().LookAt(pointClicked);
+    }
+
+    public void NeutralState()
+    {
+        currentPos = new Vector3(0, 0, 0);
+        oldPos = new Vector3(0, 0, 0);
+        agent.destination = GetComponent<Transform>().position;
+        //moving = false;
     }
 }

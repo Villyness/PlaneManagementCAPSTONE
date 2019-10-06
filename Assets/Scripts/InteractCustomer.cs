@@ -85,7 +85,7 @@ public class InteractCustomer : MonoBehaviour
 
     public void Interact(GameObject player)
     {
-        Debug.Log("Hello");
+        //Debug.Log("Hello");
         if (player.GetComponent<PlayerManager>().handsFull == true)
         {
             if (player.GetComponent<PlayerManager>().holding == need)
