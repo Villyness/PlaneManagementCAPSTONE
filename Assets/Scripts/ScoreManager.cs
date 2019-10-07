@@ -7,6 +7,7 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class ScoreManager : MonoBehaviour
 {
+    //TODO: <pr> = set to private after testing
     public int level = 1;    // Setting it to 1 so that it won't get any out of range errors
     public int score;
 
@@ -15,15 +16,16 @@ public class ScoreManager : MonoBehaviour
     public int[] goodScore = {150,200,250,300,350};
     public int[] bestScore = {200,250,300,350,400};
 
-    //stars for winning
+    //stars for winning <pr>
     public GameObject passStar;
     public GameObject goodStar;
     public GameObject bestStar;
 
+    // <pr>
     public Material matPass;
     public Material matFail;
     
-    //popup game menu
+    //popup game menu <pr>
     public GameObject endScreen;
 
     public bool passed;
@@ -34,7 +36,16 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
-        ScoreReset();
+        if (FindObjectOfType<LevelManager>())
+        {
+            FindObjectOfType<LevelManager>().LevelEnded += LevelEnd;
+        }
+        else
+        {
+            return;
+        }
+        
+        //ScoreReset();
     }
 
     void ScoreReset()
@@ -54,13 +65,13 @@ public class ScoreManager : MonoBehaviour
     {
         if (ended)
         {
-            LevelEnd();
+            //LevelEnd();
         }
     }
 
     void LevelEnd()
     {
-        endScreen.GetComponent<Renderer>().enabled = true;
+        /*endScreen.GetComponent<Renderer>().enabled = true;
         bestStar.GetComponent<Renderer>().enabled = true;
         goodStar.GetComponent<Renderer>().enabled = true;
         passStar.GetComponent<Renderer>().enabled = true;
@@ -97,5 +108,8 @@ public class ScoreManager : MonoBehaviour
             ScoreReset();
             //load next level
         }*/
+
+        GetComponent<Canvas>().enabled = true;
+        Debug.Log("Determination");
     }
 }
