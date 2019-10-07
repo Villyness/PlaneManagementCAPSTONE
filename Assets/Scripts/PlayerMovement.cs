@@ -69,8 +69,10 @@ public class PlayerMovement : PlayerManager
                         //Debug.Log("link");
                     }
                 }
-
-                NeutralState();
+                
+                currentPos = new Vector3(0, 0, 0);
+                oldPos = new Vector3(0, 0, 0);
+                //NeutralState();
             }
             PlayAnimation();
         }
