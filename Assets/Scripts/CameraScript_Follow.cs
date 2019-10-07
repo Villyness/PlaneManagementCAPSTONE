@@ -10,9 +10,8 @@ public class CameraScript_Follow : MonoBehaviour
     public float cameraClampMinX;
     public float cameraClampMaxX;
     public GameObject ClampPoint;
-    Collider collider;
-    [SerializeField]private bool isInKitchen;
-    //private bool isInFuselage;
+    public float clampOffset;
+    public bool isInKitchen = false;
 
     public static GameObject liveCamera;
 
@@ -22,25 +21,12 @@ public class CameraScript_Follow : MonoBehaviour
         liveCamera = this.gameObject;
     }
 
-    private void Start()
-    {
-        collider = ClampPoint.GetComponent<Collider>();
-    }
-
-    private void Update()
-    {
-
-        if (FollowTarget.position.x < ClampPoint.transform.position.x)
-        {
-            isInKitchen = false;
-        }
-        else
-        {
-            isInKitchen = true;
-        }
-    }
-
     void LateUpdate()
+    {
+        SmoothCamera();
+    }
+
+    public void SmoothCamera()
     {
         // smooth camera following player
         Vector3 desiredPosition = FollowTarget.position + offset;
@@ -54,27 +40,30 @@ public class CameraScript_Follow : MonoBehaviour
                 );
     }
 
-    private float UpdateClampMin()
+    public float UpdateClampMin()
     {
-        if (!isInKitchen) return cameraClampMinX;
-        else if (isInKitchen) return ClampPoint.transform.position.x;
+        if (!isInKitchen)
+        {
+            return cameraClampMinX;
+        }
+        else if (isInKitchen)
+        {
+            return ClampPoint.transform.position.x + clampOffset;
+        }
         return cameraClampMinX;
     }
 
-    private float UpdateClampMax()
+    public float UpdateClampMax()
     {
-        if (!isInKitchen) return ClampPoint.transform.position.x;
-        else if (isInKitchen) return cameraClampMaxX;
+        if (!isInKitchen)
+        {
+            return ClampPoint.transform.position.x + clampOffset;
+        }
+        else if (isInKitchen)
+        {
+            return cameraClampMaxX;
+        }
         return cameraClampMaxX;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        transform.position = new Vector3(
-            Mathf.Clamp(transform.position.x, UpdateClampMin(), UpdateClampMax()),
-            transform.position.y,
-            transform.position.z
-                );
     }
 
 }
