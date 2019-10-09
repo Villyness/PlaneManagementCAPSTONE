@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public event Action LevelEnded; 
+    public event Action LevelEnded;
+    public event Action Pause;
     public float timer;
     public float LevelTimer;
     
@@ -35,5 +36,9 @@ public class LevelManager : MonoBehaviour
 
             timer = 0;
         }
+        
+        if(Input.GetKeyDown(KeyCode.Z))
+            if (Pause != null)
+                Pause();
     }
 }
