@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build.Content;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -55,5 +57,11 @@ public class PauseMenu : MonoBehaviour
         ownCanvas.enabled = false;
         Time.timeScale = 1.0f;
         IsPaused = false;
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        ResumeGame();
     }
 }
