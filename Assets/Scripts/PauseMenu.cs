@@ -13,6 +13,8 @@ public class PauseMenu : MonoBehaviour
     // Setting up...
     private Canvas ownCanvas;
     private bool IsPaused;
+
+    public int LevelSelectIndex;
     
     // 
     void Start()
@@ -62,6 +64,17 @@ public class PauseMenu : MonoBehaviour
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        ResumeGame();
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void LevelSelect()
+    {
+        SceneManager.LoadScene(LevelSelectIndex);
         ResumeGame();
     }
 }
