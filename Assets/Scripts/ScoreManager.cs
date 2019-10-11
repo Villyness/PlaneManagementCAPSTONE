@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net.Mime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class ScoreManager : MonoBehaviour
@@ -110,6 +111,11 @@ public class ScoreManager : MonoBehaviour
         }*/
 
         GetComponent<Canvas>().enabled = true;
-        Debug.Log("Determination");
+        //Debug.Log("Determination");
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
