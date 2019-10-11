@@ -6,14 +6,19 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public AudioManager AudioManager;
+    public Animator animator_startToLevelSelect;
 
     private PlayerMovement player;
+
+    public GameObject MainMenu; // will probably change this to using canvas groups instead 
+    public GameObject LevelSelectMenu;
 
     void Start()
     {
         player = FindObjectOfType<PlayerMovement>();
         if (FindObjectOfType<LevelManager>())
             FindObjectOfType<LevelManager>().LevelEnded += DisableInput;
+        LevelSelectMenu.SetActive(false);
     }
     
     public void PlayGame()
@@ -22,9 +27,15 @@ public class GameManager : MonoBehaviour
         AudioManager.GameplayStart();
     }
 
+    public void ToLevelSelect()
+    {
+        animator_startToLevelSelect.SetTrigger("Start");
+        MainMenu.SetActive(false);
+        LevelSelectMenu.SetActive(true);
+    }
+
     void DisableInput()
     {
         player.enabled = false;
     }
-
 }
