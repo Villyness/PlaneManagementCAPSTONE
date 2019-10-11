@@ -36,6 +36,10 @@ public class InteractCustomer : MonoBehaviour
     public int nextNeedDelay;
     public int patienceTimer;
 
+    public event Action<int> PointsAwarded;
+    public int pointsMax;
+    private int currentPoints;
+
     public virtual void Start()
     {
         //interClass = 1;
@@ -43,6 +47,9 @@ public class InteractCustomer : MonoBehaviour
         
         waitTime = waitFull;
         timer = full;
+        
+        //Remove code after testing
+        currentPoints = 100;
     }
 
     public virtual void FixedUpdate()
@@ -94,6 +101,8 @@ public class InteractCustomer : MonoBehaviour
                 waitTime = waitFull;
                 //FindObjectOfType<ScoreManager>().score += 1;
                 this.GetComponent<Renderer>().material = success;
+                if(PointsAwarded != null)
+                    PointsAwarded(currentPoints);
             }
 
             else
@@ -102,6 +111,7 @@ public class InteractCustomer : MonoBehaviour
                 waitTime = waitFull;
                 //FindObjectOfType<ScoreManager>().score -= 1;
                 this.GetComponent<Renderer>().material = fail;
+                
             }
         }
     }
@@ -120,6 +130,7 @@ public class InteractCustomer : MonoBehaviour
             need = "food";
             Instantiate(foodObj, spawnPos.GetComponent<Transform>().position, Quaternion.identity);
         }
+        //currentPoints = pointsMax;
                 
     }   
 }

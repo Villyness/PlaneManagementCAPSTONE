@@ -5,6 +5,7 @@ using System.Net.Mime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class ScoreManager : MonoBehaviour
     public GameObject endScreen;
 
     public bool passed;
+
+    public Text finalScore;
     
     //make an LevelEnds event that ScoreManager listens for, on the event go to Level End.
     //the following is just a debug version of that because the level doesn't yet have a timer
@@ -43,8 +46,14 @@ public class ScoreManager : MonoBehaviour
         }
         else
         {
-            return;
+            return;        
         }
+
+        foreach (InteractCustomer passenger in FindObjectsOfType<InteractCustomer>())
+        {
+            passenger.PointsAwarded += UpdateScore;
+        }
+
         
         //ScoreReset();
     }
@@ -111,11 +120,17 @@ public class ScoreManager : MonoBehaviour
         }*/
 
         GetComponent<Canvas>().enabled = true;
+        finalScore.text = "Score: " + score;
         //Debug.Log("Determination");
     }
 
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    void UpdateScore(int scoreAdd)
+    {
+        score += scoreAdd;
     }
 }
