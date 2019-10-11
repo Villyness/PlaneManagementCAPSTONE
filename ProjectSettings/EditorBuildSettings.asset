@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StartMenu.unity
     guid: 750383fb6f0c29443ac96b5cfdb12858
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestScenes/SCE_MoveTest.unity
     guid: 7f5ffee56cff0024cbd6dbc1b4f4e39c
+  - enabled: 1
+    path: Assets/Scenes/TestScenes/PauseMenuTest.unity
+    guid: 85acb57eab525f3439b0a14bd0f94082
   m_configObjects: {}
