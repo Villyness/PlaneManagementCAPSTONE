@@ -10,6 +10,7 @@ public class LevelSelect : MonoBehaviour
 
     [Space]
     [Header("Public References")]
+    public Camera levelSelectCamera;
     public GameObject LevelPoint;
     public GameObject LevelButton;
     public Transform modelTransform;
@@ -52,12 +53,12 @@ public class LevelSelect : MonoBehaviour
 
     public void LookAtLevel(Levels L)
     {
-        Transform cameraParent = Camera.main.transform.parent;
+        Transform cameraParent = levelSelectCamera.transform.parent;
         Vector3 rot = new Vector3(L.y, -L.x, 0);
         cameraParent.DORotate(rot, 0.5f, RotateMode.Fast);
     }
 
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos() // broken because sphere is not at 0,0,0
     {
 #if UNITY_EDITOR
         Gizmos.color = Color.red;
@@ -71,7 +72,7 @@ public class LevelSelect : MonoBehaviour
                 GameObject point = new GameObject();
                 GameObject parent = new GameObject();
 
-                point.transform.position += new Vector3(0, 0, -0.5f); // move the point to the edge of the sphere
+                point.transform.position += new Vector3(0, 0, -0.5f); // move the point to the edge of the sphere when the sphere is at 0,0,0
                 point.transform.parent = parent.transform;
                 parent.transform.eulerAngles = new Vector3(visualOffset.y, -visualOffset.x, 0);
 
@@ -90,7 +91,7 @@ public class LevelSelect : MonoBehaviour
             }
         }
 #endif
-    }
+    }*/
 }
 
 [System.Serializable]
