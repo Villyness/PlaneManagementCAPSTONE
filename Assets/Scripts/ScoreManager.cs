@@ -11,7 +11,7 @@ using Image = UnityEngine.UIElements.Image;
 public class ScoreManager : MonoBehaviour
 {
     //TODO: <pr> = set to private after testing
-    public int level = 0;    // Setting it to 1 so that it won't get any out of range errors
+    public int level;
     public int score;
 
     //for each level go through and set individually
@@ -24,20 +24,8 @@ public class ScoreManager : MonoBehaviour
     public UnityEngine.UI.Image goodStar;
     public UnityEngine.UI.Image bestStar;
 
-    // <pr>
-    public Material matPass;
-    public Material matFail;
-    
-    //popup game menu <pr>
-    public GameObject endScreen;
-
-    public bool passed;
-
     public Text finalScore;
-    
-    //make an LevelEnds event that ScoreManager listens for, on the event go to Level End.
-    //the following is just a debug version of that because the level doesn't yet have a timer
-    public bool ended;
+    public GameObject NextLevel;
 
     void Start()
     {
@@ -72,14 +60,6 @@ public class ScoreManager : MonoBehaviour
         passStar.GetComponent<Renderer>().enabled = false;
     }*/
 
-    private void Update()
-    {
-        if (ended)
-        {
-            //LevelEnd();
-        }
-    }
-
     void LevelEnd()
     {
         //passStar.color = Color.yellow;
@@ -107,14 +87,12 @@ public class ScoreManager : MonoBehaviour
         if (score >= passScore[level])
         {
             passStar.color = Color.yellow;
-            
-            passed = true;
             //passStar.GetComponent<Renderer>().material = matPass;
             //passed
         }
         else
         {
-            passed = false;
+            NextLevel.gameObject.SetActive(false);
             //failed
         }
 
