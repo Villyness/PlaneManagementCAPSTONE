@@ -18,7 +18,9 @@ public class GameManager : MonoBehaviour
         player = FindObjectOfType<PlayerMovement>();
         if (FindObjectOfType<LevelManager>())
             FindObjectOfType<LevelManager>().LevelEnded += DisableInput;
-        LevelSelectMenu.SetActive(false);
+        
+        if(FindObjectOfType<LevelSelect>())
+            LevelSelectMenu.SetActive(false);
     }
     
     public void PlayGame()
