@@ -10,6 +10,8 @@ public class LevelManager : MonoBehaviour
     public event Action Pause;
     public float timer;
     public float LevelTimer;
+
+    private List<Seat> listOfSeats;
     
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,15 @@ public class LevelManager : MonoBehaviour
         {
             Debug.Log("Null!");
         }*/
+        listOfSeats = new List<Seat>();
+        
+        foreach (Seat seat in FindObjectsOfType<Seat>())
+        {
+            //if (seat.isOccupied == true)
+            listOfSeats.Add(seat);
+                //Debug.Log("Occupied!");
+        }
+        Debug.Log(listOfSeats.Count);
     }
 
     // Update is called once per frame
