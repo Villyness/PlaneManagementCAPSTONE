@@ -16,7 +16,9 @@ public class Seat : MonoBehaviour
     
     void Start()
     {
+        // *You assign a value to the 'spawnPos' variable
         spawnPos = GetComponentInChildren<Transform>();
+        //Debug.Log(spawnPos.position);
     }
 
     // Update is called once per frame
