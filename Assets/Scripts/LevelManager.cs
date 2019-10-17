@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     public event Action Pause;
     public float timer;
     public float LevelTimer;
+    public GameObject[] passengers;
 
     private List<Seat> listOfSeats;
     
@@ -31,9 +32,10 @@ public class LevelManager : MonoBehaviour
         {
             //if (seat.isOccupied == true)
             listOfSeats.Add(seat);
-                //Debug.Log("Occupied!");
+            Instantiate(passengers[0], seat.spawnPos.position, Quaternion.identity);
+            //Debug.Log("Occupied!");
         }
-        Debug.Log(listOfSeats.Count);
+        //Debug.Log(listOfSeats.Count);
     }
 
     // Update is called once per frame
