@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="Event" id="{f6c3dccc-2318-4879-8118-48f049178ed3}">
 		<property name="name">
-			<value>Gameplay Loop (FullySetup)</value>
+			<value>Gameplay Loop</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -40,6 +40,9 @@
 		<relationship name="parameters">
 			<destination>{ca673523-ea39-4a53-bd2d-3bc68e7211e4}</destination>
 		</relationship>
+		<relationship name="banks">
+			<destination>{92a5d711-4f50-45fc-a94b-08c71713ba7f}</destination>
+		</relationship>
 	</object>
 	<object class="EventMixer" id="{4f0ead1e-a9e6-4a4f-b7cb-1f66427a4d82}">
 		<relationship name="masterBus">
@@ -73,7 +76,7 @@
 			<destination>{4cfcfc12-65dc-4dd4-85ee-fbf110f122bf}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{2a96f29e-ddd2-4c89-8583-13cecf905036}</destination>
+			<destination>{0bba1176-e902-496e-b0c2-2a854ef9ba80}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{31dad97e-6c21-4f88-a1e4-07366a355ff4}" />
@@ -167,6 +170,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{cc52fa7b-bcba-4fe3-8a78-4b009d6f46c5}">
+		<property name="volume">
+			<value>-0.5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{aaa89b5a-38ae-4c68-af7c-b54f318ffcb0}</destination>
 		</relationship>

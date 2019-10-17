@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject MainMenu; // will probably change this to using canvas groups instead 
     public GameObject LevelSelectMenu;
+    public CanvasGroup PausePanel;
 
     void Start()
     {
@@ -39,5 +40,29 @@ public class GameManager : MonoBehaviour
     void DisableInput()
     {
         player.enabled = false;
+    }
+
+    public void PauseGame()
+    {
+
+    }
+
+    public void ToMainMenu()
+    {
+
+    }
+
+    public void ToAudioSettings()
+    {
+
+    }
+    public void ToPauseMenu()
+    {
+
+    }
+
+    public void QuitGame()
+    {
+
     }
 }

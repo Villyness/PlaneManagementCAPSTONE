@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/JingTestScenes/StartMenu(IncludingLevelSelect).unity
+    path: Assets/Scenes/Levels/StartMenu.unity
     guid: 44ec477b9899c5540bab1f47b50d69a9
   - enabled: 1
-    path: Assets/Scenes/TestScenes/MainScene.unity
+    path: Assets/Scenes/Levels/MainScene.unity
     guid: 7f5ffee56cff0024cbd6dbc1b4f4e39c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestScenes/PauseMenuTest.unity
     guid: 85acb57eab525f3439b0a14bd0f94082
   m_configObjects: {}
