@@ -50,6 +50,8 @@ public class InteractCustomer : MonoBehaviour
         
         //Remove code after testing
         currentPoints = 100;
+        
+        
     }
 
     public virtual void FixedUpdate()

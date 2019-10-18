@@ -12,12 +12,14 @@ public class Seat : MonoBehaviour
     public bool isOccupied;
     public int[] seatPos;
 
-    public Transform spawnPos;
+    public Vector3 displacementVect;
+    //public Transform spawnPos;
     
     void Start()
     {
-        // *You assign a value to the 'spawnPos' variable
-        spawnPos = GetComponentInChildren<Transform>();
+        
+        //spawnPos = GetComponentInChildren<Transform>();
+        //Debug.Log(spawnPos.position);
         //Debug.Log(spawnPos.position);
     }
 
