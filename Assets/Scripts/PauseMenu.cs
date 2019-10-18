@@ -11,7 +11,8 @@ public class PauseMenu : MonoBehaviour
     // Also go play Skullgirls IT'S GOOD
     
     // Setting up...
-    private Canvas ownCanvas;
+    private Canvas pauseCanvas;
+    public Canvas AudioSettingsMenu;
     private bool IsPaused;
 
     public int LevelSelectIndex;
@@ -22,9 +23,10 @@ public class PauseMenu : MonoBehaviour
         if (FindObjectOfType<LevelManager>())
             FindObjectOfType<LevelManager>().Pause += TogglePause;
 
-        ownCanvas = GetComponent<Canvas>();
+        pauseCanvas = GetComponent<Canvas>();
 
-        ownCanvas.enabled = false;
+        pauseCanvas.enabled = false;
+        //AudioSettingsMenu.enabled = false;
         IsPaused = false;
     }
 
@@ -49,14 +51,15 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
-        ownCanvas.enabled = true;
+        pauseCanvas.enabled = true;
+        AudioSettingsMenu.enabled = false;
         Time.timeScale = 0f;    // ZA WARUDOOOOOOO
         IsPaused = true;
     }
 
     public void ResumeGame()
     {
-        ownCanvas.enabled = false;
+        pauseCanvas.enabled = false;
         Time.timeScale = 1.0f;
         IsPaused = false;
     }
@@ -83,4 +86,15 @@ public class PauseMenu : MonoBehaviour
         Screen.fullScreen = isFullScr;
         Debug.Log(isFullScr);
     }
+
+    public delegate void Bic();
+    public static Bic audiosettingsorsomething;
+
+    public void ToAudioSettings()
+    {
+        audiosettingsorsomething?.Invoke();
+        //AudioSettingsMenu.enabled = true;
+    }
+
+
 }
