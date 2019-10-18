@@ -12,6 +12,8 @@ public class PauseMenu : MonoBehaviour
     
     // Setting up...
     private Canvas ownCanvas;
+    public CanvasGroup PausePanel;
+    public CanvasGroup AudioSettingsPanel;
     private bool IsPaused;
 
     public int LevelSelectIndex;
@@ -23,8 +25,9 @@ public class PauseMenu : MonoBehaviour
             FindObjectOfType<LevelManager>().Pause += TogglePause;
 
         ownCanvas = GetComponent<Canvas>();
-
-        ownCanvas.enabled = false;
+        ownCanvas.enabled = true;
+        StartCoroutine(Deactivate(AudioSettingsPanel));
+        StartCoroutine(Deactivate(PausePanel));
         IsPaused = false;
     }
 
@@ -49,14 +52,18 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
-        ownCanvas.enabled = true;
+        //ownCanvas.enabled = true;
+        StartCoroutine(Activate(PausePanel));
+        StartCoroutine(Deactivate(AudioSettingsPanel));
         Time.timeScale = 0f;    // ZA WARUDOOOOOOO
         IsPaused = true;
     }
 
     public void ResumeGame()
     {
-        ownCanvas.enabled = false;
+        //ownCanvas.enabled = false;
+        StartCoroutine(Deactivate(PausePanel));
+        StartCoroutine(Deactivate(AudioSettingsPanel));
         Time.timeScale = 1.0f;
         IsPaused = false;
     }
@@ -82,5 +89,35 @@ public class PauseMenu : MonoBehaviour
     {
         Screen.fullScreen = isFullScr;
         Debug.Log(isFullScr);
+    }
+
+    public void ToAudioSettingsMenu()
+    {
+        StartCoroutine(Deactivate(PausePanel));
+        StartCoroutine(Activate(AudioSettingsPanel));
+    }
+
+    IEnumerator Activate(CanvasGroup _panel)
+    {
+        while (_panel.alpha < 1)
+        {
+            _panel.alpha = 1;
+            yield return null;
+        }
+        _panel.interactable = true;
+        _panel.blocksRaycasts = true;
+        yield return null;
+    }
+
+    IEnumerator Deactivate(CanvasGroup _panel)
+    {
+        while (_panel.alpha > 0)
+        {
+            _panel.alpha = 0;
+            yield return null;
+        }
+        _panel.interactable = false;
+        _panel.blocksRaycasts = false;
+        yield return null;
     }
 }
