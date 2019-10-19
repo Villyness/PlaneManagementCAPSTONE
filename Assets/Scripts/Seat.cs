@@ -12,11 +12,15 @@ public class Seat : MonoBehaviour
     public bool isOccupied;
     public int[] seatPos;
 
-    private Transform spawnPos;
+    public Vector3 displacementVect;
+    //public Transform spawnPos;
     
     void Start()
     {
-        spawnPos = GetComponentInChildren<Transform>();
+        
+        //spawnPos = GetComponentInChildren<Transform>();
+        //Debug.Log(spawnPos.position);
+        //Debug.Log(spawnPos.position);
     }
 
     // Update is called once per frame
