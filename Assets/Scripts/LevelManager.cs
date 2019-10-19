@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
 {
     public event Action LevelEnded;
     public event Action Pause;
-    public event Action<int> setDist;
+    //public event Action<int> setDist;
     public float timer;
     public float LevelTimer;
     public GameObject[] passengers;
@@ -37,11 +37,21 @@ public class LevelManager : MonoBehaviour
             //Debug.Log(seat.GetComponent<Transform>().position + displacementVect);
             if (UnityEngine.Random.Range(1, 10) <= 2)
             {
-                Instantiate(passengers[0], seat.GetComponent<Transform>().position + displacementVect, Quaternion.identity);
-                if (setDist != null)
+                GameObject passenger = Instantiate(passengers[0], seat.GetComponent<Transform>().position + displacementVect, Quaternion.identity);
+
+                // Refactor this later on
+                if (seat.seatPos[0] == 1 | seat.seatPos[0] == 4)
+                {
+                    passenger.GetComponent<InteractCustomer>().distReq = 5;
+                }
+                else
+                {
+                    passenger.GetComponent<InteractCustomer>().distReq = 3;
+                }
+                /*if (setDist != null)
                 {
                     setDist(seat.seatPos[0]);
-                }
+                }*/
                 //Debug.Log(seat.seatPos[1]);
             }
             //Debug.Log("Occupied!");
