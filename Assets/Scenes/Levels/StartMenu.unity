@@ -1844,12 +1844,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &609370008 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8296675829592858301, guid: 663da214d7345274ba388ebf7c7d86c1,
-    type: 3}
-  m_PrefabInstance: {fileID: 1692116787}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &652816878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3402,6 +3396,7 @@ MonoBehaviour:
   animator_startToLevelSelect: {fileID: 1080042984}
   MainMenu: {fileID: 1244321634}
   LevelSelectMenu: {fileID: 321128679}
+  PausePanel: {fileID: 0}
 --- !u!4 &1186890927
 Transform:
   m_ObjectHideFlags: 0
@@ -5015,7 +5010,7 @@ PrefabInstance:
         type: 3}
       propertyPath: spherePos
       value: 
-      objectReference: {fileID: 609370008}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 663da214d7345274ba388ebf7c7d86c1, type: 3}
 --- !u!1 &1692119294
@@ -5754,7 +5749,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1186890926}
-        m_MethodName: ToLevelSelect
+        m_MethodName: ToLevelSelectFromStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

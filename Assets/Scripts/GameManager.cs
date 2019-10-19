@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         AudioManager.GameplayStart();
     }
 
-    public void ToLevelSelect()
+    public void ToLevelSelectFromStart()
     {
         animator_startToLevelSelect.SetTrigger("Start");
         MainMenu.SetActive(false);
@@ -40,29 +40,5 @@ public class GameManager : MonoBehaviour
     void DisableInput()
     {
         player.enabled = false;
-    }
-
-    public void PauseGame()
-    {
-
-    }
-
-    public void ToMainMenu()
-    {
-
-    }
-
-    public void ToAudioSettings()
-    {
-
-    }
-    public void ToPauseMenu()
-    {
-
-    }
-
-    public void QuitGame()
-    {
-
     }
 }
