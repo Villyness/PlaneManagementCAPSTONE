@@ -9,7 +9,7 @@ public class PauseMenu : MonoBehaviour
     // This is the script that handles the code for the PauseMenu
     // V's script so if it spontaneously combusts or looks like gibberish, @ me
     // Also go play Skullgirls IT'S GOOD
-    
+
     // Setting up...
     private Canvas ownCanvas;
     public CanvasGroup PausePanel;
@@ -17,24 +17,37 @@ public class PauseMenu : MonoBehaviour
     private bool IsPaused;
 
     public int LevelSelectIndex;
-    
+
     // 
     void Start()
+    {   ownCanvas = GetComponent<Canvas>();
+        ownCanvas.enabled = true;
+        DontDestroyOnLoad(ownCanvas);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        StartCoroutine(Deactivate(AudioSettingsPanel)); // deactivate all the panels, only show StartMenu
+        StartCoroutine(Deactivate(PausePanel));
+        IsPaused = false;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (FindObjectOfType<LevelManager>())
             FindObjectOfType<LevelManager>().Pause += TogglePause;
 
-        ownCanvas = GetComponent<Canvas>();
-        ownCanvas.enabled = true;
-        StartCoroutine(Deactivate(AudioSettingsPanel));
-        StartCoroutine(Deactivate(PausePanel));
-        IsPaused = false;
+        Debug.Log("OnSceneLoaded: " + scene.name);
+        Debug.Log("mode: " + mode);
+    }
+
+    void OnDisable()
+    {
+        Debug.Log("OnDisable");
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void TogglePause()
@@ -52,7 +65,6 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
-        //ownCanvas.enabled = true;
         StartCoroutine(Activate(PausePanel));
         StartCoroutine(Deactivate(AudioSettingsPanel));
         Time.timeScale = 0f;    // ZA WARUDOOOOOOO
@@ -61,7 +73,6 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
-        //ownCanvas.enabled = false;
         StartCoroutine(Deactivate(PausePanel));
         StartCoroutine(Deactivate(AudioSettingsPanel));
         Time.timeScale = 1.0f;
@@ -82,6 +93,7 @@ public class PauseMenu : MonoBehaviour
     public void LevelSelect()
     {
         SceneManager.LoadScene(LevelSelectIndex);
+
         ResumeGame();
     }
 
@@ -95,6 +107,16 @@ public class PauseMenu : MonoBehaviour
     {
         StartCoroutine(Deactivate(PausePanel));
         StartCoroutine(Activate(AudioSettingsPanel));
+
+    }
+
+    public void ToMainMenu()
+    {
+        StartCoroutine(Deactivate(AudioSettingsPanel));
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            StartCoroutine(Activate(PausePanel));
+        }
     }
 
     IEnumerator Activate(CanvasGroup _panel)

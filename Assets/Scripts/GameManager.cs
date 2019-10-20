@@ -12,21 +12,20 @@ public class GameManager : MonoBehaviour
 
     public GameObject MainMenu; // will probably change this to using canvas groups instead 
     public GameObject LevelSelectMenu;
-    public CanvasGroup PausePanel;
 
     void Start()
     {
         player = FindObjectOfType<PlayerMovement>();
         if (FindObjectOfType<LevelManager>())
             FindObjectOfType<LevelManager>().LevelEnded += DisableInput;
-        
-        if(FindObjectOfType<LevelSelect>())
+
+        if (FindObjectOfType<LevelSelect>())
             LevelSelectMenu.SetActive(false);
     }
-    
+
     public void PlayGame()
     {
-        SceneManager.LoadScene(sceneBuildIndex:1); // For now. Need to change it later to detect which level player chose.
+        SceneManager.LoadScene(sceneBuildIndex: 1); // For now. Need to change it later to detect which level player chose.
         AudioManager.GameplayStart();
     }
 

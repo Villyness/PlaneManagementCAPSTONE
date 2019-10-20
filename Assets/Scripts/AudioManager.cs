@@ -32,53 +32,58 @@ public class AudioManager : MonoBehaviour
             instance = this;
             GameObject.DontDestroyOnLoad(gameObject);
         }
-        Master = FMODUnity.RuntimeManager.GetBus("bus:/Master");
-        Music = FMODUnity.RuntimeManager.GetBus("bus:/Master/Music");
-        SFX = FMODUnity.RuntimeManager.GetBus("bus:/Master/SFX");
+        instance.Master = FMODUnity.RuntimeManager.GetBus("bus:/Master");
+        instance.Music = FMODUnity.RuntimeManager.GetBus("bus:/Master/Music");
+        instance.SFX = FMODUnity.RuntimeManager.GetBus("bus:/Master/SFX");
     }
 
     void Start()
     {
-        gameMusic = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Gameplay Loop");
-        gameMusic.start();
+        instance.gameMusic = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Gameplay Loop");
+        instance.gameMusic.start();
 
-        musicDescription = FMODUnity.RuntimeManager.GetEventDescription("event:/Music/Gameplay Loop");
-        musicDescription.getParameterDescriptionByName("Intensity", out pd);
-        pID = pd.id;
+        instance.musicDescription = FMODUnity.RuntimeManager.GetEventDescription("event:/Music/Gameplay Loop");
+        instance.musicDescription.getParameterDescriptionByName("Intensity", out pd);
+        instance.pID = pd.id;
     }
 
     public void GameplayStart()
     {
-        gameMusic.setParameterByID(pID, 1);
+        instance.gameMusic.setParameterByID(pID, 1);
+    }
+
+    public void StartMenu()
+    {
+        instance.gameMusic.setParameterByID(pID, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Master.setVolume(MasterVolume);
-        Music.setVolume(MusicVolume);
-        SFX.setVolume(SFXVolume);
+        instance.Master.setVolume(instance.MasterVolume);
+        instance.Music.setVolume(instance.MusicVolume);
+        instance.SFX.setVolume(instance.SFXVolume);
     }
 
     public void MasterVolumeLevel(float newMasterVolume)
     {
-        MasterVolume = newMasterVolume;
+        instance.MasterVolume = newMasterVolume;
     }
 
     public void MusicVolumeLevel(float newMusicVolume)
     {
-        MusicVolume = newMusicVolume;
+        instance.MusicVolume = newMusicVolume;
     }
 
     public void SFXVolumeLevel(float newSFXVolume)
     {
-        SFXVolume = newSFXVolume;
+        instance.SFXVolume = newSFXVolume;
 
         FMOD.Studio.PLAYBACK_STATE PbState;
-        SFXVolumeTest.getPlaybackState(out PbState);
+        instance.SFXVolumeTest.getPlaybackState(out PbState);
         if(PbState != FMOD.Studio.PLAYBACK_STATE.PLAYING)
         {
-            SFXVolumeTest.start();
+            instance.SFXVolumeTest.start();
         }
     }
 }
