@@ -9,7 +9,11 @@ public class CameraScript_Follow : MonoBehaviour
 
     public float cameraClampMinX;
     public float cameraClampMaxX;
-    public GameObject ClampPoint;
+    [SerializeField]private float speed;
+    [SerializeField]private float currentClampMin;
+    [SerializeField]private float currentClampMax;
+    public Transform ClampPointPos;
+    public GameObject ClampArea;
     public float clampOffset;
     public bool isInKitchen = false;
 
@@ -44,26 +48,24 @@ public class CameraScript_Follow : MonoBehaviour
     {
         if (!isInKitchen)
         {
-            return cameraClampMinX;
+            return currentClampMin = Mathf.Lerp(currentClampMin, cameraClampMinX, Time.deltaTime * speed);
         }
-        else if (isInKitchen)
+        else
         {
-            return ClampPoint.transform.position.x + clampOffset;
+            return currentClampMin = Mathf.Lerp(currentClampMin, ClampPointPos.position.x + clampOffset, Time.deltaTime * speed);
         }
-        return cameraClampMinX;
     }
 
     public float UpdateClampMax()
     {
         if (!isInKitchen)
         {
-            return ClampPoint.transform.position.x + clampOffset;
+            return currentClampMax = Mathf.Lerp(currentClampMax, ClampPointPos.position.x + clampOffset, Time.deltaTime * speed);
         }
-        else if (isInKitchen)
+        else
         {
-            return cameraClampMaxX;
+            return currentClampMax = Mathf.Lerp(currentClampMax, cameraClampMaxX, Time.deltaTime * speed);
         }
-        return cameraClampMaxX;
     }
 
 }

@@ -21,14 +21,13 @@ public class ClampTrigger : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            if(!_camera.isInKitchen)
-            {
-                _camera.isInKitchen = true;
-            }
-            else
-            {
-                _camera.isInKitchen = false;
-            }
+            _camera.isInKitchen = true;
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+            _camera.isInKitchen = false;
     }
 }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CameraStartMenu : MonoBehaviour
 {
+    // This script pretty much links all the public references back 
+    // So things won't break after you come back to start menu from game
+
     public Animator amin;
     public GameObject LevelSelectMenu;
 
