@@ -408,7 +408,7 @@ MonoBehaviour:
   FollowTarget: {fileID: 1420595563}
   smoothSpeed: 0.125
   offset: {x: 0, y: 10.21, z: -7.82}
-  cameraClampMinX: 0
+  cameraClampMinX: -17.34
   cameraClampMaxX: 24.95
   speed: 2
   currentClampMin: 0
