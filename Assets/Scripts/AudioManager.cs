@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
     FMOD.Studio.PARAMETER_DESCRIPTION pd;
     FMOD.Studio.PARAMETER_ID pID;
 
-    static AudioManager instance = null;
+    public static AudioManager instance = null;
 
     FMOD.Studio.Bus Master;
     FMOD.Studio.Bus Music;

@@ -22,7 +22,7 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {   ownCanvas = GetComponent<Canvas>();
         ownCanvas.enabled = true;
-        DontDestroyOnLoad(ownCanvas);
+        //DontDestroyOnLoad(ownCanvas);
         SceneManager.sceneLoaded += OnSceneLoaded;
         StartCoroutine(Deactivate(AudioSettingsPanel)); // deactivate all the panels, only show StartMenu
         StartCoroutine(Deactivate(PausePanel));
@@ -93,7 +93,7 @@ public class PauseMenu : MonoBehaviour
     public void LevelSelect()
     {
         SceneManager.LoadScene(LevelSelectIndex);
-
+        GameManager.instance.MainMenu.SetActive(true);
         ResumeGame();
     }
 
@@ -107,15 +107,19 @@ public class PauseMenu : MonoBehaviour
     {
         StartCoroutine(Deactivate(PausePanel));
         StartCoroutine(Activate(AudioSettingsPanel));
-
+        GameManager.instance.MainMenu.SetActive(false);
     }
 
-    public void ToMainMenu()
+    public void CloseAudioMenu()
     {
         StartCoroutine(Deactivate(AudioSettingsPanel));
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {
             StartCoroutine(Activate(PausePanel));
+        }
+        else
+        {
+            GameManager.instance.MainMenu.SetActive(true);
         }
     }
 
