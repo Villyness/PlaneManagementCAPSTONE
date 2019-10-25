@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 using Image = UnityEngine.UIElements.Image;
+using DG.Tweening;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -26,9 +27,12 @@ public class ScoreManager : MonoBehaviour
 
     public Text finalScore;
     public GameObject NextLevel;
+    public bool ShowScore = false;
+    public StampingAnim StampAnim;
 
     void Start()
     {
+        GetComponent<Canvas>().enabled = false;
         if (FindObjectOfType<LevelManager>())
         {
             FindObjectOfType<LevelManager>().LevelEnded += LevelEnd;
@@ -62,6 +66,7 @@ public class ScoreManager : MonoBehaviour
 
     void LevelEnd()
     {
+        ShowScore = true;
         //passStar.color = Color.yellow;
         
         /*endScreen.GetComponent<Renderer>().enabled = true;
@@ -89,6 +94,8 @@ public class ScoreManager : MonoBehaviour
             passStar.color = Color.yellow;
             //passStar.GetComponent<Renderer>().material = matPass;
             //passed
+            // Do the stamping animation for first star
+            StampAnim.stamp.DOLocalMoveZ(StampAnim.stamp.transform.position.z - StampAnim.stamp.transform.position.z, .7f).OnComplete(() => StampAnim.cam.DOShakePosition(1, .1f, 10, 45, false));
         }
         else
         {

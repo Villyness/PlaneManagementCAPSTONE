@@ -9,15 +9,17 @@ public class CameraScript_Follow : MonoBehaviour
 
     public float cameraClampMinX;
     public float cameraClampMaxX;
-    [SerializeField]private float speed;
-    [SerializeField]private float currentClampMin;
-    [SerializeField]private float currentClampMax;
+    [SerializeField]private float speed = 2;
+    private float currentClampMin;
+    private float currentClampMax;
     public Transform ClampPointPos;
     public GameObject ClampArea;
-    public float clampOffset;
+    public float clampOffset; // allow tweaking
     public bool isInKitchen = false;
 
     public static GameObject liveCamera;
+    public RectTransform scoreCanvas;
+    public ScoreManager sManager;
 
 
     void Awake()
@@ -25,9 +27,25 @@ public class CameraScript_Follow : MonoBehaviour
         liveCamera = this.gameObject;
     }
 
+    private void Start()
+    {
+        
+    }
+
     void LateUpdate()
     {
         SmoothCamera();
+        OrthoToPersp();
+    }
+
+    public void OrthoToPersp()
+    {
+        if(sManager.ShowScore)
+        {
+            // if level ends, move the score canvas in front of the camera, and switch camera view to perspective
+            scoreCanvas.anchoredPosition = new Vector3(liveCamera.transform.position.x, 9.34f, -5.01f);
+            liveCamera.GetComponent<Camera>().orthographic = false;
+        }
     }
 
     public void SmoothCamera()
