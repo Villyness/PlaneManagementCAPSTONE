@@ -81,6 +81,8 @@ public class ScoreManager : MonoBehaviour
             //bestStar.GetComponent<Renderer>().material = matPass;
             //best score
             bestStar.color = Color.yellow;
+            // Do the stamping animation for all three star
+            StartCoroutine(BestStampAnim());
         }
         if (score >= goodScore[level])
         {
@@ -88,6 +90,9 @@ public class ScoreManager : MonoBehaviour
             goodStar.color = Color.yellow;
             //goodStar.GetComponent<Renderer>().material = matPass;
             //good score
+
+            // Do the stamping animation for first and second star
+            StartCoroutine(GoodStampAnim());
         }
         if (score >= passScore[level])
         {
@@ -95,7 +100,7 @@ public class ScoreManager : MonoBehaviour
             //passStar.GetComponent<Renderer>().material = matPass;
             //passed
             // Do the stamping animation for first star
-            StampAnim.stamp.DOLocalMoveZ(StampAnim.stamp.transform.position.z - StampAnim.stamp.transform.position.z, .7f).OnComplete(() => StampAnim.cam.DOShakePosition(1, .1f, 10, 45, false));
+            StartCoroutine(PassStampAnim());
         }
         else
         {
@@ -123,5 +128,29 @@ public class ScoreManager : MonoBehaviour
     void UpdateScore(int scoreAdd)
     {
         score += scoreAdd;
+    }
+
+    IEnumerator PassStampAnim()
+    {
+        StampAnim.stamp1.DOLocalMoveZ(StampAnim.stamp1.transform.position.z - StampAnim.stamp1.transform.position.z, .7f).OnComplete(() => StampAnim.cam.DOShakePosition(1, .1f, 10, 45, false));
+        yield return null;
+    }
+
+    IEnumerator GoodStampAnim()
+    {
+        StampAnim.stamp1.DOLocalMoveZ(StampAnim.stamp1.transform.position.z - StampAnim.stamp1.transform.position.z, .7f).OnComplete(() => StampAnim.cam.DOShakePosition(1, .1f, 10, 45, false));
+        yield return new WaitForSeconds(1);
+        StampAnim.stamp2.DOLocalMoveZ(StampAnim.stamp2.transform.position.z - StampAnim.stamp2.transform.position.z, .7f).OnComplete(() => StampAnim.cam.DOShakePosition(1, .1f, 10, 45, false));
+        yield return null;
+    }
+
+    IEnumerator BestStampAnim()
+    {
+        StampAnim.stamp1.DOLocalMoveZ(StampAnim.stamp1.transform.position.z - StampAnim.stamp1.transform.position.z, .7f).OnComplete(() => StampAnim.cam.DOShakePosition(1, .1f, 10, 45, false));
+        yield return new WaitForSeconds(1);
+        StampAnim.stamp2.DOLocalMoveZ(StampAnim.stamp2.transform.position.z - StampAnim.stamp2.transform.position.z, .7f).OnComplete(() => StampAnim.cam.DOShakePosition(1, .1f, 10, 45, false));
+        yield return new WaitForSeconds(1);
+        StampAnim.stamp3.DOLocalMoveZ(StampAnim.stamp3.transform.position.z - StampAnim.stamp3.transform.position.z, .7f).OnComplete(() => StampAnim.cam.DOShakePosition(1, .1f, 10, 45, false));
+        yield return null;
     }
 }

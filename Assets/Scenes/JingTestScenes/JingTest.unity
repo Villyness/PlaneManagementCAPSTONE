@@ -745,7 +745,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162308321}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -82, y: 0, z: -161}
+  m_LocalPosition: {x: -51, y: -0, z: -185}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 937954963}
@@ -2316,7 +2316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 544926164}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 85, y: 0, z: -161}
+  m_LocalPosition: {x: 51, y: -0, z: -185}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 937954963}
@@ -4585,7 +4585,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 918769873}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: -161}
+  m_LocalPosition: {x: 0, y: -0, z: -185}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 937954963}
@@ -4759,8 +4759,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 937954962}
-  m_LocalRotation: {x: 0.4075406, y: 0.0045133596, z: -0.010112462, w: 0.91312}
-  m_LocalPosition: {x: 0, y: 0, z: -5.01}
+  m_LocalRotation: {x: 0.40764207, y: -0.008236155, z: -0.0044213515, w: 0.913094}
+  m_LocalPosition: {x: 0, y: 0, z: -6.3}
   m_LocalScale: {x: 0.031675637, y: 0.031675637, z: 0.031675637}
   m_Children:
   - {fileID: 162308322}
@@ -4768,10 +4768,10 @@ RectTransform:
   - {fileID: 544926165}
   m_Father: {fileID: 0}
   m_RootOrder: 17
-  m_LocalEulerAnglesHint: {x: 48.104004, y: 0, z: -1.269}
+  m_LocalEulerAnglesHint: {x: 48.104004, y: -1.6, z: -1.269}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -43.75, y: 9.34}
+  m_AnchoredPosition: {x: -50.2, y: 9.43}
   m_SizeDelta: {x: 1000, y: 568.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &937954964
@@ -5165,7 +5165,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 185cb9cfdb3396148b6ba61ae3d97b72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stamp: {fileID: 162308322}
+  stamp1: {fileID: 162308322}
+  stamp2: {fileID: 918769874}
+  stamp3: {fileID: 544926165}
   cam: {fileID: 3128237412317172982}
 --- !u!4 &1010581433
 Transform:

@@ -5,9 +5,9 @@ using DG.Tweening;
 
 public class StampingAnim : MonoBehaviour
 {
-    public Transform stamp;
-    //public Transform stamp2;
-    //public Transform stamp3;
+    public Transform stamp1;
+    public Transform stamp2;
+    public Transform stamp3;
 
     public Transform cam;
 
