@@ -24,6 +24,7 @@ public class InteractMop : InteractItems
         {
             if (!player.GetComponent<PlayerMovement>().handsFull)
             {
+                player.GetComponent<PlayerMovement>().holding = "mop";
                 base.Interact(player);
                 Destroy(myMop);
                 hasMop = false;

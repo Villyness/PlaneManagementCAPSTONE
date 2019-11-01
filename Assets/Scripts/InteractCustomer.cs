@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
 
 public class InteractCustomer : MonoBehaviour
@@ -107,8 +109,11 @@ public class InteractCustomer : MonoBehaviour
                     PointsAwarded(currentPoints);
             }
 
+            if (player.GetComponent<PlayerManager>().holding == "Mop") {} //nothing happens
+
             else
             {   //failed
+                
                 hasNeed = false;
                 waitTime = waitFull;
                 //FindObjectOfType<ScoreManager>().score -= 1;

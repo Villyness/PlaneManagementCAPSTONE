@@ -56,10 +56,8 @@ public class PlayerMovement : PlayerManager
                         {
                             target.GetComponent<InteractCustomer>().Interact(this.gameObject);
 
-                            //Code for removing the object in the player's hands
-                            handsFull = false;
-                            holding = null;
-                            Destroy(HoldFrame.transform.GetChild(0).gameObject);
+                            //removes item from players hand, so long as that item isnt a mop
+                            if (holding != "Mop") DestoryHolding(); 
                         }
                     }
 
@@ -137,4 +135,12 @@ public class PlayerMovement : PlayerManager
         agent.destination = GetComponent<Transform>().position;
         //moving = false;
     }
+    
+    public void DestoryHolding()
+    {
+        handsFull = false;
+        holding = null;
+        Destroy(HoldFrame.transform.GetChild(0).gameObject);
+    }
+
 }
