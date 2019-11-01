@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour
     public int timerInt;
     public float LevelTimer;
     public GameObject[] passengers;
+    public bool end = false;
 
     private List<Seat> listOfSeats;
     
@@ -63,21 +64,24 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        timerInt = (int) timer;
-        if (timer > LevelTimer)
+        if (!end)
         {
-            if (LevelEnded != null)
+            timer += Time.deltaTime;
+            timerInt = (int) timer;
+            if (timer > LevelTimer)
             {
-                LevelEnded();
-                LevelTimer = 0;
+                if (LevelEnded != null)
+                {
+                    LevelEnded();
+                    end = true;
+                }
+
+                timer = 0;
             }
 
-            timer = 0;
+            if (Input.GetKeyDown(KeyCode.Z))
+                if (Pause != null)
+                    Pause();
         }
-        
-        if(Input.GetKeyDown(KeyCode.Z))
-            if (Pause != null)
-                Pause();
     }
 }
