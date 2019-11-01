@@ -34,6 +34,9 @@ public class PauseMenu : MonoBehaviour
         if (FindObjectOfType<LevelManager>())
             FindObjectOfType<LevelManager>().Pause += TogglePause;
 
+        if (FindObjectOfType<GlobalShortcuts>())
+            FindObjectOfType<GlobalShortcuts>().PauseGame += TogglePause;
+
         Debug.Log("OnSceneLoaded: " + scene.name);
         Debug.Log("mode: " + mode);
     }
