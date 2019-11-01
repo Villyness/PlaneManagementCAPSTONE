@@ -30,8 +30,6 @@ public class PlayerMovement : PlayerManager
 
     void Update()
     {
-        
-
         if (moving == true)
         {
             oldPos = currentPos;
@@ -65,6 +63,9 @@ public class PlayerMovement : PlayerManager
 
                     if (target.GetComponent<InteractItems>())
                     {
+                        if(handsFull == true)
+                            Destroy(HoldFrame.transform.GetChild(0).gameObject);
+                        
                         target.GetComponent<InteractItems>().Interact(gameObject);
                         //Debug.Log("link");
                     }
