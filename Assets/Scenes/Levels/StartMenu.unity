@@ -525,9 +525,13 @@ MonoBehaviour:
   offset: {x: 8.21, y: 10.21, z: -7.82}
   cameraClampMinX: 0
   cameraClampMaxX: 0
-  ClampPoint: {fileID: 0}
+  speed: 2
+  ClampPointPos: {fileID: 0}
+  ClampArea: {fileID: 0}
   clampOffset: 0
   isInKitchen: 0
+  scoreCanvas: {fileID: 0}
+  sManager: {fileID: 0}
 --- !u!95 &126059943
 Animator:
   serializedVersion: 3
@@ -5123,6 +5127,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7264448221027914946, guid: d9a267fb706cf6e40b4f5a210a8d14be,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6625506360903265654, guid: d9a267fb706cf6e40b4f5a210a8d14be,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5.6099854
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601389727567396933, guid: d9a267fb706cf6e40b4f5a210a8d14be,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9a267fb706cf6e40b4f5a210a8d14be, type: 3}
 --- !u!114 &1593288699 stripped
@@ -6473,7 +6492,7 @@ GameObject:
   m_Layer: 0
   m_Name: LookAt
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
