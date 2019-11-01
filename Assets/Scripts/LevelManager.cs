@@ -65,10 +65,13 @@ public class LevelManager : MonoBehaviour
     {
         timer += Time.deltaTime;
         timerInt = (int) timer;
-        if (timer >= LevelTimer)
+        if (timer > LevelTimer)
         {
             if (LevelEnded != null)
+            {
                 LevelEnded();
+                LevelTimer = 0;
+            }
 
             timer = 0;
         }

@@ -7,23 +7,28 @@ public class InGameUI : MonoBehaviour
 {
     public Text timerText;
     public Text scoreText;
+
+    public bool levelEnded = false;
     // Start is called before the first frame update
     void Start()
     {
-        //timerText = GetComponentInChildren<Text>();
-        /*if (FindObjectOfType<LevelManager>())
-        {
-            //int test = (int)(FindObjectOfType<LevelManager>().timer);
-            //string testStr = test.ToString();
-            //Debug.Log(test);
-            //timerText.text = (FindObjectOfType<LevelManager>().timer).ToString();
-        }*/
+        if (FindObjectOfType<LevelManager>())
+            FindObjectOfType<LevelManager>().LevelEnded += End;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timerText.text = (FindObjectOfType<LevelManager>().timerInt).ToString();
-        scoreText.text = FindObjectOfType<ScoreManager>().score.ToString();
+        if (!levelEnded)
+        {
+            timerText.text = FindObjectOfType<LevelManager>().timerInt.ToString();
+            scoreText.text = FindObjectOfType<ScoreManager>().score.ToString();
+        }
+        
+    }
+
+    void End()
+    {
+        levelEnded = true;
     }
 }
