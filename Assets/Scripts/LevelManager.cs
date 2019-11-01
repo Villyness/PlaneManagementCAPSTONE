@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
     public event Action Pause;
     //public event Action<int> setDist;
     public float timer;
+    public int timerInt;
     public float LevelTimer;
     public GameObject[] passengers;
 
@@ -63,6 +64,7 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
+        timerInt = (int) timer;
         if (timer >= LevelTimer)
         {
             if (LevelEnded != null)

@@ -23,7 +23,7 @@ public class InGameUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timerText.text = (FindObjectOfType<LevelManager>().timer).ToString();
+        timerText.text = (FindObjectOfType<LevelManager>().timerInt).ToString();
         scoreText.text = FindObjectOfType<ScoreManager>().score.ToString();
     }
 }
