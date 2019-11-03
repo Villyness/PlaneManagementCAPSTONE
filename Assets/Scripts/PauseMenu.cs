@@ -14,6 +14,7 @@ public class PauseMenu : MonoBehaviour
     private Canvas ownCanvas;
     public CanvasGroup PausePanel;
     public CanvasGroup AudioSettingsPanel;
+    public CanvasGroup GameUIPanel;
     private bool IsPaused;
 
     public int LevelSelectIndex;
@@ -26,6 +27,7 @@ public class PauseMenu : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
         StartCoroutine(Deactivate(AudioSettingsPanel)); // deactivate all the panels, only show StartMenu
         StartCoroutine(Deactivate(PausePanel));
+        StartCoroutine(Deactivate(GameUIPanel));
         IsPaused = false;
     }
 
@@ -37,6 +39,7 @@ public class PauseMenu : MonoBehaviour
         if (FindObjectOfType<GlobalShortcuts>())
             FindObjectOfType<GlobalShortcuts>().PauseGame += TogglePause;
 
+        StartCoroutine(Activate(GameUIPanel));
         Debug.Log("OnSceneLoaded: " + scene.name);
         Debug.Log("mode: " + mode);
     }
@@ -70,6 +73,7 @@ public class PauseMenu : MonoBehaviour
     {
         StartCoroutine(Activate(PausePanel));
         StartCoroutine(Deactivate(AudioSettingsPanel));
+        StartCoroutine(Deactivate(GameUIPanel));
         Time.timeScale = 0f;    // ZA WARUDOOOOOOO
         IsPaused = true;
     }
@@ -78,6 +82,7 @@ public class PauseMenu : MonoBehaviour
     {
         StartCoroutine(Deactivate(PausePanel));
         StartCoroutine(Deactivate(AudioSettingsPanel));
+        StartCoroutine(Activate(GameUIPanel));
         Time.timeScale = 1.0f;
         IsPaused = false;
     }
@@ -126,7 +131,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    IEnumerator Activate(CanvasGroup _panel)
+    IEnumerator Activate(CanvasGroup _panel) // Show the canvas group by changing the alpha to 1
     {
         while (_panel.alpha < 1)
         {
@@ -138,7 +143,7 @@ public class PauseMenu : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator Deactivate(CanvasGroup _panel)
+    IEnumerator Deactivate(CanvasGroup _panel) // Hide the canvas group by changing the alpha to 0, might lerp it later 
     {
         while (_panel.alpha > 0)
         {

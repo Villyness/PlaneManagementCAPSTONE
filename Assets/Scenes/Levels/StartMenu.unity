@@ -326,7 +326,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &23170775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4985,6 +4985,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1074081864}
     m_Modifications:
+    - target: {fileID: 933419558333779366, guid: d9a267fb706cf6e40b4f5a210a8d14be,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4928764031096916152, guid: d9a267fb706cf6e40b4f5a210a8d14be,
         type: 3}
       propertyPath: m_Name
@@ -5258,6 +5263,25 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 3.600006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279209219422354508, guid: d9a267fb706cf6e40b4f5a210a8d14be,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 439744670, guid: d9a267fb706cf6e40b4f5a210a8d14be, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830836322094615583, guid: d9a267fb706cf6e40b4f5a210a8d14be,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TogglePause
+      objectReference: {fileID: 0}
+    - target: {fileID: 2824769400626853700, guid: d9a267fb706cf6e40b4f5a210a8d14be,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9a267fb706cf6e40b4f5a210a8d14be, type: 3}
