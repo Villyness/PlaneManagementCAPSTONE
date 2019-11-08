@@ -29,6 +29,11 @@ public class ScoreManager : MonoBehaviour
     public GameObject NextLevel;
     public bool ShowScore = false;
     public StampingAnim StampAnim;
+    public ParticleSystem starParticles1;
+    public ParticleSystem starParticles2;
+    public ParticleSystem starParticles3;
+
+
 
     void Start()
     {
@@ -133,24 +138,36 @@ public class ScoreManager : MonoBehaviour
     IEnumerator PassStampAnim()
     {
         StampAnim.stamp1.DOLocalMoveZ(StampAnim.stamp1.transform.position.z - StampAnim.stamp1.transform.position.z, .7f).OnComplete(() => StampAnim.cam.DOShakePosition(1, .1f, 10, 45, false));
+        StampAnim.stamp1.DOComplete();
+        starParticles1.Play();
         yield return null;
     }
 
     IEnumerator GoodStampAnim()
     {
         StampAnim.stamp1.DOLocalMoveZ(StampAnim.stamp1.transform.position.z - StampAnim.stamp1.transform.position.z, .7f).OnComplete(() => StampAnim.cam.DOShakePosition(1, .1f, 10, 45, false));
+        StampAnim.stamp1.DOComplete();
+        starParticles1.Play();
         yield return new WaitForSeconds(1);
         StampAnim.stamp2.DOLocalMoveZ(StampAnim.stamp2.transform.position.z - StampAnim.stamp2.transform.position.z, .7f).OnComplete(() => StampAnim.cam.DOShakePosition(1, .1f, 10, 45, false));
+        StampAnim.stamp2.DOComplete();
+        starParticles2.Play();
         yield return null;
     }
 
     IEnumerator BestStampAnim()
     {
         StampAnim.stamp1.DOLocalMoveZ(StampAnim.stamp1.transform.position.z - StampAnim.stamp1.transform.position.z, .7f).OnComplete(() => StampAnim.cam.DOShakePosition(1, .1f, 10, 45, false));
+        StampAnim.stamp1.DOComplete();
+        starParticles1.Play();
         yield return new WaitForSeconds(1);
         StampAnim.stamp2.DOLocalMoveZ(StampAnim.stamp2.transform.position.z - StampAnim.stamp2.transform.position.z, .7f).OnComplete(() => StampAnim.cam.DOShakePosition(1, .1f, 10, 45, false));
+        StampAnim.stamp2.DOComplete();
+        starParticles2.Play();
         yield return new WaitForSeconds(1);
         StampAnim.stamp3.DOLocalMoveZ(StampAnim.stamp3.transform.position.z - StampAnim.stamp3.transform.position.z, .7f).OnComplete(() => StampAnim.cam.DOShakePosition(1, .1f, 10, 45, false));
+        StampAnim.stamp3.DOComplete();
+        starParticles3.Play();
         yield return null;
     }
 }
