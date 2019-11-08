@@ -79,9 +79,9 @@ public class LevelManager : MonoBehaviour
                 timer = 0;
             }
 
-            if (Input.GetKeyDown(KeyCode.Z))
-                if (Pause != null)
-                    Pause();
+            //if (Input.GetKeyDown(KeyCode.Z))
+            //    if (Pause != null)
+            //        Pause();
         }
     }
 }

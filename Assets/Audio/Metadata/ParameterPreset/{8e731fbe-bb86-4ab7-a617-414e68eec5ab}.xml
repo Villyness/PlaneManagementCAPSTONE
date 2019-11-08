@@ -13,10 +13,19 @@
 	</object>
 	<object class="GameParameter" id="{eefb68c0-8efa-478c-97a8-b28be562b0e4}">
 		<property name="parameterType">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<property name="maximum">
 			<value>7</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Value A</value>
+			<value>Value B</value>
+			<value>Value C</value>
+			<value>Value D</value>
+			<value>Value E</value>
+			<value>Value F</value>
+			<value>Value G</value>
 		</property>
 		<property name="initialValue">
 			<value>0</value>

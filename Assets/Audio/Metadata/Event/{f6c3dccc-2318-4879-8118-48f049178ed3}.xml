@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="Event" id="{f6c3dccc-2318-4879-8118-48f049178ed3}">
 		<property name="name">
-			<value>Gameplay Loop</value>
+			<value>Gameplay Loop old</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{bf8706e7-8d0c-4fb8-89d2-a4a740fa5575}</destination>
+			<destination>{b46c3f02-688f-4582-afdb-ed1cf717f356}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{4f0ead1e-a9e6-4a4f-b7cb-1f66427a4d82}</destination>
@@ -39,9 +39,6 @@
 		</relationship>
 		<relationship name="parameters">
 			<destination>{ca673523-ea39-4a53-bd2d-3bc68e7211e4}</destination>
-		</relationship>
-		<relationship name="banks">
-			<destination>{92a5d711-4f50-45fc-a94b-08c71713ba7f}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{4f0ead1e-a9e6-4a4f-b7cb-1f66427a4d82}">
@@ -76,7 +73,7 @@
 			<destination>{4cfcfc12-65dc-4dd4-85ee-fbf110f122bf}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{0bba1176-e902-496e-b0c2-2a854ef9ba80}</destination>
+			<destination>{2a96f29e-ddd2-4c89-8583-13cecf905036}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{31dad97e-6c21-4f88-a1e4-07366a355ff4}" />
