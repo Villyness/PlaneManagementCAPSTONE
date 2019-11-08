@@ -9,6 +9,8 @@ public class CameraScript_Follow : MonoBehaviour
 
     public float cameraClampMinX;
     public float cameraClampMaxX;
+    public float cameraClampY;
+    public float cameraClampZ;
     [SerializeField]private float speed = 2;
     private float currentClampMin;
     private float currentClampMax;

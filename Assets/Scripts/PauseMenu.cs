@@ -34,12 +34,13 @@ public class PauseMenu : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (FindObjectOfType<LevelManager>())
+        {
             FindObjectOfType<LevelManager>().Pause += TogglePause;
-
+            StartCoroutine(Activate(GameUIPanel));
+        }
         if (FindObjectOfType<GlobalShortcuts>())
             FindObjectOfType<GlobalShortcuts>().PauseGame += TogglePause;
 
-        StartCoroutine(Activate(GameUIPanel));
         Debug.Log("OnSceneLoaded: " + scene.name);
         Debug.Log("mode: " + mode);
     }

@@ -58,7 +58,7 @@ public class LevelSelect : MonoBehaviour
         cameraParent.DORotate(rot, 0.5f, RotateMode.Fast);
     }
 
-    /*private void OnDrawGizmos() // broken because sphere is not at 0,0,0
+    private void OnDrawGizmos()
     {
 #if UNITY_EDITOR
         Gizmos.color = Color.red;
@@ -91,7 +91,7 @@ public class LevelSelect : MonoBehaviour
             }
         }
 #endif
-    }*/
+    }
 }
 
 [System.Serializable]
