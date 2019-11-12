@@ -31,7 +31,7 @@ public class CameraScript_Follow : MonoBehaviour
 
     private void Start()
     {
-        
+        liveCamera.GetComponent<Camera>().orthographic = true;
     }
 
     void LateUpdate()
@@ -45,7 +45,7 @@ public class CameraScript_Follow : MonoBehaviour
         if(sManager.ShowScore)
         {
             // if level ends, move the score canvas in front of the camera, and switch camera view to perspective
-            scoreCanvas.anchoredPosition = new Vector3(liveCamera.transform.position.x, 9.34f, -5.01f);
+            //scoreCanvas.anchoredPosition = new Vector3(liveCamera.transform.position.x, 9.34f, -5.01f);
             liveCamera.GetComponent<Camera>().orthographic = false;
         }
     }

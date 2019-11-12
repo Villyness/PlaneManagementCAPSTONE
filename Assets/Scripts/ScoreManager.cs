@@ -28,6 +28,7 @@ public class ScoreManager : MonoBehaviour
     public Text finalScore;
     public GameObject NextLevel;
     public bool ShowScore = false;
+    public GameObject ScoreCanvas;
     public StampingAnim StampAnim;
     public ParticleSystem starParticles1;
     public ParticleSystem starParticles2;
@@ -37,6 +38,7 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
+        ScoreCanvas.SetActive(false);
         GetComponent<Canvas>().enabled = false;
         if (FindObjectOfType<LevelManager>())
         {
@@ -72,6 +74,7 @@ public class ScoreManager : MonoBehaviour
     void LevelEnd()
     {
         ShowScore = true;
+        ScoreCanvas.SetActive(true);
         //passStar.color = Color.yellow;
         
         /*endScreen.GetComponent<Renderer>().enabled = true;
