@@ -15,6 +15,8 @@ public class ScoreManager : MonoBehaviour
     public int level;
     public int score;
 
+    [Space]
+    [Header("Score Requirements")]
     //for each level go through and set individually
     public int[] passScore = {100,150,200,250,300};
     public int[] goodScore = {150,200,250,300,350};
@@ -25,20 +27,28 @@ public class ScoreManager : MonoBehaviour
     public UnityEngine.UI.Image goodStar;
     public UnityEngine.UI.Image bestStar;
 
+    [Space]
+    [Header("Public References")]
     public Text finalScore;
     public GameObject NextLevel;
     public bool ShowScore = false;
     public GameObject ScoreCanvas;
+    public RectTransform ScoreBackground;
     public StampingAnim StampAnim;
+    public float duration = 1;
+
+    [Space]
+    [Header("Star Particle References")]
     public ParticleSystem starParticles1;
     public ParticleSystem starParticles2;
     public ParticleSystem starParticles3;
+    public float interval = .5f;
 
 
 
     void Start()
     {
-        ScoreCanvas.SetActive(false);
+        //ScoreCanvas.SetActive(false);
         GetComponent<Canvas>().enabled = false;
         if (FindObjectOfType<LevelManager>())
         {
@@ -46,7 +56,7 @@ public class ScoreManager : MonoBehaviour
         }
         else
         {
-            return;        
+            return;
         }
 
         foreach (InteractCustomer passenger in FindObjectsOfType<InteractCustomer>())
@@ -54,7 +64,7 @@ public class ScoreManager : MonoBehaviour
             passenger.PointsAwarded += UpdateScore;
         }
 
-        
+
         //ScoreReset();
     }
 
@@ -74,15 +84,31 @@ public class ScoreManager : MonoBehaviour
     void LevelEnd()
     {
         ShowScore = true;
-        ScoreCanvas.SetActive(true);
+        ScoreBackground.DOAnchorPos(Vector2.zero, 1f).SetEase(Ease.OutBounce).OnComplete(()=> ShowScoreInfo());
+        //ScoreCanvas.SetActive(true);
         //passStar.color = Color.yellow;
-        
+
         /*endScreen.GetComponent<Renderer>().enabled = true;
         bestStar.GetComponent<Renderer>().enabled = true;
         goodStar.GetComponent<Renderer>().enabled = true;
         passStar.GetComponent<Renderer>().enabled = true;*/
         Debug.Log(passScore[level]);
         //check score, have gameobjects for each.
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    void UpdateScore(int scoreAdd)
+    {
+        score += scoreAdd;
+    }
+
+    // contains info to show on score canvas. i.e. Score, Stamp Rating
+    void ShowScoreInfo()
+    {
         if (score >= bestScore[level])
         {
             //passed = true;
@@ -90,7 +116,7 @@ public class ScoreManager : MonoBehaviour
             //best score
             bestStar.color = Color.yellow;
             // Do the stamping animation for all three star
-            StartCoroutine(BestStampAnim());
+            BestStampingAmin();
         }
         if (score >= goodScore[level])
         {
@@ -100,7 +126,7 @@ public class ScoreManager : MonoBehaviour
             //good score
 
             // Do the stamping animation for first and second star
-            StartCoroutine(GoodStampAnim());
+            GoodStampingAmin();
         }
         if (score >= passScore[level])
         {
@@ -108,7 +134,7 @@ public class ScoreManager : MonoBehaviour
             //passStar.GetComponent<Renderer>().material = matPass;
             //passed
             // Do the stamping animation for first star
-            StartCoroutine(PassStampAnim());
+            PassStampingAmin();
         }
         else
         {
@@ -126,51 +152,38 @@ public class ScoreManager : MonoBehaviour
         GetComponent<Canvas>().enabled = true;
         finalScore.text = "Score: " + score;
         //Debug.Log("Determination");
+
     }
 
-    public void RestartLevel()
+    void PassStampingAmin()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Sequence s = DOTween.Sequence();
+        s.Append(StampAnim.stamp1.DOLocalMoveZ(0, duration).OnComplete(() => starParticles1.Play()));
+        s.Append(StampAnim.cam.DOShakePosition(duration, 1f, 20, 45, false));
     }
 
-    void UpdateScore(int scoreAdd)
+    void GoodStampingAmin()
     {
-        score += scoreAdd;
+        Sequence s = DOTween.Sequence();
+        s.Append(StampAnim.stamp1.DOLocalMoveZ(0, duration).OnComplete(() => starParticles1.Play()));
+        s.Append(StampAnim.cam.DOShakePosition(duration, 1f, 20, 45, false));
+        s.AppendInterval(interval);
+        s.Append(StampAnim.stamp2.DOLocalMoveZ(0, duration).OnComplete(() => starParticles2.Play()));
+        s.Append(StampAnim.cam.DOShakePosition(duration, 1f, 20, 45, false));
     }
 
-    IEnumerator PassStampAnim()
+    void BestStampingAmin()
     {
-        StampAnim.stamp1.DOLocalMoveZ(StampAnim.stamp1.transform.position.z - StampAnim.stamp1.transform.position.z, .7f).OnComplete(() => StampAnim.cam.DOShakePosition(1, .1f, 10, 45, false));
-        StampAnim.stamp1.DOComplete();
-        starParticles1.Play();
-        yield return null;
+        Sequence s = DOTween.Sequence();
+        s.Append(StampAnim.stamp1.DOLocalMoveZ(0, duration).OnComplete(() => starParticles1.Play()));
+        s.Append(StampAnim.cam.DOShakePosition(duration, 1f, 20, 45, false));
+        s.AppendInterval(interval);
+        s.Append(StampAnim.stamp2.DOLocalMoveZ(0, duration).OnComplete(() => starParticles2.Play()));
+        s.Append(StampAnim.cam.DOShakePosition(duration, 1f, 20, 45, false));
+        s.AppendInterval(interval);
+        s.Append(StampAnim.stamp3.DOLocalMoveZ(0, duration).OnComplete(() => starParticles3.Play()));
+        s.Append(StampAnim.cam.DOShakePosition(duration, 1f, 20, 45, false));
+
     }
 
-    IEnumerator GoodStampAnim()
-    {
-        StampAnim.stamp1.DOLocalMoveZ(StampAnim.stamp1.transform.position.z - StampAnim.stamp1.transform.position.z, .7f).OnComplete(() => StampAnim.cam.DOShakePosition(1, .1f, 10, 45, false));
-        StampAnim.stamp1.DOComplete();
-        starParticles1.Play();
-        yield return new WaitForSeconds(1);
-        StampAnim.stamp2.DOLocalMoveZ(StampAnim.stamp2.transform.position.z - StampAnim.stamp2.transform.position.z, .7f).OnComplete(() => StampAnim.cam.DOShakePosition(1, .1f, 10, 45, false));
-        StampAnim.stamp2.DOComplete();
-        starParticles2.Play();
-        yield return null;
-    }
-
-    IEnumerator BestStampAnim()
-    {
-        StampAnim.stamp1.DOLocalMoveZ(StampAnim.stamp1.transform.position.z - StampAnim.stamp1.transform.position.z, .7f).OnComplete(() => StampAnim.cam.DOShakePosition(1, .1f, 10, 45, false));
-        StampAnim.stamp1.DOComplete();
-        starParticles1.Play();
-        yield return new WaitForSeconds(1);
-        StampAnim.stamp2.DOLocalMoveZ(StampAnim.stamp2.transform.position.z - StampAnim.stamp2.transform.position.z, .7f).OnComplete(() => StampAnim.cam.DOShakePosition(1, .1f, 10, 45, false));
-        StampAnim.stamp2.DOComplete();
-        starParticles2.Play();
-        yield return new WaitForSeconds(1);
-        StampAnim.stamp3.DOLocalMoveZ(StampAnim.stamp3.transform.position.z - StampAnim.stamp3.transform.position.z, .7f).OnComplete(() => StampAnim.cam.DOShakePosition(1, .1f, 10, 45, false));
-        StampAnim.stamp3.DOComplete();
-        starParticles3.Play();
-        yield return null;
-    }
 }
