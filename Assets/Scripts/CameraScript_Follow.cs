@@ -3,14 +3,16 @@ using UnityEngine;
 
 public class CameraScript_Follow : MonoBehaviour
 {
+    [Header("Camera References")]
     public Transform FollowTarget;
     public float smoothSpeed;
     public Vector3 offset;
 
-    public float cameraClampMinX;
-    public float cameraClampMaxX;
+    [Space]
+    [Header("Clamp Points")]
+    public float cameraClampMinZ;
+    public float cameraClampMaxZ;
     public float cameraClampY;
-    public float cameraClampZ;
     [SerializeField]private float speed = 2;
     private float currentClampMin;
     private float currentClampMax;
@@ -19,6 +21,8 @@ public class CameraScript_Follow : MonoBehaviour
     public float clampOffset; // allow tweaking
     public bool isInKitchen = false;
 
+    [Space]
+    [Header("Public References")]
     public static GameObject liveCamera;
     public RectTransform scoreCanvas;
     public ScoreManager sManager;
@@ -42,10 +46,8 @@ public class CameraScript_Follow : MonoBehaviour
 
     public void OrthoToPersp()
     {
-        if(sManager.ShowScore)
+        if (sManager.ShowScore)
         {
-            // if level ends, move the score canvas in front of the camera, and switch camera view to perspective
-            //scoreCanvas.anchoredPosition = new Vector3(liveCamera.transform.position.x, 9.34f, -5.01f);
             liveCamera.GetComponent<Camera>().orthographic = false;
         }
     }
@@ -58,21 +60,21 @@ public class CameraScript_Follow : MonoBehaviour
         transform.position = smoothedPosition;
 
         transform.position = new Vector3(
-            Mathf.Clamp(transform.position.x, UpdateClampMin(), UpdateClampMax()),
-                transform.position.y,
-                transform.position.z
-                );
+            transform.position.x,
+            transform.position.y,
+            Mathf.Clamp(transform.position.z, UpdateClampMin(), UpdateClampMax())
+            );
     }
 
     public float UpdateClampMin()
     {
         if (!isInKitchen)
         {
-            return currentClampMin = Mathf.Lerp(currentClampMin, cameraClampMinX, Time.deltaTime * speed);
+            return currentClampMin = Mathf.Lerp(currentClampMin, cameraClampMinZ, Time.deltaTime * speed);
         }
         else
         {
-            return currentClampMin = Mathf.Lerp(currentClampMin, ClampPointPos.position.x + clampOffset, Time.deltaTime * speed);
+            return currentClampMin = Mathf.Lerp(currentClampMin, ClampPointPos.position.z + clampOffset, Time.deltaTime * speed);
         }
     }
 
@@ -80,11 +82,11 @@ public class CameraScript_Follow : MonoBehaviour
     {
         if (!isInKitchen)
         {
-            return currentClampMax = Mathf.Lerp(currentClampMax, ClampPointPos.position.x + clampOffset, Time.deltaTime * speed);
+            return currentClampMax = Mathf.Lerp(currentClampMax, ClampPointPos.position.z + clampOffset, Time.deltaTime * speed);
         }
         else
         {
-            return currentClampMax = Mathf.Lerp(currentClampMax, cameraClampMaxX, Time.deltaTime * speed);
+            return currentClampMax = Mathf.Lerp(currentClampMax, cameraClampMaxZ, Time.deltaTime * speed);
         }
     }
 

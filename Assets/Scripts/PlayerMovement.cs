@@ -114,11 +114,11 @@ public class PlayerMovement : PlayerManager
     {
         if(currentPos!= oldPos)
         {
-            //GetComponentInChildren<Animator>().SetBool("isWalking", true);
+            GetComponentInChildren<Animator>().SetBool("isWalking", true);
         }
         else if(currentPos == oldPos)
         {
-            //GetComponentInChildren<Animator>().SetBool("isWalking", false);
+            GetComponentInChildren<Animator>().SetBool("isWalking", false);
         }
         yield return null;
     }
