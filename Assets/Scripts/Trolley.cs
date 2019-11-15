@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityScript.Lang;
+//using UnityScript.Lang;
 
 public class Trolley : InteractItems
 {
@@ -15,7 +15,7 @@ public class Trolley : InteractItems
     
     public override void Interact(GameObject player)
     {
-        ItemList.Add(player.GetComponent<PlayerManager>().holding);
+        //ItemList.Add(player.GetComponent<PlayerManager>().holding);
         base.Interact(player);
     }
 }
