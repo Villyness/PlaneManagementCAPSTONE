@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Animators")]
     public Animator animator_startToLevelSelect;
+    [Space]
 
     private PlayerMovement player;
 
@@ -13,7 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject LevelSelectMenu;
 
     public static GameManager instance;
-    
+
 
     private void Awake()
     {
