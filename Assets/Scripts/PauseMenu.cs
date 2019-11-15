@@ -21,7 +21,8 @@ public class PauseMenu : MonoBehaviour
 
     // 
     void Start()
-    {   ownCanvas = GetComponent<Canvas>();
+    {
+        ownCanvas = GetComponent<Canvas>();
         ownCanvas.enabled = true;
         //DontDestroyOnLoad(ownCanvas);
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -38,8 +39,8 @@ public class PauseMenu : MonoBehaviour
             FindObjectOfType<LevelManager>().Pause += TogglePause;
             StartCoroutine(Activate(GameUIPanel));
         }
-        if (FindObjectOfType<GlobalShortcuts>())
-            FindObjectOfType<GlobalShortcuts>().PauseGame += TogglePause;
+        //if (FindObjectOfType<GlobalShortcuts>())
+        //    FindObjectOfType<GlobalShortcuts>().PauseGame += TogglePause;
 
         Debug.Log("OnSceneLoaded: " + scene.name);
         Debug.Log("mode: " + mode);
