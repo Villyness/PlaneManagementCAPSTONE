@@ -11,7 +11,7 @@ public class InteractMop : InteractItems
     
     void Start()
     {
-        mopSpawn = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
+        mopSpawn = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         myMop = Instantiate(mopPre, mopSpawn, Quaternion.identity);
         hasMop = true;
         ObjectToSpawn = mopPre;
