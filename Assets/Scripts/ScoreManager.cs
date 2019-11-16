@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
-using Image = UnityEngine.UIElements.Image;
 using DG.Tweening;
 
 public class ScoreManager : MonoBehaviour
@@ -21,11 +20,6 @@ public class ScoreManager : MonoBehaviour
     public int[] passScore = {100,150,200,250,300};
     public int[] goodScore = {150,200,250,300,350};
     public int[] bestScore = {200,250,300,350,400};
-
-    //stars for winning <pr>
-    public UnityEngine.UI.Image passStar;
-    public UnityEngine.UI.Image goodStar;
-    public UnityEngine.UI.Image bestStar;
 
     [Space]
     [Header("Public References")]
@@ -86,12 +80,7 @@ public class ScoreManager : MonoBehaviour
         ShowScore = true;
         ScoreBackground.DOAnchorPos(Vector2.zero, 1f).SetEase(Ease.OutBounce).OnComplete(()=> ShowScoreInfo());
         //ScoreCanvas.SetActive(true);
-        //passStar.color = Color.yellow;
 
-        /*endScreen.GetComponent<Renderer>().enabled = true;
-        bestStar.GetComponent<Renderer>().enabled = true;
-        goodStar.GetComponent<Renderer>().enabled = true;
-        passStar.GetComponent<Renderer>().enabled = true;*/
         Debug.Log(passScore[level]);
         //check score, have gameobjects for each.
     }
@@ -111,28 +100,16 @@ public class ScoreManager : MonoBehaviour
     {
         if (score >= bestScore[level])
         {
-            //passed = true;
-            //bestStar.GetComponent<Renderer>().material = matPass;
-            //best score
-            bestStar.color = Color.yellow;
             // Do the stamping animation for all three star
             BestStampingAmin();
         }
         if (score >= goodScore[level])
         {
-            //passed = true;
-            goodStar.color = Color.yellow;
-            //goodStar.GetComponent<Renderer>().material = matPass;
-            //good score
-
             // Do the stamping animation for first and second star
             GoodStampingAmin();
         }
         if (score >= passScore[level])
         {
-            passStar.color = Color.yellow;
-            //passStar.GetComponent<Renderer>().material = matPass;
-            //passed
             // Do the stamping animation for first star
             PassStampingAmin();
         }
