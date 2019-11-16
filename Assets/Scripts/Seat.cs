@@ -10,7 +10,7 @@ public class Seat : MonoBehaviour
     
     // [ACT] -> Set Up Variables
     public bool isOccupied;
-    public int[] seatPos;
+    public int[] seatPos = new int[2];
 
     public Vector3 displacementVect;
     //public Transform spawnPos;
