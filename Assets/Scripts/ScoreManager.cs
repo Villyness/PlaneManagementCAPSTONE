@@ -64,21 +64,7 @@ public class ScoreManager : MonoBehaviour
         }
 
 
-        //ScoreReset();
     }
-
-    /*void ScoreReset()
-    {
-        score = 0;
-        //this makes it a pop up rather than a seperate screen
-        bestStar.GetComponent<Renderer>().material = matFail;
-        goodStar.GetComponent<Renderer>().material = matFail;
-        passStar.GetComponent<Renderer>().material = matFail;
-        endScreen.GetComponent<Renderer>().enabled = false;
-        bestStar.GetComponent<Renderer>().enabled = false;
-        goodStar.GetComponent<Renderer>().enabled = false;
-        passStar.GetComponent<Renderer>().enabled = false;
-    }*/
 
     void LevelEnd()
     {
