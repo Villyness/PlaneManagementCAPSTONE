@@ -12,7 +12,7 @@ public class Seat : MonoBehaviour
     public bool isOccupied;
     public int[] seatPos = new int[2];
 
-    public Vector3 displacementVect;
+    //public Vector3 displacementVect;
     //public Transform spawnPos;
     
     void Start()

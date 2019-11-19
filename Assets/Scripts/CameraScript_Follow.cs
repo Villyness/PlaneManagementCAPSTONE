@@ -13,6 +13,7 @@ public class CameraScript_Follow : MonoBehaviour
     public float cameraClampMinZ;
     public float cameraClampMaxZ;
     public float cameraClampY;
+    public float cameraClampX;
     [SerializeField]private float speed = 2;
     private float currentClampMin;
     private float currentClampMax;
@@ -60,8 +61,8 @@ public class CameraScript_Follow : MonoBehaviour
         transform.position = smoothedPosition;
 
         transform.position = new Vector3(
-            transform.position.x,
-            transform.position.y,
+            Mathf.Clamp(transform.position.x, cameraClampX, cameraClampX),
+            Mathf.Clamp(transform.position.z, cameraClampY, cameraClampY),
             Mathf.Clamp(transform.position.z, UpdateClampMin(), UpdateClampMax())
             );
     }

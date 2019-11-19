@@ -27,7 +27,7 @@ public class ScoreManager : MonoBehaviour
     public GameObject NextLevel;
     public bool ShowScore = false;
     public GameObject ScoreCanvas;
-    public RectTransform ScoreBackground;
+    public RectTransform PassportPos;
     public StampingAnim StampAnim;
     public float duration = 1;
 
@@ -38,12 +38,17 @@ public class ScoreManager : MonoBehaviour
     public ParticleSystem starParticles3;
     public float interval = .5f;
 
+    [Space]
+    [Header("Camera Shake Reference")]
+    public float strength = 4f;
+    public int vibrato = 30;
+
 
 
     void Start()
     {
-        //ScoreCanvas.SetActive(false);
         GetComponent<Canvas>().enabled = false;
+        finalScore.GetComponent<Text>().enabled = false;
         if (FindObjectOfType<LevelManager>())
         {
             FindObjectOfType<LevelManager>().LevelEnded += LevelEnd;
@@ -78,7 +83,7 @@ public class ScoreManager : MonoBehaviour
     void LevelEnd()
     {
         ShowScore = true;
-        ScoreBackground.DOAnchorPos(Vector2.zero, 1f).SetEase(Ease.OutBounce).OnComplete(()=> ShowScoreInfo());
+        PassportPos.DOAnchorPos(Vector3 .zero, 1f).SetEase(Ease.OutBounce).OnComplete(()=> ShowScoreInfo());
         //ScoreCanvas.SetActive(true);
 
         Debug.Log(passScore[level]);
@@ -127,7 +132,9 @@ public class ScoreManager : MonoBehaviour
         }*/
 
         GetComponent<Canvas>().enabled = true;
-        finalScore.text = "Score: " + score;
+        finalScore.text = ""+ score;
+        finalScore.GetComponent<Text>().enabled = true;
+
         //Debug.Log("Determination");
 
     }
@@ -136,30 +143,30 @@ public class ScoreManager : MonoBehaviour
     {
         Sequence s = DOTween.Sequence();
         s.Append(StampAnim.stamp1.DOLocalMoveZ(0, duration).OnComplete(() => starParticles1.Play()));
-        s.Append(StampAnim.cam.DOShakePosition(duration, 1f, 20, 45, false));
+        s.Append(StampAnim.cam.DOShakePosition(duration, strength, vibrato, 45, false));
     }
 
     void GoodStampingAmin()
     {
         Sequence s = DOTween.Sequence();
         s.Append(StampAnim.stamp1.DOLocalMoveZ(0, duration).OnComplete(() => starParticles1.Play()));
-        s.Append(StampAnim.cam.DOShakePosition(duration, 1f, 20, 45, false));
+        s.Append(StampAnim.cam.DOShakePosition(duration, strength, vibrato, 45, false));
         s.AppendInterval(interval);
         s.Append(StampAnim.stamp2.DOLocalMoveZ(0, duration).OnComplete(() => starParticles2.Play()));
-        s.Append(StampAnim.cam.DOShakePosition(duration, 1f, 20, 45, false));
+        s.Append(StampAnim.cam.DOShakePosition(duration, strength, vibrato, 45, false));
     }
 
     void BestStampingAmin()
     {
         Sequence s = DOTween.Sequence();
         s.Append(StampAnim.stamp1.DOLocalMoveZ(0, duration).OnComplete(() => starParticles1.Play()));
-        s.Append(StampAnim.cam.DOShakePosition(duration, 1f, 20, 45, false));
+        s.Append(StampAnim.cam.DOShakePosition(duration, strength, vibrato, 45, false));
         s.AppendInterval(interval);
         s.Append(StampAnim.stamp2.DOLocalMoveZ(0, duration).OnComplete(() => starParticles2.Play()));
-        s.Append(StampAnim.cam.DOShakePosition(duration, 1f, 20, 45, false));
+        s.Append(StampAnim.cam.DOShakePosition(duration, strength, vibrato, 45, false));
         s.AppendInterval(interval);
         s.Append(StampAnim.stamp3.DOLocalMoveZ(0, duration).OnComplete(() => starParticles3.Play()));
-        s.Append(StampAnim.cam.DOShakePosition(duration, 1f, 20, 45, false));
+        s.Append(StampAnim.cam.DOShakePosition(duration, strength, vibrato, 45, false));
 
     }
 

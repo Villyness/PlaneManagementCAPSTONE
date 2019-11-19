@@ -17,7 +17,9 @@ public class LevelManager : MonoBehaviour
     public bool end = false;
 
     private List<Seat> listOfSeats;
-    
+    public Vector3 displacementVect;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +33,7 @@ public class LevelManager : MonoBehaviour
             Debug.Log("Null!");
         }*/
         listOfSeats = new List<Seat>();
-        Vector3 displacementVect = new Vector3(0, 2, 0.5f);
+        //Vector3 displacementVect = new Vector3(0, 2, 0.5f);
         foreach (Seat seat in FindObjectsOfType<Seat>())
         {
             //if (seat.isOccupied == true)
