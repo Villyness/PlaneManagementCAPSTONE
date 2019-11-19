@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/StartMenu.unity
     guid: 44ec477b9899c5540bab1f47b50d69a9
   - enabled: 1
-    path: Assets/Scenes/JingTestScenes/JingTest1.unity
-    guid: 2c590ea0539237740a4329faba15ab37
+    path: Assets/Scenes/Levels/Level_0_Tutorial.unity
+    guid: 8a0e8ed28b7f88d4e8b4cd497eebb474
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level_1.unity
+    guid: 888046aeb5fa636428780d0a6ab2bddb
   m_configObjects: {}
