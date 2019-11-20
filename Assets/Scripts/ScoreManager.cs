@@ -47,7 +47,6 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
-        GetComponent<Canvas>().enabled = false;
         finalScore.GetComponent<Text>().enabled = false;
         if (FindObjectOfType<LevelManager>())
         {
@@ -117,7 +116,7 @@ public class ScoreManager : MonoBehaviour
             //load next level
         }*/
 
-        GetComponent<Canvas>().enabled = true;
+        //GetComponent<Canvas>().enabled = true;
         finalScore.text = ""+ score;
         finalScore.GetComponent<Text>().enabled = true;
 

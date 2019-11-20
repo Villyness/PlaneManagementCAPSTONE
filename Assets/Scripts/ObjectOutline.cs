@@ -15,19 +15,27 @@ public class ObjectOutline : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        largerBurger.SetActive(false);
-        largerDrink.SetActive(false);
-        largerMop.SetActive(false);
-        StartCoroutine(BurgerFlashOutline());
-        StartCoroutine(DrinkFlashOutline());
-        StartCoroutine(MopFlashOutline());
-
+        if (largerBurger != null)
+        {
+            largerBurger.SetActive(false);
+            StartCoroutine(BurgerFlashOutline());
+        }
+        if (largerDrink != null)
+        {
+            largerDrink.SetActive(false);
+            StartCoroutine(DrinkFlashOutline());
+        }
+        if (largerMop != null)
+        {
+            largerMop.SetActive(false);
+            StartCoroutine(MopFlashOutline());
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private IEnumerator BurgerFlashOutline()

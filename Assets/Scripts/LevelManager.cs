@@ -12,6 +12,7 @@ public class LevelManager : MonoBehaviour
     //public event Action<int> setDist;
     public float timer;
     public int timerInt;
+    public float timePercentage;
     public float LevelTimer;
     public GameObject[] passengers;
     public bool end = false;
@@ -66,6 +67,8 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timePercentage = (timer / LevelTimer) * 100;
+
         if (!end)
         {
             timer += Time.deltaTime;
