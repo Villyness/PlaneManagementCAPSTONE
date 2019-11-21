@@ -45,17 +45,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
-  - name: New York
-    x: -34
-    y: 33
+  - name: 0
+    x: -25
+    y: 65
     visualPoint: {fileID: 0}
-  - name: London
-    x: 93
-    y: -4
+  - name: 1
+    x: 3
+    y: -11
     visualPoint: {fileID: 0}
-  - name: Taipei
-    x: -67
-    y: -37
+  - name: 2
+    x: -51
+    y: 7
+    visualPoint: {fileID: 0}
+  - name: 3
+    x: 56
+    y: 20
+    visualPoint: {fileID: 0}
+  - name: 4
+    x: 123
+    y: -11
     visualPoint: {fileID: 0}
   levelSelectCamera: {fileID: 0}
   LevelPoint: {fileID: 7714097809030165354, guid: becc92a4dfd2a084f854c578f0994b97,

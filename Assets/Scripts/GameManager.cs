@@ -2,18 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
     [Header("Animators")]
     public Animator animator_startToLevelSelect;
+    public HostessAnim hostessAnim;
+
     [Space]
 
     private PlayerMovement player;
 
+    [Header("Level Select")]
     public GameObject MainMenu;
     public GameObject LevelSelectMenu;
+    public LevelSelect levelSelect;
+    public int levelIndex;
 
     public static GameManager instance;
 
@@ -33,24 +37,35 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        hostessAnim.start = true;
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (hostessAnim != null)
+            hostessAnim.start = true;
         player = FindObjectOfType<PlayerMovement>();
         if (FindObjectOfType<LevelManager>())
             FindObjectOfType<LevelManager>().LevelEnded += DisableInput;
 
-        if (FindObjectOfType<LevelSelect>())
+        //if (FindObjectOfType<LevelSelect>())
+        if (LevelSelectMenu != null)
             LevelSelectMenu.SetActive(false);
+
     }
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(sceneBuildIndex: 1); // For now. Need to change it later to detect which level player chose.
         AudioManager.instance.GameplayStart();
+        SceneManager.LoadScene(sceneBuildIndex: levelIndex);
     }
 
     public void ToLevelSelectFromStart()
     {
         animator_startToLevelSelect.SetTrigger("Start");
-        MainMenu.SetActive(false);
+        //MainMenu.SetActive(false);
         LevelSelectMenu.SetActive(true);
     }
 
