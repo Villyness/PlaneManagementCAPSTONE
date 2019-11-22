@@ -82,7 +82,7 @@ public class InteractCustomer : MonoBehaviour
             if (hasNeed == true)
             {
                 waitTime -= 1;
-                if (waitTime >= 0)
+                if (waitTime <= 0)
                 {
                     //failed
                     hasNeed = false;

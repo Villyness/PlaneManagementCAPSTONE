@@ -16,8 +16,12 @@ public class Mess : InteractItems
     private void Update()
     {
         // spawn mess based on level time percentage
-        if (levelManager.timePercentage > 50)
+        if (Random.Range(0, 15) == 1)
+        {
             splash.enabled = true;
+            Debug.Log("Mess spawned");
+        }
+            
     }
 
     public override void Interact(GameObject player)
