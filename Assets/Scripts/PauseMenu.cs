@@ -10,6 +10,8 @@ public class PauseMenu : MonoBehaviour
     // V's script so if it spontaneously combusts or looks like gibberish, @ me
     // Also go play Skullgirls IT'S GOOD
 
+    // This is pretty much an UI Manager now 
+
     // Setting up...
     private Canvas ownCanvas;
     public CanvasGroup PausePanel;
@@ -38,18 +40,17 @@ public class PauseMenu : MonoBehaviour
     // Check if the active scene is StartMenu, 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        // make sure the game isn't paused
+        Time.timeScale = 1.0f;
+        IsPaused = false;
+        // if active scene isn't StartMenu, activate GameUI
+        if (SceneManager.GetActiveScene().buildIndex != 0)
         {
-            StartCoroutine(Deactivate(GameUIPanel));
-        }
-        else
-        {
-            //StartCoroutine(Activate(GameUIPanel));
-            ResumeGame();
+            StartCoroutine(Activate(GameUIPanel));
         }
 
         Debug.Log("OnSceneLoaded: " + scene.name);
-        Debug.Log("mode: " + mode);
+        //Debug.Log("mode: " + mode);
     }
 
     void OnDisable()
@@ -108,7 +109,7 @@ public class PauseMenu : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {
             SceneManager.LoadScene(LevelSelectIndex);
-            //StartCoroutine(Activate(MainMenuPanel));
+            StartCoroutine(Activate(MainMenuPanel));
             StartCoroutine(Deactivate(PausePanel));
             StartCoroutine(Deactivate(AudioSettingsPanel));
             StartCoroutine(Deactivate(GameUIPanel));
@@ -119,8 +120,6 @@ public class PauseMenu : MonoBehaviour
         {
             StartCoroutine(Deactivate(MainMenuPanel));
         }
-
-        //ResumeGame();
     }
 
     public void FullscreenToggle(bool isFullScr)
