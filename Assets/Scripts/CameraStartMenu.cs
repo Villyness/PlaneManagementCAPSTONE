@@ -9,12 +9,14 @@ public class CameraStartMenu : MonoBehaviour
 
     public Animator amin;
     public GameObject LevelSelectMenu;
+    public LevelSelect LevelSelect;
 
     // Start is called before the first frame update
     void Start()
     {
         GameManager.instance.animator_startToLevelSelect = amin;
         GameManager.instance.LevelSelectMenu = LevelSelectMenu;
+        GameManager.instance.levelSelect = LevelSelect;
     }
 
     public void LaunchFlight()

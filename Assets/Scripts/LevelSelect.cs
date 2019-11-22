@@ -29,6 +29,7 @@ public class LevelSelect : MonoBehaviour
         if (levels.Count > 0)
         {
             LookAtLevel(levels[0]);
+            GameManager.instance.levelIndex = 1;
             UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(LevelButtonContainer.GetChild(0).gameObject);
         }
     }
@@ -47,6 +48,7 @@ public class LevelSelect : MonoBehaviour
         Levels level = L;
         Button levelButton = Instantiate(LevelButton,LevelButtonContainer).GetComponent<Button>();
         levelButton.onClick.AddListener(() => LookAtLevel(level));
+        levelButton.onClick.AddListener(() => GetLevelIndex(level));
 
         levelButton.transform.GetChild(0).GetComponentInChildren<Text>().text = L.name;
     }
@@ -56,6 +58,13 @@ public class LevelSelect : MonoBehaviour
         Transform cameraParent = levelSelectCamera.transform.parent;
         Vector3 rot = new Vector3(L.y, -L.x, 0);
         cameraParent.DORotate(rot, 0.5f, RotateMode.Fast);
+        
+    }
+
+    public void GetLevelIndex(Levels L)
+    {
+        GameManager.instance.levelIndex = L.index;
+        Debug.Log(L.index + L.name);
     }
 
     private void OnDrawGizmos()
@@ -98,6 +107,7 @@ public class LevelSelect : MonoBehaviour
 public class Levels
 {
     public string name;
+    public int index;
     [Range(-180,180)]
     public float x;
     [Range (-89,89)]
