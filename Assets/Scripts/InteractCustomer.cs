@@ -111,6 +111,8 @@ public class InteractCustomer : MonoBehaviour
                 //Destroy(spawnPos.gameObject);
                 if(PointsAwarded != null)
                     PointsAwarded(currentPoints);
+                    
+                Destroy(HeldItem);
             }
 
             if (player.GetComponent<PlayerManager>().holding == "Mop") {} //nothing happens
