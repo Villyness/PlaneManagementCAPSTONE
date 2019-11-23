@@ -17,17 +17,17 @@ public class ObjectOutline : MonoBehaviour
     {
         if (largerBurger != null)
         {
-            largerBurger.SetActive(false);
+            //largerBurger.SetActive(false);
             StartCoroutine(BurgerFlashOutline());
         }
         if (largerDrink != null)
         {
-            largerDrink.SetActive(false);
+            //largerDrink.SetActive(false);
             StartCoroutine(DrinkFlashOutline());
         }
         if (largerMop != null)
         {
-            largerMop.SetActive(false);
+            //largerMop.SetActive(false);
             StartCoroutine(MopFlashOutline());
         }
     }

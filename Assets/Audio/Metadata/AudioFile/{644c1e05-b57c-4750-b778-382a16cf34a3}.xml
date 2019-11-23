@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{644c1e05-b57c-4750-b778-382a16cf34a3}">
+		<property name="assetPath">
+			<value>SFX/EatingDrinking/SlidingPlate.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.1946666666666668</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3d3fe8ab-b055-4d28-a685-a0cb12a5774d}</destination>
+		</relationship>
+	</object>
+</objects>

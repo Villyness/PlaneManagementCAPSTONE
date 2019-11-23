@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="AudioFile" id="{9c46caf3-6392-4aba-97de-07c85c794919}">
 		<property name="assetPath">
-			<value>AUD_bgMusicMenuContingency.wav</value>
+			<value>Score/AUD_bgMusicMenuContingency.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

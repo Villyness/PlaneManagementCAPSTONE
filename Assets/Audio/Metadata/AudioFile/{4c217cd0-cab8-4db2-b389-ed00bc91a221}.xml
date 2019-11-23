@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{4c217cd0-cab8-4db2-b389-ed00bc91a221}">
+		<property name="assetPath">
+			<value>SFX/EatingDrinking/Cutlery_Atmos_Loop_02.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>13.013333333333334</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3d3fe8ab-b055-4d28-a685-a0cb12a5774d}</destination>
+		</relationship>
+	</object>
+</objects>

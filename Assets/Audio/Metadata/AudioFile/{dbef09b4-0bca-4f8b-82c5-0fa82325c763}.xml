@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{dbef09b4-0bca-4f8b-82c5-0fa82325c763}">
+		<property name="assetPath">
+			<value>SFX/EatingDrinking/Crunching_03.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>5.5039999999999996</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3d3fe8ab-b055-4d28-a685-a0cb12a5774d}</destination>
+		</relationship>
+	</object>
+</objects>
