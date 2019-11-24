@@ -169,7 +169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 296522976327093960}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: HoldPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,8 +183,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296522976327093943}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.254, y: 1.314, z: 0.592}
-  m_LocalScale: {x: 0.5985515, y: 0.5985515, z: 0.5985515}
+  m_LocalPosition: {x: -0.084, y: 2.864, z: 1.287}
+  m_LocalScale: {x: 0.875292, y: 0.875292, z: 0.875292}
   m_Children: []
   m_Father: {fileID: 296522975983525680}
   m_RootOrder: 0
