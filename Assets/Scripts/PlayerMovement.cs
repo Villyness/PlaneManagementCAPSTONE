@@ -19,8 +19,14 @@ public class PlayerMovement : PlayerManager
     public Transform HoldPos;
     public GameObject HoldFrame;
 
+    // For animation
+    private Animator anim;
+
+
     void Start()
     {
+        anim = GetComponentInChildren<Animator>();
+
         agent = GetComponent<NavMeshAgent>();
 
         NeutralState();
@@ -55,20 +61,20 @@ public class PlayerMovement : PlayerManager
                             target.GetComponent<InteractCustomer>().Interact(this.gameObject);
 
                             //removes item from players hand, so long as that item isnt a mop
-                            if (holding != "Mop") DestoryHolding(); 
+                            if (holding != "Mop") DestoryHolding();
                         }
                     }
 
                     if (target.GetComponent<InteractItems>())
                     {
-                        if(handsFull == true)
+                        if (handsFull == true)
                             Destroy(HoldFrame.transform.GetChild(0).gameObject);
-                        
+
                         target.GetComponent<InteractItems>().Interact(gameObject);
                         //Debug.Log("link");
                     }
                 }
-                
+
                 currentPos = new Vector3(0, 0, 0);
                 oldPos = new Vector3(0, 0, 0);
                 //NeutralState();
@@ -98,7 +104,7 @@ public class PlayerMovement : PlayerManager
             }
 
             LookAtPoint(hit.point);
-            
+
             //Debug.Log(hit.collider.gameObject.tag);
 
         }
@@ -112,15 +118,21 @@ public class PlayerMovement : PlayerManager
 
     public IEnumerator OnPlay()
     {
-        if(currentPos!= oldPos)
+        if (anim != null)
         {
-            GetComponentInChildren<Animator>().SetBool("isWalking", true);
-        }
-        else if(currentPos == oldPos)
-        {
-            GetComponentInChildren<Animator>().SetBool("isWalking", false);
+            SetBlend(0);
+            anim.SetBool("isWalking", moving);
+            anim.SetBool("hasFood", handsFull);
+
+            if (handsFull && moving)
+                SetBlend(1f);
         }
         yield return null;
+    }
+
+    void SetBlend(float x)
+    {
+        anim.SetFloat("Blend", x);
     }
 
     public void LookAtPoint(Vector3 point)
@@ -136,7 +148,7 @@ public class PlayerMovement : PlayerManager
         agent.destination = GetComponent<Transform>().position;
         //moving = false;
     }
-    
+
     public void DestoryHolding()
     {
         if (holding != "Mop")

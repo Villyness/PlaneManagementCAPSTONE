@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
     public float LevelTimer;
     public GameObject[] passengers;
     public bool end = false;
+    private bool changeMusic = false;
 
     private List<Seat> listOfSeats;
     public Vector3 displacementVect;
@@ -24,6 +25,11 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Music progression
+        float t = LevelTimer/5;
+        Debug.Log("music progress every " + t + "seconds");
+        Invoke("GameplayProgress", t);
+
         /*if (Interacted != null)
         {
             Interacted(this.gameObject);
@@ -34,7 +40,7 @@ public class LevelManager : MonoBehaviour
             Debug.Log("Null!");
         }*/
         listOfSeats = new List<Seat>();
-        //Vector3 displacementVect = new Vector3(0, 2, 0.5f);
+
         foreach (Seat seat in FindObjectsOfType<Seat>())
         {
             //if (seat.isOccupied == true)
@@ -62,6 +68,15 @@ public class LevelManager : MonoBehaviour
             //Debug.Log("Occupied!");
         }
         //Debug.Log(listOfSeats.Count);
+
+        // Set up level SFX
+        AudioManager.instance.drinking = FMODUnity.RuntimeManager.CreateInstance("event:/Drinking");
+        AudioManager.instance.eating = FMODUnity.RuntimeManager.CreateInstance("event:/Eating");
+        AudioManager.instance.pourDrink = FMODUnity.RuntimeManager.CreateInstance("event:/PourDrink");
+        AudioManager.instance.serveFood = FMODUnity.RuntimeManager.CreateInstance("event:/ServeFood");
+        AudioManager.instance.mopping = FMODUnity.RuntimeManager.CreateInstance("event:/Mopping");
+        AudioManager.instance.walking = FMODUnity.RuntimeManager.CreateInstance("event:/Walking");
+
     }
 
     // Update is called once per frame
@@ -69,10 +84,11 @@ public class LevelManager : MonoBehaviour
     {
         timePercentage = (timer / LevelTimer) * 100;
 
+
         if (!end)
         {
             timer += Time.deltaTime;
-            timerInt = (int) timer;
+            timerInt = (int)timer;
             if (timer > LevelTimer)
             {
                 if (LevelEnded != null)
@@ -89,4 +105,11 @@ public class LevelManager : MonoBehaviour
             //        Pause();
         }
     }
+
+    void GameplayProgress()
+    {
+        AudioManager.levelProgression += 1f;
+        Debug.Log(AudioManager.levelProgression);
+    }
+
 }

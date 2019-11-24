@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     [Header("Level Select")]
     public GameObject MainMenu;
     public GameObject LevelSelectMenu;
-    public LevelSelect levelSelect;
+    //public LevelSelect levelSelect;
     public int levelIndex;
 
     public static GameManager instance;
@@ -50,7 +50,6 @@ public class GameManager : MonoBehaviour
         if (FindObjectOfType<LevelManager>())
             FindObjectOfType<LevelManager>().LevelEnded += DisableInput;
 
-        //if (FindObjectOfType<LevelSelect>())
         if (LevelSelectMenu != null)
             LevelSelectMenu.SetActive(false);
 

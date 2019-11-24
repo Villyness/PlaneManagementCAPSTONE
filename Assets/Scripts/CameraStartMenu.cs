@@ -16,7 +16,7 @@ public class CameraStartMenu : MonoBehaviour
     {
         GameManager.instance.animator_startToLevelSelect = amin;
         GameManager.instance.LevelSelectMenu = LevelSelectMenu;
-        GameManager.instance.levelSelect = LevelSelect;
+        //GameManager.instance.levelSelect = LevelSelect;
     }
 
     public void LaunchFlight()
