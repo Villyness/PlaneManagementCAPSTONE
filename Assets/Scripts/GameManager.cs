@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,8 +17,10 @@ public class GameManager : MonoBehaviour
     [Header("Level Select")]
     public GameObject MainMenu;
     public GameObject LevelSelectMenu;
-    //public LevelSelect levelSelect;
     public int levelIndex;
+
+    [Header("Debug")]
+    public Text audioText;
 
     public static GameManager instance;
 
@@ -37,9 +40,19 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        // Audio Debug
+        audioText = GetComponentInChildren<Text>();
+
+
         hostessAnim.start = true;
 
         SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void Update()
+    {
+        // For debug. show progression value on screen. 
+        audioText.text = "Progression: " + AudioManager.progression.ToString();
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -57,7 +70,9 @@ public class GameManager : MonoBehaviour
 
     public void PlayGame()
     {
-        AudioManager.instance.GameplayStart();
+        AudioManager.progression = 1;
+        AudioManager.instance.MusicProgression();
+
         SceneManager.LoadScene(sceneBuildIndex: levelIndex);
     }
 

@@ -8,7 +8,7 @@
 			<value>2</value>
 		</property>
 		<relationship name="folder">
-			<destination>{b46c3f02-688f-4582-afdb-ed1cf717f356}</destination>
+			<destination>{dd5221a7-9e38-46bb-a3e8-c261dcec631a}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{5bc0be3c-5c9e-4347-95c9-802cbaa82e98}</destination>
@@ -53,7 +53,7 @@
 			<destination>{3be9e5f0-4843-442a-86dc-3975c17790ee}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{2a96f29e-ddd2-4c89-8583-13cecf905036}</destination>
+			<destination>{f6dabbf7-cf53-471f-aaa2-950d44b6ad12}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{b4f8518f-255a-4b8f-b563-27295b3dacf3}" />
@@ -93,7 +93,7 @@
 			<value>2.5862068965517242</value>
 		</property>
 		<property name="startOffset">
-			<value>5.5</value>
+			<value>10.5</value>
 		</property>
 		<relationship name="fadeOutCurve">
 			<destination>{2751162d-c182-4419-858d-499fc8b83c16}</destination>
@@ -103,6 +103,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{9f3aec0a-95f2-4c12-8f70-fe052a908195}">
+		<property name="volume">
+			<value>-7.5</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>

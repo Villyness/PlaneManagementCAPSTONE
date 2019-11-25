@@ -16,7 +16,6 @@ public class LevelManager : MonoBehaviour
     public float LevelTimer;
     public GameObject[] passengers;
     public bool end = false;
-    private bool changeMusic = false;
 
     private List<Seat> listOfSeats;
     public Vector3 displacementVect;
@@ -27,8 +26,7 @@ public class LevelManager : MonoBehaviour
     {
         // Music progression
         float t = LevelTimer/5;
-        Debug.Log("music progress every " + t + "seconds");
-        Invoke("GameplayProgress", t);
+        InvokeRepeating("GameplayProgress", t, t);
 
         /*if (Interacted != null)
         {
@@ -70,12 +68,12 @@ public class LevelManager : MonoBehaviour
         //Debug.Log(listOfSeats.Count);
 
         // Set up level SFX
-        AudioManager.instance.drinking = FMODUnity.RuntimeManager.CreateInstance("event:/Drinking");
-        AudioManager.instance.eating = FMODUnity.RuntimeManager.CreateInstance("event:/Eating");
-        AudioManager.instance.pourDrink = FMODUnity.RuntimeManager.CreateInstance("event:/PourDrink");
-        AudioManager.instance.serveFood = FMODUnity.RuntimeManager.CreateInstance("event:/ServeFood");
-        AudioManager.instance.mopping = FMODUnity.RuntimeManager.CreateInstance("event:/Mopping");
-        AudioManager.instance.walking = FMODUnity.RuntimeManager.CreateInstance("event:/Walking");
+        AudioManager.instance.drinking = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Drinking");
+        AudioManager.instance.eating = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Eating");
+        AudioManager.instance.pourDrink = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/PourDrink");
+        AudioManager.instance.serveFood = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/ServeFood");
+        AudioManager.instance.mopping = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Mopping");
+        AudioManager.instance.walking = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Walking");
 
     }
 
@@ -83,6 +81,7 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         timePercentage = (timer / LevelTimer) * 100;
+
 
 
         if (!end)
@@ -108,8 +107,8 @@ public class LevelManager : MonoBehaviour
 
     void GameplayProgress()
     {
-        AudioManager.levelProgression += 1f;
-        Debug.Log(AudioManager.levelProgression);
+        AudioManager.progression += 1f;
+        AudioManager.instance.MusicProgression();
     }
 
 }

@@ -22,7 +22,7 @@ public class AudioManager : MonoBehaviour
     FMOD.Studio.PARAMETER_ID pID;
 
     // For gameplay loop progression
-    public static float levelProgression = 1f;
+    public static float progression = 0;
 
     public static AudioManager instance = null;
 
@@ -50,6 +50,8 @@ public class AudioManager : MonoBehaviour
         Master = FMODUnity.RuntimeManager.GetBus("bus:/Master");
         Music = FMODUnity.RuntimeManager.GetBus("bus:/Master/Music");
         SFX = FMODUnity.RuntimeManager.GetBus("bus:/Master/SFX");
+        SFXVolumeTest = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/SFXVolumeTest");
+
     }
 
     void Start()
@@ -63,7 +65,6 @@ public class AudioManager : MonoBehaviour
         planeAtmos = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/PlaneAtmos");
         planeTakeOff = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/PlaneTakeOff");
         // set up sfx
-        SFXVolumeTest = FMODUnity.RuntimeManager.CreateInstance("event:/SFXVolumeTest");
 
 
         // set up parameters for gameplay loop
@@ -71,26 +72,30 @@ public class AudioManager : MonoBehaviour
         musicDescription.getParameterDescriptionByName("Intensity", out pd);
         pID = pd.id;
 
-        gameMusic.start();
+        StartMenu();
 
     }
 
     public void StartMenu()
     {
-        gameMusic.setParameterByID(pID, 0f);
+        gameMusic.start();
+        progression = 0;
+        gameMusic.setParameterByID(pID, progression);
     }
 
-    public void GameplayStart()
+    // Run this after "progression" has been changed
+    public void MusicProgression()
     {
-        gameMusic.setParameterByID(pID, 1f);
+        gameMusic.setParameterByID(pID, progression);
     }
 
 
-    void FixedUpdate()
+    void Update()
     {
         Master.setVolume(instance.MasterVolume);
         Music.setVolume(instance.MusicVolume);
         SFX.setVolume(instance.SFXVolume);
+
     }
 
     public void MasterVolumeLevel(float newMasterVolume)

@@ -93,8 +93,8 @@ public class PauseMenu : MonoBehaviour
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        // Set music to start of level loop... and it didn't work
-        AudioManager.instance.GameplayStart();
+        // Set music to start of level loop
+        AudioManager.instance.StartMenu();
         ResumeGame();
     }
 
