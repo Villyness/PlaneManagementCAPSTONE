@@ -19,12 +19,13 @@ public class PlayerMovement : PlayerManager
     public Transform HoldPos;
     public GameObject HoldFrame;
 
-    // For animation
+    // For hostess animation
     private Animator anim;
 
 
     void Start()
     {
+        // Get hostess animator
         anim = GetComponentInChildren<Animator>();
 
         agent = GetComponent<NavMeshAgent>();
@@ -32,12 +33,23 @@ public class PlayerMovement : PlayerManager
         NeutralState();
         if (FindObjectOfType<LevelManager>())
             FindObjectOfType<LevelManager>().LevelEnded += NeutralState;
+
+        // Hostess sfx
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(AudioManager.instance.pourDrink, transform, GetComponent<Rigidbody>());
+
+
     }
 
     void Update()
     {
         if (moving == true)
         {
+            // Hostess Footsteps
+            AudioManager.instance.walking.start();
+            FMODUnity.RuntimeManager.AttachInstanceToGameObject(AudioManager.instance.walking, transform, GetComponent<Rigidbody>());
+            //AudioManager.instance.walking.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform, GetComponent<Rigidbody>()));
+
+
             oldPos = currentPos;
             currentPos = this.transform.position;
 
@@ -81,7 +93,8 @@ public class PlayerMovement : PlayerManager
             }
             PlayAnimation();
         }
-
+        // Stop footsteps immediately
+        AudioManager.instance.walking.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
 
         if ((Input.GetKeyDown(KeyCode.Mouse0)) /*&& (moving == false)*/)
         {
@@ -116,7 +129,7 @@ public class PlayerMovement : PlayerManager
         StartCoroutine(OnPlay());
     }
 
-    public IEnumerator OnPlay()
+    IEnumerator OnPlay()
     {
         if (anim != null)
         {

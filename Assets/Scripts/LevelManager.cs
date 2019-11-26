@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     public event Action LevelEnded;
     public event Action Pause;
     //public event Action<int> setDist;
+    [Header("Time related")]
     public float timer;
     public int timerInt;
     public float timePercentage;
@@ -17,8 +18,12 @@ public class LevelManager : MonoBehaviour
     public GameObject[] passengers;
     public bool end = false;
 
+    [Header("Passengers")]
     private List<Seat> listOfSeats;
     public Vector3 displacementVect;
+    public int minPassenger = 5;
+    public int maxPassenger = 8;
+    public int passengerCount = 0;
 
 
     // Start is called before the first frame update
@@ -39,37 +44,52 @@ public class LevelManager : MonoBehaviour
         }*/
         listOfSeats = new List<Seat>();
 
-        foreach (Seat seat in FindObjectsOfType<Seat>())
+        while (passengerCount < minPassenger)
         {
-            //if (seat.isOccupied == true)
-            listOfSeats.Add(seat);
-            //Debug.Log(seat.GetComponent<Transform>().position + displacementVect);
-            if (UnityEngine.Random.Range(1, 10) <= 2)
+            foreach (Seat seat in FindObjectsOfType<Seat>())
             {
-                GameObject passenger = Instantiate(passengers[0], seat.GetComponent<Transform>().position + displacementVect, Quaternion.identity);
+                // exit spawn loop if we hit max
+                if (passengerCount >= maxPassenger) break;
+                if (seat.isOccupied) continue;
+                //if (seat.isOccupied == true)
+                listOfSeats.Add(seat);
+                //Debug.Log(seat.GetComponent<Transform>().position + displacementVect);
+                if (UnityEngine.Random.Range(1, 10) <= 2) // Whether or not to assign the seat a passenger
+                {
+                    GameObject passenger = Instantiate(passengers[0], seat.GetComponent<Transform>().position + displacementVect, Quaternion.identity);
+                    passengerCount++;
+                    seat.isOccupied = true;
 
-                // Refactor this later on
-                if (seat.seatPos[0] == 1 | seat.seatPos[0] == 4)
-                {
-                    passenger.GetComponent<InteractCustomer>().distReq = 5;
+                    // Refactor this later on
+                    if (seat.seatPos[0] == 1 | seat.seatPos[0] == 4)
+                    {
+                        passenger.GetComponent<InteractCustomer>().distReq = 5;
+                    }
+                    else
+                    {
+                        passenger.GetComponent<InteractCustomer>().distReq = 3;
+                    }
+                    /*if (setDist != null)
+					{
+						setDist(seat.seatPos[0]);
+					}*/
+                    //Debug.Log(seat.seatPos[1]);
                 }
-                else
-                {
-                    passenger.GetComponent<InteractCustomer>().distReq = 3;
-                }
-                /*if (setDist != null)
-                {
-                    setDist(seat.seatPos[0]);
-                }*/
-                //Debug.Log(seat.seatPos[1]);
+                //Debug.Log("Occupied!");
             }
-            //Debug.Log("Occupied!");
+
+            if (passengerCount >= minPassenger) break;
         }
+
         //Debug.Log(listOfSeats.Count);
 
         // Set up level SFX
+        // Level end sfx
+        AudioManager.instance.win = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Win");
+        // Passenger sfx
         AudioManager.instance.drinking = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Drinking");
         AudioManager.instance.eating = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Eating");
+        // Hostess sfx
         AudioManager.instance.pourDrink = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/PourDrink");
         AudioManager.instance.serveFood = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/ServeFood");
         AudioManager.instance.mopping = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Mopping");
@@ -82,8 +102,6 @@ public class LevelManager : MonoBehaviour
     {
         timePercentage = (timer / LevelTimer) * 100;
 
-
-
         if (!end)
         {
             timer += Time.deltaTime;
@@ -94,17 +112,15 @@ public class LevelManager : MonoBehaviour
                 {
                     LevelEnded();
                     end = true;
+                    AudioManager.instance.win.start();
                 }
 
                 timer = 0;
             }
-
-            //if (Input.GetKeyDown(KeyCode.Z))
-            //    if (Pause != null)
-            //        Pause();
         }
     }
 
+    // Music Progression
     void GameplayProgress()
     {
         AudioManager.progression += 1f;

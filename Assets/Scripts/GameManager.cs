@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        // For debug. show progression value on screen. 
+        // For audio debug. show progression value on screen. 
         audioText.text = "Progression: " + AudioManager.progression.ToString();
     }
 
@@ -79,7 +79,6 @@ public class GameManager : MonoBehaviour
     public void ToLevelSelectFromStart()
     {
         animator_startToLevelSelect.SetTrigger("Start");
-        //MainMenu.SetActive(false);
         LevelSelectMenu.SetActive(true);
     }
 

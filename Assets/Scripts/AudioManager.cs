@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     FMOD.Studio.EventInstance gameMusic;
     FMOD.Studio.EventInstance flightAttendantTurbulence, flightAttendantWelcome, planeAtmos, planeTakeOff;
 
+    public FMOD.Studio.EventInstance win;
     public FMOD.Studio.EventInstance drinking, eating;
     public FMOD.Studio.EventInstance pourDrink, serveFood;
     public FMOD.Studio.EventInstance mopping;
@@ -59,20 +60,20 @@ public class AudioManager : MonoBehaviour
         // connecting sounds in FMOD for unity
         // set up music
         gameMusic = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Gameplay Loop");
+        // set up parameters for gameplay loop
+        musicDescription = FMODUnity.RuntimeManager.GetEventDescription("event:/Music/Gameplay Loop");
+        musicDescription.getParameterDescriptionByName("Intensity", out pd);
+        pID = pd.id;
+        // Start the music, progression at 0
+        StartMenu();
+
+
         // set up atmos
         flightAttendantTurbulence = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/FlightAttendantTurbulence");
         flightAttendantWelcome = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/FlightAttendantWelcome");
         planeAtmos = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/PlaneAtmos");
         planeTakeOff = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/PlaneTakeOff");
-        // set up sfx
 
-
-        // set up parameters for gameplay loop
-        musicDescription = FMODUnity.RuntimeManager.GetEventDescription("event:/Music/Gameplay Loop");
-        musicDescription.getParameterDescriptionByName("Intensity", out pd);
-        pID = pd.id;
-
-        StartMenu();
 
     }
 
@@ -80,7 +81,7 @@ public class AudioManager : MonoBehaviour
     {
         gameMusic.start();
         progression = 0;
-        gameMusic.setParameterByID(pID, progression);
+        MusicProgression();
     }
 
     // Run this after "progression" has been changed
@@ -89,7 +90,7 @@ public class AudioManager : MonoBehaviour
         gameMusic.setParameterByID(pID, progression);
     }
 
-
+    // Check if the sliders move
     void Update()
     {
         Master.setVolume(instance.MasterVolume);

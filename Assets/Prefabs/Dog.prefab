@@ -549,8 +549,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 4.1230536, z: 2.1304893}
+  m_Center: {x: 0, y: -0.23057032, z: 0.5652447}
 --- !u!114 &2352638670905079691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -582,6 +582,7 @@ MonoBehaviour:
   nextNeedDelay: 0
   patienceTimer: 0
   pointsMax: 100
+  HeldItem: {fileID: 0}
 --- !u!1 &2352638671396337332
 GameObject:
   m_ObjectHideFlags: 0
