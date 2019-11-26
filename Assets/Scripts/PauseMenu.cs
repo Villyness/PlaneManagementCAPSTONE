@@ -47,6 +47,11 @@ public class PauseMenu : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {
             StartCoroutine(Activate(GameUIPanel));
+            // Restart music
+            AudioManager.progression = 1;
+            AudioManager.instance.MusicProgression();
+            AudioManager.instance.gameMusic.start();
+
         }
 
         Debug.Log("OnSceneLoaded: " + scene.name);
@@ -96,6 +101,7 @@ public class PauseMenu : MonoBehaviour
         // Set music to start of level loop
         AudioManager.progression = 1;
         AudioManager.instance.MusicProgression();
+        AudioManager.instance.gameMusic.start();
         ResumeGame();
     }
 

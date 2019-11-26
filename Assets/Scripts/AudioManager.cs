@@ -7,8 +7,8 @@ public class AudioManager : MonoBehaviour
     // https://www.youtube.com/watch?v=QujIch7TPBU
     // https://alessandrofama.com/tutorials/fmod-unity/parameters/#Labeled_Parameters
 
-    FMOD.Studio.EventInstance gameMusic;
-    FMOD.Studio.EventInstance flightAttendantTurbulence, flightAttendantWelcome, planeAtmos, planeTakeOff;
+    public FMOD.Studio.EventInstance gameMusic;
+    public FMOD.Studio.EventInstance flightAttendantTurbulence, flightAttendantWelcome, planeAtmos, planeTakeOff;
 
     public FMOD.Studio.EventInstance win;
     public FMOD.Studio.EventInstance drinking, eating;

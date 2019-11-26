@@ -70,9 +70,6 @@ public class GameManager : MonoBehaviour
 
     public void PlayGame()
     {
-        AudioManager.progression = 1;
-        AudioManager.instance.MusicProgression();
-
         SceneManager.LoadScene(sceneBuildIndex: levelIndex);
     }
 

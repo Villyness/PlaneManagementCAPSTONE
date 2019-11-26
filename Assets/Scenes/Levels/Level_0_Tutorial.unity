@@ -153,11 +153,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1672583267}
     m_Modifications:
-    - target: {fileID: 661883955194723816, guid: 498849d4d3a784a4d8a079f9e0e6bdcf,
-        type: 3}
-      propertyPath: m_Name
-      value: cup1 (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 4572317092459548667, guid: 498849d4d3a784a4d8a079f9e0e6bdcf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -212,6 +207,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 661883955194723816, guid: 498849d4d3a784a4d8a079f9e0e6bdcf,
+        type: 3}
+      propertyPath: m_Name
+      value: cup1 (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 498849d4d3a784a4d8a079f9e0e6bdcf, type: 3}
@@ -3402,11 +3402,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1672583267}
     m_Modifications:
-    - target: {fileID: 661883955194723816, guid: 498849d4d3a784a4d8a079f9e0e6bdcf,
-        type: 3}
-      propertyPath: m_Name
-      value: cup1 (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 4572317092459548667, guid: 498849d4d3a784a4d8a079f9e0e6bdcf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3461,6 +3456,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 661883955194723816, guid: 498849d4d3a784a4d8a079f9e0e6bdcf,
+        type: 3}
+      propertyPath: m_Name
+      value: cup1 (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 498849d4d3a784a4d8a079f9e0e6bdcf, type: 3}
@@ -4324,11 +4324,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1672583267}
     m_Modifications:
-    - target: {fileID: 661883955194723816, guid: 498849d4d3a784a4d8a079f9e0e6bdcf,
-        type: 3}
-      propertyPath: m_Name
-      value: cup1
-      objectReference: {fileID: 0}
     - target: {fileID: 4572317092459548667, guid: 498849d4d3a784a4d8a079f9e0e6bdcf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4383,6 +4378,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 661883955194723816, guid: 498849d4d3a784a4d8a079f9e0e6bdcf,
+        type: 3}
+      propertyPath: m_Name
+      value: cup1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 498849d4d3a784a4d8a079f9e0e6bdcf, type: 3}
@@ -5524,7 +5524,7 @@ PrefabInstance:
     - target: {fileID: 2027919395247194871, guid: a0cb83d5b0717c54fbda91f88895f9a1,
         type: 3}
       propertyPath: LevelTimer
-      value: 10
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2027919395247194871, guid: a0cb83d5b0717c54fbda91f88895f9a1,
         type: 3}
@@ -5778,6 +5778,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 8214263175594330731, guid: ea635f348b887ab40a432c074dc6d658,
+        type: 3}
+      propertyPath: FollowTarget
+      value: 
+      objectReference: {fileID: 2059920440}
+    - target: {fileID: 8214263175594330731, guid: ea635f348b887ab40a432c074dc6d658,
+        type: 3}
+      propertyPath: ClampPointPos
+      value: 
+      objectReference: {fileID: 1076595248}
+    - target: {fileID: 8214263175594330731, guid: ea635f348b887ab40a432c074dc6d658,
+        type: 3}
+      propertyPath: ClampArea
+      value: 
+      objectReference: {fileID: 210945119}
+    - target: {fileID: 8214263175594330731, guid: ea635f348b887ab40a432c074dc6d658,
+        type: 3}
+      propertyPath: sManager
+      value: 
+      objectReference: {fileID: 1138585868}
     - target: {fileID: 8214263175594330728, guid: ea635f348b887ab40a432c074dc6d658,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5833,26 +5853,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8214263175594330731, guid: ea635f348b887ab40a432c074dc6d658,
-        type: 3}
-      propertyPath: FollowTarget
-      value: 
-      objectReference: {fileID: 2059920440}
-    - target: {fileID: 8214263175594330731, guid: ea635f348b887ab40a432c074dc6d658,
-        type: 3}
-      propertyPath: ClampPointPos
-      value: 
-      objectReference: {fileID: 1076595248}
-    - target: {fileID: 8214263175594330731, guid: ea635f348b887ab40a432c074dc6d658,
-        type: 3}
-      propertyPath: ClampArea
-      value: 
-      objectReference: {fileID: 210945119}
-    - target: {fileID: 8214263175594330731, guid: ea635f348b887ab40a432c074dc6d658,
-        type: 3}
-      propertyPath: sManager
-      value: 
-      objectReference: {fileID: 1138585868}
     - target: {fileID: 8214263174901342591, guid: ea635f348b887ab40a432c074dc6d658,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
