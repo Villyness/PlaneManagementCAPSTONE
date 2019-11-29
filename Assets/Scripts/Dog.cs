@@ -6,9 +6,9 @@ public class Dog : InteractCustomer
 {
     public override void Start()
     {
-        full = 120;
-        waitFull = 5;
-        needRate = 5;
+        full = 230;
+        waitFull = 80;
+        needRate = 2;
         base.Start();
     }
 }

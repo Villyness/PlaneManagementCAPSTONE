@@ -8,9 +8,9 @@ public class Cat : InteractCustomer
     
     public override void Start()
     {
-        full = 90;
-        waitFull = 2;
-        needRate = 5;
+        full = 150;
+        waitFull = 60;
+        needRate = 3;
         base.Start();
     }
     

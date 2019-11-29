@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         // For audio debug. show progression value on screen. 
-        audioText.text = "Progression: " + AudioManager.progression.ToString();
+        //audioText.text = "Progression: " + AudioManager.progression.ToString();
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)

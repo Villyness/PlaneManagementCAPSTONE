@@ -161,10 +161,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator_startToLevelSelect: {fileID: 0}
+  hostessAnim: {fileID: 0}
   MainMenu: {fileID: 6935954098158508408}
   LevelSelectMenu: {fileID: 0}
-  levelSelect: {fileID: 0}
   levelIndex: 0
+  audioText: {fileID: 0}
 --- !u!1 &6935954098816453386
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,6 +1187,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181286901256528227, guid: d9a267fb706cf6e40b4f5a210a8d14be,
+        type: 3}
+      propertyPath: m_Value
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5338962648174802253, guid: d9a267fb706cf6e40b4f5a210a8d14be,
         type: 3}
