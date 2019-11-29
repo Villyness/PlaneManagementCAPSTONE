@@ -43,7 +43,7 @@ public class InteractCustomer : MonoBehaviour
     public int pointsMax;
     private int currentPoints;
 
-    public GameObject HeldItem;
+    public GameObject HeldItem; 
     private Animator anim; 
 
     public virtual void Start()
