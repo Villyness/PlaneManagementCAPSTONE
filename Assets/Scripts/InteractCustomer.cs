@@ -93,13 +93,17 @@ public class InteractCustomer : MonoBehaviour
 
         if (timer <= 0)
         {
-            if (hasNeed == true)
+            if (hasNeed)
             {
                 waitTime -= 1;
                 if (waitTime <= 0)
                 {
                     //failed
                     hasNeed = false;
+                    Destroy(HeldItem);
+                    timer = full;
+                    //despawn need
+                    //timer = full;
                     //FindObjectOfType<ScoreManager>().score -= 1;    // Could probably fire events
                 }
             }

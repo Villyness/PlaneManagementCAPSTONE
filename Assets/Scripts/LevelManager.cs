@@ -75,6 +75,9 @@ public class LevelManager : MonoBehaviour
 					}*/
                     //Debug.Log(seat.seatPos[1]);
                 }
+                
+                
+                
                 //Debug.Log("Occupied!");
             }
 
