@@ -3854,14 +3854,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1784072934}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bba0d6d2d3b22394685d8723aa5e8bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 859891307244495091, guid: 3cdf4781bfd48264a9cd70ae6894d071, type: 3}
   camera: {fileID: 0}
-  leftArrow: 0
+  arrowList: []
 --- !u!1001 &1803093771
 PrefabInstance:
   m_ObjectHideFlags: 0
