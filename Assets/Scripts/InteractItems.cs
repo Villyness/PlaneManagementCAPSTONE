@@ -31,7 +31,7 @@ public class InteractItems : MonoBehaviour
         player.GetComponent<PlayerMovement>().holding = ObjectName;
         
         //shout to Harrison for his help 
-        Vector3 spawnPos = player.transform.position + player.GetComponent<PlayerMovement>().HoldPos.localPosition;
+        Vector3 spawnPos = player.GetComponent<PlayerMovement>().HoldPos.position;
         
         Instantiate(ObjectToSpawn, spawnPos, Quaternion.identity, player.GetComponent<PlayerMovement>().HoldPos);    // probably needs to be moved to the Player's script
     }

@@ -101,13 +101,16 @@ public class InteractCustomer : MonoBehaviour
                     //failed
                     hasNeed = false;
                     Destroy(HeldItem);
-                    timer = full;
+                    timer = full*2;
                     //despawn need
                     //timer = full;
                     //FindObjectOfType<ScoreManager>().score -= 1;    // Could probably fire events
                 }
             }
-            timer = full;
+            else
+            {
+                timer = full;
+            }
         }
     }
 
