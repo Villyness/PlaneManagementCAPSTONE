@@ -168,7 +168,10 @@ public class PlayerMovement : PlayerManager
         {
             handsFull = false;
             holding = null;
-            Destroy(HoldFrame.transform.GetChild(0).gameObject);
+            
+            // V patch
+            if (HoldFrame.transform.GetChild(0).gameObject)
+                Destroy(HoldFrame.transform.GetChild(0).gameObject);
         }
     }
 
