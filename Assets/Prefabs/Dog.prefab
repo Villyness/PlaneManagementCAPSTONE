@@ -577,9 +577,9 @@ MonoBehaviour:
   drinkObj: {fileID: 1232407061643786449, guid: 4ba06bf232ba8004d8d4bd66860c0d32,
     type: 3}
   foodObj: {fileID: 8933325829996092549, guid: d0c2a6a903ed6f041bdb36263bb972be, type: 3}
-  needRate: 5
-  needRatio: 5
-  nextNeedDelay: 0
+  needRate: 3
+  needRatio: 3
+  nextNeedDelay: 5
   patienceTimer: 0
   pointsMax: 100
   HeldItem: {fileID: 0}

@@ -661,14 +661,15 @@ MonoBehaviour:
   success: {fileID: 0}
   fail: {fileID: 0}
   ownMat: {fileID: 0}
-  spawnPos: {fileID: 0}
-  drinkObj: {fileID: 0}
-  foodObj: {fileID: 0}
-  needRate: 0
-  needRatio: 0
-  nextNeedDelay: 0
+  spawnPos: {fileID: 2352638671396337332}
+  drinkObj: {fileID: 1232407061643786449, guid: 4ba06bf232ba8004d8d4bd66860c0d32,
+    type: 3}
+  foodObj: {fileID: 8933325829996092549, guid: d0c2a6a903ed6f041bdb36263bb972be, type: 3}
+  needRate: 5
+  needRatio: 5
+  nextNeedDelay: 3
   patienceTimer: 0
-  pointsMax: 0
+  pointsMax: 50
   HeldItem: {fileID: 0}
 --- !u!1 &2352638671396337332
 GameObject:

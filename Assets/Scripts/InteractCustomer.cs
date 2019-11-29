@@ -43,9 +43,14 @@ public class InteractCustomer : MonoBehaviour
     private int currentPoints;
 
     public GameObject HeldItem;
+    private Animator anim; 
 
     public virtual void Start()
     {
+        anim = GetComponentInChildren<Animator>();
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(AudioManager.instance.eating, transform, GetComponent<Rigidbody>());
+
+
         //interClass = 1;
         this.GetComponent<Renderer>().material = ownMat;
         
@@ -113,6 +118,11 @@ public class InteractCustomer : MonoBehaviour
                     PointsAwarded(currentPoints);
                     
                 Destroy(HeldItem);
+                // trigger eating animation 
+                anim.SetTrigger("eat");
+                // eating sfx 
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Eating", transform.position);
+
             }
 
             if (player.GetComponent<PlayerManager>().holding == "Mop") {} //nothing happens
