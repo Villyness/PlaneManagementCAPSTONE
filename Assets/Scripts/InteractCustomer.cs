@@ -13,6 +13,7 @@ public class InteractCustomer : MonoBehaviour
     // Setting up...
     // TODO: Set this various to private [pr]
     public int distReq;
+    public Seat custSeat;
     public bool hasNeed;    //[pr]
     public string need;
 
@@ -46,6 +47,12 @@ public class InteractCustomer : MonoBehaviour
     {
         //interClass = 1;
         this.GetComponent<Renderer>().material = ownMat;
+        
+        //find seat that its sitting on
+        custSeat = FindObjectOfType<Seat>();
+        //depending on seat number, set distReq
+        if (custSeat.seatPos[0] == 1 || custSeat.seatPos[0] == 4) distReq = 7;
+        else distReq = 3;
         
         waitTime = waitFull;
         timer = full;
