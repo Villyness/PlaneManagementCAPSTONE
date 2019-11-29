@@ -10,7 +10,7 @@ public class HostessAnim : MonoBehaviour
     public Animator animator_HostessStart;
     public GameObject hostess;
     public GameObject hostessWaypoint;
-    private float time = 8;
+    private float time = 10;
 
     private void Start()
     {

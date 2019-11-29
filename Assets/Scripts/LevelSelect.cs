@@ -39,6 +39,8 @@ public class LevelSelect : MonoBehaviour
         GameObject level = Instantiate(LevelPoint, modelTransform);
         level.transform.localEulerAngles = new Vector3(L.y + visualOffset.y, -L.x - visualOffset.x, 0);
         L.visualPoint = level.transform.GetChild(0);
+        // Get indicator from each level 
+        L.ring = level.GetComponentInChildren<ParticleSystem>();
 
         SpawnLevelButton(L);
     }
@@ -46,9 +48,10 @@ public class LevelSelect : MonoBehaviour
     private void SpawnLevelButton(Levels L)
     {
         Levels level = L;
-        Button levelButton = Instantiate(LevelButton,LevelButtonContainer).GetComponent<Button>();
+        Button levelButton = Instantiate(LevelButton, LevelButtonContainer).GetComponent<Button>();
         levelButton.onClick.AddListener(() => LookAtLevel(level));
         levelButton.onClick.AddListener(() => GetLevelIndex(level));
+        levelButton.onClick.AddListener(() => PlayIndicator(level));
 
         levelButton.transform.GetChild(0).GetComponentInChildren<Text>().text = L.name;
     }
@@ -58,13 +61,45 @@ public class LevelSelect : MonoBehaviour
         Transform cameraParent = levelSelectCamera.transform.parent;
         Vector3 rot = new Vector3(L.y, -L.x, 0);
         cameraParent.DORotate(rot, 0.5f, RotateMode.Fast);
-        
+
     }
 
     public void GetLevelIndex(Levels L)
     {
         GameManager.instance.levelIndex = L.index;
         Debug.Log(L.index + L.name);
+    }
+
+    public void PlayIndicator(Levels L)
+    {
+        CheckIndicator(L);
+        L.ring.Play();
+        L.isPlaying = true;
+    }
+
+    public void StopIndicators(Levels L)
+    {
+        foreach (Levels level in levels)
+        {
+            if (level.isPlaying)
+            {
+                level.ring.Stop();
+                level.isPlaying = false;
+            }
+        }
+
+    }
+
+    private void CheckIndicator(Levels L)
+    {
+        foreach (Levels level in levels)
+        {
+            if (level.isPlaying)
+            {
+                StopIndicators(L);
+            }
+        }
+
     }
 
     private void OnDrawGizmos()
@@ -108,9 +143,12 @@ public class Levels
 {
     public string name;
     public int index;
-    [Range(-180,180)]
+    public ParticleSystem ring;
+    //[HideInInspector]
+    public bool isPlaying = false;
+    [Range(-180, 180)]
     public float x;
-    [Range (-89,89)]
+    [Range(-89, 89)]
     public float y;
 
     [HideInInspector]

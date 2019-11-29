@@ -80,6 +80,16 @@ public class ScoreManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void ToNextLevel()
+    {
+        if (SceneManager.GetActiveScene().buildIndex < 5)
+            SceneManager.LoadScene(sceneBuildIndex: SceneManager.GetActiveScene().buildIndex + 1);
+        else
+            SceneManager.LoadScene(sceneBuildIndex: 1);
+
+    }
+
+
     void UpdateScore(int scoreAdd)
     {
         score += scoreAdd;

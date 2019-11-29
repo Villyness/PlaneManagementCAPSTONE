@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    FMOD.Studio.EventInstance gameMusic; // game music
-    FMOD.Studio.EventInstance SFXVolumeTest; // need to pick a sfx later in FMOD
+    // https://www.youtube.com/watch?v=QujIch7TPBU
+    // https://alessandrofama.com/tutorials/fmod-unity/parameters/#Labeled_Parameters
 
+    public FMOD.Studio.EventInstance gameMusic;
+    public FMOD.Studio.EventInstance flightAttendantTurbulence, flightAttendantWelcome, planeAtmos, planeTakeOff;
+
+    public FMOD.Studio.EventInstance win;
+    public FMOD.Studio.EventInstance drinking, eating;
+    public FMOD.Studio.EventInstance pourDrink, serveFood;
+    public FMOD.Studio.EventInstance mopping;
+    public FMOD.Studio.EventInstance walking;
+    public FMOD.Studio.EventInstance SFXVolumeTest; // at the moment it's toilet flush sound
+
+    // For parameters of gameplay loop
     FMOD.Studio.EventDescription musicDescription;
     FMOD.Studio.PARAMETER_DESCRIPTION pd;
     FMOD.Studio.PARAMETER_ID pID;
 
+    // For gameplay loop progression
+    public static float progression = 0;
+
     public static AudioManager instance = null;
 
+    // For audio accessibility 
     FMOD.Studio.Bus Master;
     FMOD.Studio.Bus Music;
     FMOD.Studio.Bus SFX;
@@ -23,6 +38,7 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
+        // the singleton
         if (instance != null)
         {
             Destroy(gameObject);
@@ -32,58 +48,76 @@ public class AudioManager : MonoBehaviour
             instance = this;
             GameObject.DontDestroyOnLoad(gameObject);
         }
-        instance.Master = FMODUnity.RuntimeManager.GetBus("bus:/Master");
-        instance.Music = FMODUnity.RuntimeManager.GetBus("bus:/Master/Music");
-        instance.SFX = FMODUnity.RuntimeManager.GetBus("bus:/Master/SFX");
+        Master = FMODUnity.RuntimeManager.GetBus("bus:/Master");
+        Music = FMODUnity.RuntimeManager.GetBus("bus:/Master/Music");
+        SFX = FMODUnity.RuntimeManager.GetBus("bus:/Master/SFX");
+        SFXVolumeTest = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/SFXVolumeTest");
+
     }
 
     void Start()
     {
-        instance.gameMusic = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Gameplay Loop");
-        instance.gameMusic.start();
+        // connecting sounds in FMOD for unity
+        // set up music
+        gameMusic = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Gameplay Loop");
+        // set up parameters for gameplay loop
+        musicDescription = FMODUnity.RuntimeManager.GetEventDescription("event:/Music/Gameplay Loop");
+        musicDescription.getParameterDescriptionByName("Intensity", out pd);
+        pID = pd.id;
+        // Start the music, progression at 0
+        StartMenu();
 
-        instance.musicDescription = FMODUnity.RuntimeManager.GetEventDescription("event:/Music/Gameplay Loop");
-        instance.musicDescription.getParameterDescriptionByName("Intensity", out pd);
-        instance.pID = pd.id;
-    }
 
-    public void GameplayStart()
-    {
-        instance.gameMusic.setParameterByID(pID, 1);
+        // set up atmos
+        flightAttendantTurbulence = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/FlightAttendantTurbulence");
+        flightAttendantWelcome = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/FlightAttendantWelcome");
+        planeAtmos = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/PlaneAtmos");
+        planeTakeOff = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/PlaneTakeOff");
+
+
     }
 
     public void StartMenu()
     {
-        instance.gameMusic.setParameterByID(pID, 0);
+        gameMusic.start();
+        progression = 0;
+        MusicProgression();
     }
 
-    // Update is called once per frame
+    // Run this after "progression" has been changed
+    public void MusicProgression()
+    {
+        gameMusic.setParameterByID(pID, progression);
+    }
+
+    // Check if the sliders move
     void Update()
     {
-        instance.Master.setVolume(instance.MasterVolume);
-        instance.Music.setVolume(instance.MusicVolume);
-        instance.SFX.setVolume(instance.SFXVolume);
+        Master.setVolume(instance.MasterVolume);
+        Music.setVolume(instance.MusicVolume);
+        SFX.setVolume(instance.SFXVolume);
+
     }
 
     public void MasterVolumeLevel(float newMasterVolume)
     {
-        instance.MasterVolume = newMasterVolume;
+        MasterVolume = newMasterVolume;
     }
 
     public void MusicVolumeLevel(float newMusicVolume)
     {
-        instance.MusicVolume = newMusicVolume;
+        MusicVolume = newMusicVolume;
     }
 
     public void SFXVolumeLevel(float newSFXVolume)
     {
-        instance.SFXVolume = newSFXVolume;
+        SFXVolume = newSFXVolume;
 
         FMOD.Studio.PLAYBACK_STATE PbState;
-        instance.SFXVolumeTest.getPlaybackState(out PbState);
-        if(PbState != FMOD.Studio.PLAYBACK_STATE.PLAYING)
+        SFXVolumeTest.getPlaybackState(out PbState);
+        if (PbState != FMOD.Studio.PLAYBACK_STATE.PLAYING)
         {
-            instance.SFXVolumeTest.start();
+            SFXVolumeTest.start();
         }
     }
 }

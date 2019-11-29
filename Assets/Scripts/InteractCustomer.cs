@@ -43,8 +43,15 @@ public class InteractCustomer : MonoBehaviour
     public int pointsMax;
     private int currentPoints;
 
+    public GameObject HeldItem;
+    private Animator anim; 
+
     public virtual void Start()
     {
+        anim = GetComponentInChildren<Animator>();
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(AudioManager.instance.eating, transform, GetComponent<Rigidbody>());
+
+
         //interClass = 1;
         this.GetComponent<Renderer>().material = ownMat;
         
@@ -108,12 +115,21 @@ public class InteractCustomer : MonoBehaviour
         {
             if (player.GetComponent<PlayerManager>().holding == need)
             {
-                hasNeed = false;
+                hasNeed = false;    //These lines of code can likely be put into their own separate function
                 waitTime = waitFull;
                 //FindObjectOfType<ScoreManager>().score += 1;
-                this.GetComponent<Renderer>().material = success;
+                //this.GetComponent<Renderer>().material = success;
+                //Debug.Log(spawnPos.gameObject);
+                //Destroy(spawnPos.gameObject);
                 if(PointsAwarded != null)
                     PointsAwarded(currentPoints);
+                    
+                Destroy(HeldItem);
+                // trigger eating animation 
+                anim.SetTrigger("eat");
+                // eating sfx 
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Eating", transform.position);
+
             }
 
             if (player.GetComponent<PlayerManager>().holding == "Mop") {} //nothing happens
@@ -137,12 +153,14 @@ public class InteractCustomer : MonoBehaviour
         if (x > needRatio)
         {
             need = "drink";
-            Instantiate(drinkObj, spawnPos.GetComponent<Transform>().position, Quaternion.identity);
+            Destroy(HeldItem);
+            HeldItem = Instantiate(drinkObj, spawnPos.GetComponent<Transform>().position, Quaternion.identity);
         }
         else
         {
             need = "food";
-            Instantiate(foodObj, spawnPos.GetComponent<Transform>().position, Quaternion.identity);
+            Destroy(HeldItem);
+            HeldItem = Instantiate(foodObj, spawnPos.GetComponent<Transform>().position, Quaternion.identity);
         }
         //currentPoints = pointsMax;
                 

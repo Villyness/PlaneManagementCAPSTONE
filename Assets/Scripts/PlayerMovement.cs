@@ -19,19 +19,37 @@ public class PlayerMovement : PlayerManager
     public Transform HoldPos;
     public GameObject HoldFrame;
 
+    // For hostess animation
+    private Animator anim;
+
+
     void Start()
     {
+        // Get hostess animator
+        anim = GetComponentInChildren<Animator>();
+
         agent = GetComponent<NavMeshAgent>();
 
         NeutralState();
         if (FindObjectOfType<LevelManager>())
             FindObjectOfType<LevelManager>().LevelEnded += NeutralState;
+
+        // Hostess sfx
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(AudioManager.instance.pourDrink, transform, GetComponent<Rigidbody>());
+
+
     }
 
     void Update()
     {
         if (moving == true)
         {
+            // Hostess Footsteps
+            AudioManager.instance.walking.start();
+            FMODUnity.RuntimeManager.AttachInstanceToGameObject(AudioManager.instance.walking, transform, GetComponent<Rigidbody>());
+            //AudioManager.instance.walking.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform, GetComponent<Rigidbody>()));
+
+
             oldPos = currentPos;
             currentPos = this.transform.position;
 
@@ -55,27 +73,28 @@ public class PlayerMovement : PlayerManager
                             target.GetComponent<InteractCustomer>().Interact(this.gameObject);
 
                             //removes item from players hand, so long as that item isnt a mop
-                            if (holding != "Mop") DestoryHolding(); 
+                            if (holding != "Mop") DestoryHolding();
                         }
                     }
 
                     if (target.GetComponent<InteractItems>())
                     {
-                        if(handsFull == true)
+                        if (handsFull == true)
                             Destroy(HoldFrame.transform.GetChild(0).gameObject);
-                        
+
                         target.GetComponent<InteractItems>().Interact(gameObject);
                         //Debug.Log("link");
                     }
                 }
-                
+
                 currentPos = new Vector3(0, 0, 0);
                 oldPos = new Vector3(0, 0, 0);
                 //NeutralState();
             }
             PlayAnimation();
         }
-
+        // Stop footsteps immediately
+        AudioManager.instance.walking.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
 
         if ((Input.GetKeyDown(KeyCode.Mouse0)) /*&& (moving == false)*/)
         {
@@ -98,7 +117,7 @@ public class PlayerMovement : PlayerManager
             }
 
             LookAtPoint(hit.point);
-            
+
             //Debug.Log(hit.collider.gameObject.tag);
 
         }
@@ -110,17 +129,23 @@ public class PlayerMovement : PlayerManager
         StartCoroutine(OnPlay());
     }
 
-    public IEnumerator OnPlay()
+    IEnumerator OnPlay()
     {
-        if(currentPos!= oldPos)
+        if (anim != null)
         {
-            GetComponentInChildren<Animator>().SetBool("isWalking", true);
-        }
-        else if(currentPos == oldPos)
-        {
-            GetComponentInChildren<Animator>().SetBool("isWalking", false);
+            SetBlend(0);
+            anim.SetBool("isWalking", moving);
+            anim.SetBool("hasFood", handsFull);
+
+            if (handsFull && moving)
+                SetBlend(1f);
         }
         yield return null;
+    }
+
+    void SetBlend(float x)
+    {
+        anim.SetFloat("Blend", x);
     }
 
     public void LookAtPoint(Vector3 point)
@@ -136,7 +161,7 @@ public class PlayerMovement : PlayerManager
         agent.destination = GetComponent<Transform>().position;
         //moving = false;
     }
-    
+
     public void DestoryHolding()
     {
         if (holding != "Mop")
