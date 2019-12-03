@@ -102,6 +102,8 @@ public class InteractCustomer : MonoBehaviour
                     hasNeed = false;
                     Destroy(HeldItem);
                     timer = full*2;
+                    need = "";
+                    //PickNeed();
                     //despawn need
                     //timer = full;
                     //FindObjectOfType<ScoreManager>().score -= 1;    // Could probably fire events
@@ -132,6 +134,7 @@ public class InteractCustomer : MonoBehaviour
                     PointsAwarded(currentPoints);
                     
                 Destroy(HeldItem);
+                need = "";
                 // trigger eating animation 
                 anim.SetTrigger("eat");
                 // eating sfx 
@@ -148,7 +151,6 @@ public class InteractCustomer : MonoBehaviour
                 waitTime = waitFull;
                 //FindObjectOfType<ScoreManager>().score -= 1;
                 this.GetComponent<Renderer>().material = fail;
-                
             }
         }
     }
