@@ -29,6 +29,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        timer = LevelTimer;
         // Music progression
         float t = LevelTimer/5;
         InvokeRepeating("GameplayProgress", t, t);
@@ -107,9 +108,9 @@ public class LevelManager : MonoBehaviour
 
         if (!end)
         {
-            timer += Time.deltaTime;
+            timer -= Time.deltaTime;
             timerInt = (int)timer;
-            if (timer > LevelTimer)
+            if (timer <= 0)
             {
                 if (LevelEnded != null)
                 {
@@ -118,7 +119,7 @@ public class LevelManager : MonoBehaviour
                     AudioManager.instance.win.start();
                 }
 
-                timer = 0;
+                timer = LevelTimer;
             }
         }
     }
