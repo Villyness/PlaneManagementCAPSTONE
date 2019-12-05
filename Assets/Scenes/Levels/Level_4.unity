@@ -8898,6 +8898,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2027919395247194871, guid: a0cb83d5b0717c54fbda91f88895f9a1,
+        type: 3}
+      propertyPath: minPassenger
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2027919395247194871, guid: a0cb83d5b0717c54fbda91f88895f9a1,
+        type: 3}
+      propertyPath: maxPassenger
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0cb83d5b0717c54fbda91f88895f9a1, type: 3}
 --- !u!1001 &1864739550
