@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     private PlayerMovement player;
 
     [Header("Level Select")]
-    public GameObject MainMenu;
+    //public GameObject MainMenu;
     public GameObject LevelSelectMenu;
     public int levelIndex;
 
@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // Audio Debug
-        audioText = GetComponentInChildren<Text>();
+        //audioText = GetComponentInChildren<Text>();
 
 
         hostessAnim.start = true;

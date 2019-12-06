@@ -421,6 +421,11 @@ PrefabInstance:
       propertyPath: starParticles3
       value: 
       objectReference: {fileID: 1059181257}
+    - target: {fileID: 7228668707792952462, guid: 0e02f1234f6bce2469450f1bc17cd21c,
+        type: 3}
+      propertyPath: MainMenuButton
+      value: 
+      objectReference: {fileID: 1072952867}
     - target: {fileID: 7228668707792952466, guid: 0e02f1234f6bce2469450f1bc17cd21c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5340,6 +5345,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea635f348b887ab40a432c074dc6d658, type: 3}
+--- !u!114 &1072952867 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5101745604167240592, guid: ea635f348b887ab40a432c074dc6d658,
+    type: 3}
+  m_PrefabInstance: {fileID: 1072952866}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1113431854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7552,6 +7569,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6486368955224445106, guid: 7d6f762bfcb3c134ea93ade3f4a8c197,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6935954098234804919, guid: 7d6f762bfcb3c134ea93ade3f4a8c197,
         type: 3}
       propertyPath: m_Name

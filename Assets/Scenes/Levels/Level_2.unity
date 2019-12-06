@@ -877,6 +877,18 @@ Camera:
     type: 3}
   m_PrefabInstance: {fileID: 220299377}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &220299379 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5101745604167240592, guid: ea635f348b887ab40a432c074dc6d658,
+    type: 3}
+  m_PrefabInstance: {fileID: 220299377}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &230275720
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5263,6 +5275,11 @@ PrefabInstance:
       propertyPath: starParticles3
       value: 
       objectReference: {fileID: 360202293}
+    - target: {fileID: 7228668707792952462, guid: 0e02f1234f6bce2469450f1bc17cd21c,
+        type: 3}
+      propertyPath: MainMenuButton
+      value: 
+      objectReference: {fileID: 220299379}
     - target: {fileID: 7228668707792952466, guid: 0e02f1234f6bce2469450f1bc17cd21c,
         type: 3}
       propertyPath: m_LocalPosition.x

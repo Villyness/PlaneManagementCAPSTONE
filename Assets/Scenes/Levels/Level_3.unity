@@ -1625,6 +1625,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea635f348b887ab40a432c074dc6d658, type: 3}
+--- !u!114 &254699708 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5101745604167240592, guid: ea635f348b887ab40a432c074dc6d658,
+    type: 3}
+  m_PrefabInstance: {fileID: 254699707}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &255860869 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1815143664536142061, guid: a887e18f66f5ac34dbe7051f4c3ff273,
@@ -2751,6 +2763,11 @@ PrefabInstance:
       propertyPath: starParticles3
       value: 
       objectReference: {fileID: 1154002889}
+    - target: {fileID: 7228668707792952462, guid: 0e02f1234f6bce2469450f1bc17cd21c,
+        type: 3}
+      propertyPath: MainMenuButton
+      value: 
+      objectReference: {fileID: 254699708}
     - target: {fileID: 7228668707792952466, guid: 0e02f1234f6bce2469450f1bc17cd21c,
         type: 3}
       propertyPath: m_LocalPosition.x

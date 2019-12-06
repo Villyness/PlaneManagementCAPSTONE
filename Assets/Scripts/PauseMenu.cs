@@ -18,6 +18,7 @@ public class PauseMenu : MonoBehaviour
     public CanvasGroup AudioSettingsPanel;
     public CanvasGroup GameUIPanel;
     public CanvasGroup MainMenuPanel;
+    public CanvasGroup CreditsPanel;
     [Range(0.3f, 1f)]public float transitionSpeed;
     private bool IsPaused;
 
@@ -32,6 +33,7 @@ public class PauseMenu : MonoBehaviour
         StartCoroutine(Deactivate(AudioSettingsPanel)); // deactivate all the panels, only show StartMenu
         StartCoroutine(Deactivate(PausePanel));
         StartCoroutine(Deactivate(GameUIPanel));
+        StartCoroutine(Deactivate(CreditsPanel));
         StartCoroutine(Activate(MainMenuPanel));
 
         IsPaused = false;
@@ -62,6 +64,18 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("OnDisable");
         SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    public void ShowCredits()
+    {
+        StartCoroutine(Activate(CreditsPanel));
+        StartCoroutine(Deactivate(MainMenuPanel));
+    }
+
+    public void CreditsToMainMenu()
+    {
+        StartCoroutine(Deactivate(CreditsPanel));
+        StartCoroutine(Activate(MainMenuPanel));
     }
 
     public void TogglePause()

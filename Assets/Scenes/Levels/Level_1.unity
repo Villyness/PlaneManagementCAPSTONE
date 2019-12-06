@@ -629,6 +629,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8214263175207225954, guid: ea635f348b887ab40a432c074dc6d658,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1554670612}
+    - target: {fileID: 8214263175207225954, guid: ea635f348b887ab40a432c074dc6d658,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 8214263174901342591, guid: ea635f348b887ab40a432c074dc6d658,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -659,16 +669,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 8214263175207225954, guid: ea635f348b887ab40a432c074dc6d658,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1554670612}
-    - target: {fileID: 8214263175207225954, guid: ea635f348b887ab40a432c074dc6d658,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RestartLevel
-      objectReference: {fileID: 0}
     - target: {fileID: 8214263175274714013, guid: ea635f348b887ab40a432c074dc6d658,
         type: 3}
       propertyPath: m_IsActive
@@ -676,6 +676,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea635f348b887ab40a432c074dc6d658, type: 3}
+--- !u!114 &256747640 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5101745604167240592, guid: ea635f348b887ab40a432c074dc6d658,
+    type: 3}
+  m_PrefabInstance: {fileID: 256747639}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &262666265
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -728,6 +740,11 @@ PrefabInstance:
       propertyPath: starParticles3
       value: 
       objectReference: {fileID: 919507633}
+    - target: {fileID: 7228668707792952462, guid: 0e02f1234f6bce2469450f1bc17cd21c,
+        type: 3}
+      propertyPath: MainMenuButton
+      value: 
+      objectReference: {fileID: 256747640}
     - target: {fileID: 7228668707792952466, guid: 0e02f1234f6bce2469450f1bc17cd21c,
         type: 3}
       propertyPath: m_LocalPosition.x

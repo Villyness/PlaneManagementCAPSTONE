@@ -25,6 +25,9 @@ public class ScoreManager : MonoBehaviour
     [Header("Public References")]
     public Text finalScore;
     public GameObject NextLevel;
+    public Button MainMenuButton;
+    private PauseMenu UIManager;
+
     public bool ShowScore = false;
     public GameObject ScoreCanvas;
     public RectTransform PassportPos;
@@ -62,6 +65,8 @@ public class ScoreManager : MonoBehaviour
             passenger.PointsAwarded += UpdateScore;
         }
 
+        UIManager = GameManager.instance.GetComponentInChildren<PauseMenu>();
+        MainMenuButton.onClick.AddListener(() => UIManager.LevelSelect());
 
     }
 
@@ -73,6 +78,11 @@ public class ScoreManager : MonoBehaviour
 
         Debug.Log(passScore[level]);
         //check score, have gameobjects for each.
+    }
+
+    public void ToMainMenu()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 0);
     }
 
     public void RestartLevel()
