@@ -57,7 +57,15 @@ public class LevelManager : MonoBehaviour
                 //Debug.Log(seat.GetComponent<Transform>().position + displacementVect);
                 if (UnityEngine.Random.Range(1, 10) <= 2) // Whether or not to assign the seat a passenger
                 {
-                    GameObject passenger = Instantiate(passengers[UnityEngine.Random.Range(0, 2)], seat.GetComponent<Transform>().position + displacementVect, Quaternion.identity);
+                    GameObject passenger = new GameObject();
+                    if (UnityEngine.Random.Range(1, 10) <= 5)
+                    {
+                        passenger = Instantiate(passengers[0], seat.GetComponent<Transform>().position + displacementVect, Quaternion.identity);
+                    }
+                    else
+                    {
+                        passenger = Instantiate(passengers[1], seat.GetComponent<Transform>().position + displacementVect, Quaternion.identity);
+                    }
                     passengerCount++;
                     seat.isOccupied = true;
 
