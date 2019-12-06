@@ -164,14 +164,14 @@ public class PlayerMovement : PlayerManager
 
     public void DestoryHolding()
     {
-        if (holding != "Mop")
+        if (HoldFrame.transform.GetChild(0).gameObject)
         {
-            handsFull = false;
-            holding = null;
-            
-            // V patch
-            if (HoldFrame.transform.GetChild(0).gameObject)
+            if (holding != "Mop")
+            {
                 Destroy(HoldFrame.transform.GetChild(0).gameObject);
+                handsFull = false;
+                holding = null;
+            }
         }
     }
 
