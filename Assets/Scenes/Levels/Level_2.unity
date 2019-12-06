@@ -749,6 +749,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 8214263175594330731, guid: ea635f348b887ab40a432c074dc6d658,
+        type: 3}
+      propertyPath: ClampPointPos
+      value: 
+      objectReference: {fileID: 1356420751}
+    - target: {fileID: 8214263175594330731, guid: ea635f348b887ab40a432c074dc6d658,
+        type: 3}
+      propertyPath: ClampArea
+      value: 
+      objectReference: {fileID: 1488768549}
+    - target: {fileID: 8214263175594330731, guid: ea635f348b887ab40a432c074dc6d658,
+        type: 3}
+      propertyPath: FollowTarget
+      value: 
+      objectReference: {fileID: 897280785}
+    - target: {fileID: 8214263175594330731, guid: ea635f348b887ab40a432c074dc6d658,
+        type: 3}
+      propertyPath: cameraClampMinZ
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8214263175594330731, guid: ea635f348b887ab40a432c074dc6d658,
+        type: 3}
+      propertyPath: sManager
+      value: 
+      objectReference: {fileID: 1672439860}
     - target: {fileID: 8214263175594330728, guid: ea635f348b887ab40a432c074dc6d658,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -804,37 +829,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8214263175594330731, guid: ea635f348b887ab40a432c074dc6d658,
-        type: 3}
-      propertyPath: ClampPointPos
-      value: 
-      objectReference: {fileID: 1356420751}
-    - target: {fileID: 8214263175594330731, guid: ea635f348b887ab40a432c074dc6d658,
-        type: 3}
-      propertyPath: ClampArea
-      value: 
-      objectReference: {fileID: 1488768549}
-    - target: {fileID: 8214263175594330731, guid: ea635f348b887ab40a432c074dc6d658,
-        type: 3}
-      propertyPath: FollowTarget
-      value: 
-      objectReference: {fileID: 897280785}
-    - target: {fileID: 8214263175594330731, guid: ea635f348b887ab40a432c074dc6d658,
-        type: 3}
-      propertyPath: cameraClampMinZ
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8214263175594330731, guid: ea635f348b887ab40a432c074dc6d658,
-        type: 3}
-      propertyPath: sManager
-      value: 
-      objectReference: {fileID: 1672439860}
     - target: {fileID: 8214263175929375562, guid: ea635f348b887ab40a432c074dc6d658,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8214263174295442215, guid: ea635f348b887ab40a432c074dc6d658,
         type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -868,6 +863,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8214263174295442215, guid: ea635f348b887ab40a432c074dc6d658,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea635f348b887ab40a432c074dc6d658, type: 3}
@@ -1356,17 +1356,17 @@ PrefabInstance:
     - target: {fileID: 9053490766020462995, guid: c52ec1982b7b0e241bf034d836e0b4fa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.88
+      value: -0.19
       objectReference: {fileID: 0}
     - target: {fileID: 9053490766020462995, guid: c52ec1982b7b0e241bf034d836e0b4fa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.2
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 9053490766020462995, guid: c52ec1982b7b0e241bf034d836e0b4fa,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -44.2
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 9053490766020462995, guid: c52ec1982b7b0e241bf034d836e0b4fa,
         type: 3}
@@ -6447,6 +6447,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2027919395247194871, guid: a0cb83d5b0717c54fbda91f88895f9a1,
+        type: 3}
+      propertyPath: minPassenger
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2027919395247194871, guid: a0cb83d5b0717c54fbda91f88895f9a1,
+        type: 3}
+      propertyPath: maxPassenger
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0cb83d5b0717c54fbda91f88895f9a1, type: 3}
