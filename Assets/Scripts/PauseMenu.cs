@@ -127,20 +127,30 @@ public class PauseMenu : MonoBehaviour
     public void LevelSelect()
     {
         // if it's not start menu
-        if (SceneManager.GetActiveScene().buildIndex != 0)
-        {
-            SceneManager.LoadScene(LevelSelectIndex);
-            StartCoroutine(Activate(MainMenuPanel));
-            StartCoroutine(Deactivate(PausePanel));
-            StartCoroutine(Deactivate(AudioSettingsPanel));
-            StartCoroutine(Deactivate(GameUIPanel));
-            // Set Music back to start menu music
-            AudioManager.instance.StartMenu();
-        }
-        else
-        {
-            StartCoroutine(Deactivate(MainMenuPanel));
-        }
+        //if (SceneManager.GetActiveScene().buildIndex != 0)
+        //{
+        //    SceneManager.LoadScene(LevelSelectIndex);
+        //    StartCoroutine(Activate(MainMenuPanel));
+        //    StartCoroutine(Deactivate(PausePanel));
+        //    StartCoroutine(Deactivate(AudioSettingsPanel));
+        //    StartCoroutine(Deactivate(GameUIPanel));
+        //    StartCoroutine(Deactivate(CreditsPanel));
+        //    // Set Music back to start menu music
+        //    AudioManager.instance.StartMenu();
+        //}
+        //else
+        //{
+        //    StartCoroutine(Deactivate(MainMenuPanel));
+        //}
+
+        SceneManager.LoadScene(LevelSelectIndex);
+        StartCoroutine(Activate(MainMenuPanel));
+        StartCoroutine(Deactivate(PausePanel));
+        StartCoroutine(Deactivate(AudioSettingsPanel));
+        StartCoroutine(Deactivate(GameUIPanel));
+        StartCoroutine(Deactivate(CreditsPanel));
+        // Set Music back to start menu music
+        AudioManager.instance.StartMenu();
     }
 
     public void FullscreenToggle(bool isFullScr)

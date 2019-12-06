@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     private PlayerMovement player;
 
     [Header("Level Select")]
-    //public GameObject MainMenu;
+    public GameObject MainMenu;
     public GameObject LevelSelectMenu;
     public int levelIndex;
 
@@ -66,6 +66,9 @@ public class GameManager : MonoBehaviour
         if (LevelSelectMenu != null)
             LevelSelectMenu.SetActive(false);
 
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+            MainMenu.SetActive(true);
+
     }
 
     public void PlayGame()
@@ -77,6 +80,7 @@ public class GameManager : MonoBehaviour
     {
         animator_startToLevelSelect.SetTrigger("Start");
         LevelSelectMenu.SetActive(true);
+        MainMenu.SetActive(false);
     }
 
     void DisableInput()

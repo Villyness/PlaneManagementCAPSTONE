@@ -3293,6 +3293,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1355608557}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &620481908 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6935954098158508408, guid: 7d6f762bfcb3c134ea93ade3f4a8c197,
+    type: 3}
+  m_PrefabInstance: {fileID: 6935954099331255834}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &646654777 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4837139699928216532, guid: 12506805cfe337f44ab8d07a73f17080,
@@ -10833,11 +10839,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6486368955224445106, guid: 7d6f762bfcb3c134ea93ade3f4a8c197,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 6935954098234804919, guid: 7d6f762bfcb3c134ea93ade3f4a8c197,
         type: 3}
       propertyPath: m_Name
@@ -10848,26 +10849,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2605061100688597342, guid: 7d6f762bfcb3c134ea93ade3f4a8c197,
-        type: 3}
-      propertyPath: MainMenu
-      value: 
-      objectReference: {fileID: 571760621}
-    - target: {fileID: 2605061100688597342, guid: 7d6f762bfcb3c134ea93ade3f4a8c197,
-        type: 3}
-      propertyPath: vCam1
-      value: 
-      objectReference: {fileID: 1080042981}
-    - target: {fileID: 2605061100688597342, guid: 7d6f762bfcb3c134ea93ade3f4a8c197,
-        type: 3}
-      propertyPath: vCam2
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2605061100688597342, guid: 7d6f762bfcb3c134ea93ade3f4a8c197,
-        type: 3}
-      propertyPath: CreditsPanel
-      value: 
-      objectReference: {fileID: 579970474}
     - target: {fileID: 6935954098234804917, guid: 7d6f762bfcb3c134ea93ade3f4a8c197,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10923,6 +10904,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6486368955224445106, guid: 7d6f762bfcb3c134ea93ade3f4a8c197,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605061100688597342, guid: 7d6f762bfcb3c134ea93ade3f4a8c197,
+        type: 3}
+      propertyPath: MainMenu
+      value: 
+      objectReference: {fileID: 571760621}
+    - target: {fileID: 2605061100688597342, guid: 7d6f762bfcb3c134ea93ade3f4a8c197,
+        type: 3}
+      propertyPath: vCam1
+      value: 
+      objectReference: {fileID: 1080042981}
+    - target: {fileID: 2605061100688597342, guid: 7d6f762bfcb3c134ea93ade3f4a8c197,
+        type: 3}
+      propertyPath: vCam2
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605061100688597342, guid: 7d6f762bfcb3c134ea93ade3f4a8c197,
+        type: 3}
+      propertyPath: CreditsPanel
+      value: 
+      objectReference: {fileID: 579970474}
     - target: {fileID: 4302049730871150372, guid: 7d6f762bfcb3c134ea93ade3f4a8c197,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -11058,6 +11064,11 @@ PrefabInstance:
       propertyPath: audioText
       value: 
       objectReference: {fileID: 1293899872}
+    - target: {fileID: 6935954098234804916, guid: 7d6f762bfcb3c134ea93ade3f4a8c197,
+        type: 3}
+      propertyPath: MainMenu
+      value: 
+      objectReference: {fileID: 620481908}
     - target: {fileID: 2605061100688597339, guid: 7d6f762bfcb3c134ea93ade3f4a8c197,
         type: 3}
       propertyPath: m_IsActive
@@ -11076,7 +11087,7 @@ PrefabInstance:
     - target: {fileID: 6935954098816453384, guid: 7d6f762bfcb3c134ea93ade3f4a8c197,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6935954098816453384, guid: 7d6f762bfcb3c134ea93ade3f4a8c197,
         type: 3}
