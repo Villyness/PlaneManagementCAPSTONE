@@ -19,8 +19,13 @@ public class AudioManager : MonoBehaviour
 
     // For parameters of gameplay loop
     FMOD.Studio.EventDescription musicDescription;
-    FMOD.Studio.PARAMETER_DESCRIPTION pd;
-    FMOD.Studio.PARAMETER_ID pID;
+    FMOD.Studio.PARAMETER_DESCRIPTION mpd;
+    FMOD.Studio.PARAMETER_ID mpID;
+
+    // Parameters of plane atmos
+    FMOD.Studio.EventDescription pTakeOffDescription;
+    public FMOD.Studio.PARAMETER_DESCRIPTION pTOpd;
+    public FMOD.Studio.PARAMETER_ID pTOID;
 
     // For gameplay loop progression
     public static float progression = 0;
@@ -51,6 +56,7 @@ public class AudioManager : MonoBehaviour
         Master = FMODUnity.RuntimeManager.GetBus("bus:/Master");
         Music = FMODUnity.RuntimeManager.GetBus("bus:/Master/Music");
         SFX = FMODUnity.RuntimeManager.GetBus("bus:/Master/SFX");
+
         SFXVolumeTest = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/SFXVolumeTest");
 
     }
@@ -62,18 +68,23 @@ public class AudioManager : MonoBehaviour
         gameMusic = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Gameplay Loop");
         // set up parameters for gameplay loop
         musicDescription = FMODUnity.RuntimeManager.GetEventDescription("event:/Music/Gameplay Loop");
-        musicDescription.getParameterDescriptionByName("Intensity", out pd);
-        pID = pd.id;
-        // Start the music, progression at 0
-        StartMenu();
-
+        musicDescription.getParameterDescriptionByName("Intensity", out mpd);
+        mpID = mpd.id;
 
         // set up atmos
         flightAttendantTurbulence = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/FlightAttendantTurbulence");
         flightAttendantWelcome = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/FlightAttendantWelcome");
         planeAtmos = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/PlaneAtmos");
         planeTakeOff = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/PlaneTakeOff");
+        // set up parameters for plane take off atmos
+        pTakeOffDescription = FMODUnity.RuntimeManager.GetEventDescription("event:/Atmos/PlaneTakeOff");
+        pTakeOffDescription.getParameterDescriptionByName("StartLevel", out pTOpd);
+        pTOID = pTOpd.id;
 
+        // Start the music, progression at 0
+        StartMenu();
+        // Start the plane take off atmos
+        planeTakeOff.start();
 
     }
 
@@ -84,10 +95,37 @@ public class AudioManager : MonoBehaviour
         MusicProgression();
     }
 
-    // Run this after "progression" has been changed
+    // Run this after music "progression" has been changed
     public void MusicProgression()
     {
-        gameMusic.setParameterByID(pID, progression);
+        gameMusic.setParameterByID(mpID, progression);
+    }
+
+    public void PlaneTakeOff()
+    {
+        planeTakeOff.setParameterByID(pTOID, 1);
+        //StartCoroutine(FadeAtmos(planeTakeOff)); // doesn't sound good :(
+        StartCoroutine(StartLevelAtmos(flightAttendantWelcome, planeAtmos));
+    }
+
+    public IEnumerator FadeAtmos(FMOD.Studio.EventInstance f)
+    {
+        yield return new WaitForSeconds(4);
+        f.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+    }
+
+    public IEnumerator StartLevelAtmos(FMOD.Studio.EventInstance f1, FMOD.Studio.EventInstance f2)
+    {
+        f1.start();
+        yield return new WaitForSeconds(6);
+        f2.start();
+    }
+
+    // using coroutine so if I ever want to expand on this I can 
+    public IEnumerator EndLevelAtmos()
+    {
+        planeAtmos.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        yield return null;
     }
 
     // Check if the sliders move

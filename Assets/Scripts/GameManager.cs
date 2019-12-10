@@ -66,9 +66,16 @@ public class GameManager : MonoBehaviour
         if (LevelSelectMenu != null)
             LevelSelectMenu.SetActive(false);
 
+        // if it's start menu
         if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
             MainMenu.SetActive(true);
-
+            AudioManager.instance.planeTakeOff.setParameterByID(AudioManager.instance.pTOID, 0);
+        }
+        else
+        {
+            AudioManager.instance.PlaneTakeOff();
+        }
     }
 
     public void PlayGame()

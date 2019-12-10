@@ -91,6 +91,29 @@ MonoBehaviour:
   Max: 7
   Default: 0
   Exists: 1
+--- !u!114 &-8687741507213040770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SFXVolumeTest
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/SFXVolumeTest
+  guid: 0179774c3f31c64db0b999715d2ef673
+  Banks:
+  - {fileID: 2417311071528725880}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1000
 --- !u!114 &-8676716498271942544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +155,63 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2661
+--- !u!114 &-8620904376830200738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/PlaneTakeOff/StartLevel
+  m_EditorClassIdentifier: 
+  Name: StartLevel
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 1
+--- !u!114 &-8270463409598280741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/PlaneTakeOff/StartLevel
+  m_EditorClassIdentifier: 
+  Name: StartLevel
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 0
+--- !u!114 &-8257720391008302837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Drinking
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Drinking
+  guid: 5dabb8418e59c641a160994e3e1448da
+  Banks:
+  - {fileID: 2417311071528725880}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &-8229995219562041198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +344,40 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1540
   Exists: 1
+--- !u!114 &-7531936579896691867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/PlaneTakeOff/StartLevel
+  m_EditorClassIdentifier: 
+  Name: StartLevel
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 0
+--- !u!114 &-7528499191124230736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Gameplay Loop/Intensity
+  m_EditorClassIdentifier: 
+  Name: Intensity
+  Min: 0
+  Max: 7
+  Default: 0
+  Exists: 0
 --- !u!114 &-7526175935409468381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +397,23 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 3715968
+  Exists: 0
+--- !u!114 &-7312697529585769717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Gameplay Loop/Intensity
+  m_EditorClassIdentifier: 
+  Name: Intensity
+  Min: 0
+  Max: 7
+  Default: 0
   Exists: 0
 --- !u!114 &-7274278196486619870
 MonoBehaviour:
@@ -630,6 +761,29 @@ MonoBehaviour:
   Max: 7
   Default: 0
   Exists: 0
+--- !u!114 &-4537503697840211827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/PourDrink
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/PourDrink
+  guid: 8b53e2863305bc43844f1f52b93e73b7
+  Banks:
+  - {fileID: 2417311071528725880}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1500
 --- !u!114 &-4454962862628837399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -792,6 +946,29 @@ MonoBehaviour:
   Max: 7
   Default: 0
   Exists: 0
+--- !u!114 &-2973273506814365329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Atmos/FlightAttendantTurbulence
+  m_EditorClassIdentifier: 
+  Path: event:/Atmos/FlightAttendantTurbulence
+  guid: aeef8db84b76d649a3ef26556bf7df62
+  Banks:
+  - {fileID: 2417311071528725880}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 8000
 --- !u!114 &-2921200290716371410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -873,6 +1050,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 6000
+--- !u!114 &-2543163809166872445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Eating
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Eating
+  guid: 23a108a6be332e438d09a03ad7a17a4b
+  Banks:
+  - {fileID: 2417311071528725880}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &-2140635404284090102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -905,6 +1105,23 @@ MonoBehaviour:
   Name: Intensity
   Min: 0
   Max: 7
+  Default: 0
+  Exists: 0
+--- !u!114 &-1912523709832999438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/PlaneTakeOff/StartLevel
+  m_EditorClassIdentifier: 
+  Name: StartLevel
+  Min: 0
+  Max: 2
   Default: 0
   Exists: 0
 --- !u!114 &-1787650454898324495
@@ -1011,6 +1228,69 @@ MonoBehaviour:
   Max: 7
   Default: 0
   Exists: 1
+--- !u!114 &-1183008244895113772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Atmos/FlightAttendantWelcome
+  m_EditorClassIdentifier: 
+  Path: event:/Atmos/FlightAttendantWelcome
+  guid: 35474d0c3cafb849875b9f507ca49d1a
+  Banks:
+  - {fileID: 2417311071528725880}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 6000
+--- !u!114 &-1171579416925012758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/ServeFood
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/ServeFood
+  guid: fd2bdbfa93175d448dbb2cd3478363d7
+  Banks:
+  - {fileID: 2417311071528725880}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1125
+--- !u!114 &-1120994624600674868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/PlaneTakeOff/StartLevel
+  m_EditorClassIdentifier: 
+  Name: StartLevel
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 0
 --- !u!114 &-798251586453675785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1071,6 +1351,23 @@ MonoBehaviour:
   - Name: Desktop
     Value: 796
   Exists: 1
+--- !u!114 &-399475423681547393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Gameplay Loop/Intensity
+  m_EditorClassIdentifier: 
+  Name: Intensity
+  Min: 0
+  Max: 7
+  Default: 0
+  Exists: 1
 --- !u!114 &-218836428120769128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1107,29 +1404,29 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -7723103505989553072}
-  - {fileID: -4323216465105335704}
+  - {fileID: 4314239525774450040}
+  - {fileID: 2417311071528725880}
   EditorEvents:
-  - {fileID: 9046129763479799994}
-  - {fileID: 7468103228704558091}
-  - {fileID: -4928121806409580191}
-  - {fileID: -2739929829662523793}
-  - {fileID: -8642503001075618433}
-  - {fileID: 3039534927734935437}
-  - {fileID: -1505546869833108841}
-  - {fileID: 9147228834240905822}
-  - {fileID: 3566931233663808431}
-  - {fileID: -8229995219562041198}
-  - {fileID: 7537249298096502565}
-  - {fileID: 1869691401292864602}
-  - {fileID: 1744623043249249440}
-  - {fileID: 7498667898729546065}
+  - {fileID: -8687741507213040770}
+  - {fileID: 821887268137754560}
+  - {fileID: -2543163809166872445}
+  - {fileID: -1183008244895113772}
+  - {fileID: 717041067860583063}
+  - {fileID: 9176619235405694298}
+  - {fileID: -8257720391008302837}
+  - {fileID: 7031732352451613488}
+  - {fileID: -4537503697840211827}
+  - {fileID: 7938969511443133963}
+  - {fileID: 8083809041760349501}
+  - {fileID: -2973273506814365329}
+  - {fileID: 4312301598495148342}
+  - {fileID: -1171579416925012758}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -4323216465105335704}
+  - {fileID: 2417311071528725880}
   StringsBanks:
-  - {fileID: -7723103505989553072}
-  stringsBankWriteTime: 637106375211656739
+  - {fileID: 4314239525774450040}
+  stringsBankWriteTime: 637115884402736980
   cacheVersion: 3
 --- !u!114 &81958761731319744
 MonoBehaviour:
@@ -1271,6 +1568,52 @@ MonoBehaviour:
   Max: 7
   Default: 0
   Exists: 0
+--- !u!114 &717041067860583063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Walking
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Walking
+  guid: 5852c72ed4945842bae014b69fdc6c82
+  Banks:
+  - {fileID: 2417311071528725880}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2661
+--- !u!114 &821887268137754560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Atmos/PlaneAtmos
+  m_EditorClassIdentifier: 
+  Path: event:/Atmos/PlaneAtmos
+  guid: 1f8696f9e2d7374caa4e0859f0809e0b
+  Banks:
+  - {fileID: 2417311071528725880}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 129795
 --- !u!114 &1062138019183984129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1413,6 +1756,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 8000
+--- !u!114 &1972888082608772455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Gameplay Loop/Intensity
+  m_EditorClassIdentifier: 
+  Name: Intensity
+  Min: 0
+  Max: 7
+  Default: 0
+  Exists: 0
 --- !u!114 &2150217871953531582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1535,6 +1895,26 @@ MonoBehaviour:
   Max: 7
   Default: 0
   Exists: 0
+--- !u!114 &2417311071528725880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: D:\Repo\HostessHekk\Assets\Audio\Build\Desktop\Master.bank
+  SubDir: 
+  lastModified: 637115884402677143
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 7916736
+  Exists: 1
 --- !u!114 &2667084776679013600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1646,6 +2026,23 @@ MonoBehaviour:
   MaxDistance: 0
   Length: 1625
 --- !u!114 &3067711106460144695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Gameplay Loop/Intensity
+  m_EditorClassIdentifier: 
+  Name: Intensity
+  Min: 0
+  Max: 7
+  Default: 0
+  Exists: 0
+--- !u!114 &3231959795690934775
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1853,6 +2250,50 @@ MonoBehaviour:
   Max: 7
   Default: 0
   Exists: 0
+--- !u!114 &4312301598495148342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Atmos/PlaneTakeOff
+  m_EditorClassIdentifier: 
+  Path: event:/Atmos/PlaneTakeOff
+  guid: da76056cc80bae429f97461970aed899
+  Banks:
+  - {fileID: 2417311071528725880}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -8620904376830200738}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 26640
+--- !u!114 &4314239525774450040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: D:\Repo\HostessHekk\Assets\Audio\Build\Desktop\Master.strings.bank
+  SubDir: 
+  lastModified: 637115884402736980
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 1592
+  Exists: 1
 --- !u!114 &4515279850814537421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1895,6 +2336,23 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 1540
+  Exists: 0
+--- !u!114 &4574652276158071417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Gameplay Loop/Intensity
+  m_EditorClassIdentifier: 
+  Name: Intensity
+  Min: 0
+  Max: 7
+  Default: 0
   Exists: 0
 --- !u!114 &4628970458541345058
 MonoBehaviour:
@@ -1947,6 +2405,23 @@ MonoBehaviour:
   Max: 7
   Default: 0
   Exists: 0
+--- !u!114 &4692147596742544059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/PlaneTakeOff/StartLevel
+  m_EditorClassIdentifier: 
+  Name: StartLevel
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 0
 --- !u!114 &4793489542304897238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1991,6 +2466,23 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &5263400156507660796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Gameplay Loop/Intensity
+  m_EditorClassIdentifier: 
+  Name: Intensity
+  Min: 0
+  Max: 7
+  Default: 0
+  Exists: 0
 --- !u!114 &5267019217823003863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2047,6 +2539,23 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1500
+--- !u!114 &5507635843807566390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/PlaneTakeOff/StartLevel
+  m_EditorClassIdentifier: 
+  Name: StartLevel
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 0
 --- !u!114 &5657590086493794850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2141,6 +2650,47 @@ MonoBehaviour:
   - Name: Desktop
     Value: 7914976
   Exists: 0
+--- !u!114 &7031732352451613488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Gameplay Loop
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Gameplay Loop
+  guid: 7bd45e96cf3bd745bbaae488a531114c
+  Banks:
+  - {fileID: 2417311071528725880}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 7062593702597550652}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 270305
+--- !u!114 &7062593702597550652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Gameplay Loop/Intensity
+  m_EditorClassIdentifier: 
+  Name: Intensity
+  Min: 0
+  Max: 7
+  Default: 0
+  Exists: 1
 --- !u!114 &7177958468467275343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2158,6 +2708,23 @@ MonoBehaviour:
   Max: 7
   Default: 0
   Exists: 1
+--- !u!114 &7281259947256384547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/PlaneTakeOff/StartLevel
+  m_EditorClassIdentifier: 
+  Name: StartLevel
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 0
 --- !u!114 &7468103228704558091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2182,6 +2749,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 129795
+--- !u!114 &7473819614579667628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Gameplay Loop/Intensity
+  m_EditorClassIdentifier: 
+  Name: Intensity
+  Min: 0
+  Max: 7
+  Default: 0
+  Exists: 0
 --- !u!114 &7498667898729546065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2287,6 +2871,52 @@ MonoBehaviour:
   guid: 9c91dfaecffd3547b243da59e467a6ac
   Banks:
   - {fileID: 5657590086493794850}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1500
+--- !u!114 &7938969511443133963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Win
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Win
+  guid: 99cb0a670d6d8e49b696f1fc38739d2d
+  Banks:
+  - {fileID: 2417311071528725880}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
+--- !u!114 &8083809041760349501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Mopping
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Mopping
+  guid: 9c91dfaecffd3547b243da59e467a6ac
+  Banks:
+  - {fileID: 2417311071528725880}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2497,6 +3127,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1000
+--- !u!114 &9056646859136947750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Gameplay Loop/Intensity
+  m_EditorClassIdentifier: 
+  Name: Intensity
+  Min: 0
+  Max: 7
+  Default: 0
+  Exists: 0
 --- !u!114 &9147228834240905822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2522,3 +3169,43 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 270305
+--- !u!114 &9148293830889925090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/PlaneTakeOff/StartLevel
+  m_EditorClassIdentifier: 
+  Name: StartLevel
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 1
+--- !u!114 &9176619235405694298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Stamping
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Stamping
+  guid: 59400fe32d2a0d4bbc4a1438a453a121
+  Banks:
+  - {fileID: 2417311071528725880}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1625

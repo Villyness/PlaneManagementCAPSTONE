@@ -117,6 +117,8 @@ public class LevelManager : MonoBehaviour
                     LevelEnded();
                     end = true;
                     AudioManager.instance.win.start();
+                    AudioManager.instance.planeAtmos.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                    AudioManager.instance.flightAttendantWelcome.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 }
 
                 timer = LevelTimer;

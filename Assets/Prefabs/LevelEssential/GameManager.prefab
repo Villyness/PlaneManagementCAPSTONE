@@ -200,7 +200,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6935954098373683468}
+      - m_Target: {fileID: 2605061100688597342}
         m_MethodName: ShowCredits
         m_Mode: 1
         m_Arguments:
@@ -488,7 +488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -171, y: -363}
+  m_AnchoredPosition: {x: -171, y: -359}
   m_SizeDelta: {x: -1488.2798, y: -971.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2524893921346319627
@@ -977,7 +977,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6935954098373683468}
+      - m_Target: {fileID: 2605061100688597342}
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -1024,7 +1024,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 350, y: -37}
+  m_AnchoredPosition: {x: 350, y: -58}
   m_SizeDelta: {x: 0, y: 110.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1103358374391533161
@@ -1071,6 +1071,8 @@ MonoBehaviour:
   m_Text: 'Harrison Lorraway
 
     Haigen
+
+    Edward Whitehead
 
     Zhia Zariko
 
@@ -1352,8 +1354,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 495, y: 478}
-  m_SizeDelta: {x: -1796.4401, y: -962.6}
+  m_AnchoredPosition: {x: 472, y: 450.9}
+  m_SizeDelta: {x: -1835.9199, y: -992.39996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2126208169860791102
 CanvasRenderer:
@@ -1436,7 +1438,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6935954098373683468}
+      - m_Target: {fileID: 2605061100688597342}
         m_MethodName: CreditsToMainMenu
         m_Mode: 1
         m_Arguments:
@@ -1749,7 +1751,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6935954099485932717}
-  - {fileID: 6935954098373683501}
+  - {fileID: 2605061100688597343}
   - {fileID: 6935954098158508412}
   - {fileID: 6486368955224445106}
   m_Father: {fileID: 0}
@@ -1769,6 +1771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator_startToLevelSelect: {fileID: 0}
   hostessAnim: {fileID: 0}
+  MainMenu: {fileID: 0}
   LevelSelectMenu: {fileID: 0}
   levelIndex: 0
   audioText: {fileID: 0}
@@ -2164,7 +2167,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6935954098373683468}
+      - m_Target: {fileID: 2605061100688597342}
         m_MethodName: ToAudioSettingsMenu
         m_Mode: 1
         m_Arguments:
@@ -2464,11 +2467,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6935954098234804917}
     m_Modifications:
-    - target: {fileID: 4928764031096916152, guid: d9a267fb706cf6e40b4f5a210a8d14be,
+    - target: {fileID: 4928764031096916157, guid: d9a267fb706cf6e40b4f5a210a8d14be,
         type: 3}
-      propertyPath: m_Name
-      value: PFB_UI_PauseMenu
+      propertyPath: IsStartScene
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4928764031096916157, guid: d9a267fb706cf6e40b4f5a210a8d14be,
+        type: 3}
+      propertyPath: transitionSpeed
+      value: 0.407
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928764031096916157, guid: d9a267fb706cf6e40b4f5a210a8d14be,
+        type: 3}
+      propertyPath: MainMenuPanel
+      value: 
+      objectReference: {fileID: 2380450865001503639}
+    - target: {fileID: 4928764031096916157, guid: d9a267fb706cf6e40b4f5a210a8d14be,
+        type: 3}
+      propertyPath: CreditsPanel
+      value: 
+      objectReference: {fileID: 3077984511883220987}
     - target: {fileID: 4928764031096916156, guid: d9a267fb706cf6e40b4f5a210a8d14be,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2588,6 +2606,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928764031096916152, guid: d9a267fb706cf6e40b4f5a210a8d14be,
+        type: 3}
+      propertyPath: m_Name
+      value: PFB_UI_PauseMenu
       objectReference: {fileID: 0}
     - target: {fileID: 2824769400626853700, guid: d9a267fb706cf6e40b4f5a210a8d14be,
         type: 3}
@@ -2730,26 +2753,6 @@ PrefabInstance:
       propertyPath: m_ReferenceResolution.y
       value: 1080
       objectReference: {fileID: 0}
-    - target: {fileID: 4928764031096916157, guid: d9a267fb706cf6e40b4f5a210a8d14be,
-        type: 3}
-      propertyPath: IsStartScene
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4928764031096916157, guid: d9a267fb706cf6e40b4f5a210a8d14be,
-        type: 3}
-      propertyPath: transitionSpeed
-      value: 0.407
-      objectReference: {fileID: 0}
-    - target: {fileID: 4928764031096916157, guid: d9a267fb706cf6e40b4f5a210a8d14be,
-        type: 3}
-      propertyPath: MainMenuPanel
-      value: 
-      objectReference: {fileID: 2380450865001503639}
-    - target: {fileID: 4928764031096916157, guid: d9a267fb706cf6e40b4f5a210a8d14be,
-        type: 3}
-      propertyPath: CreditsPanel
-      value: 
-      objectReference: {fileID: 3077984511883220987}
     - target: {fileID: 4948472938537395420, guid: d9a267fb706cf6e40b4f5a210a8d14be,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3534,7 +3537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9a267fb706cf6e40b4f5a210a8d14be, type: 3}
---- !u!114 &6935954098373683468 stripped
+--- !u!114 &2605061100688597342 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4928764031096916157, guid: d9a267fb706cf6e40b4f5a210a8d14be,
     type: 3}
@@ -3546,7 +3549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952bd702ca8c94d42aab7ef3a2bf94e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &6935954098373683501 stripped
+--- !u!224 &2605061100688597343 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4928764031096916156, guid: d9a267fb706cf6e40b4f5a210a8d14be,
     type: 3}
