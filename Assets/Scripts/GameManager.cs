@@ -71,6 +71,8 @@ public class GameManager : MonoBehaviour
         {
             MainMenu.SetActive(true);
             AudioManager.instance.planeTakeOff.setParameterByID(AudioManager.instance.pTOID, 0);
+            AudioManager.instance.planeAtmos.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            AudioManager.instance.flightAttendantWelcome.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         }
         else
         {
